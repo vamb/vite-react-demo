@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Event V1-2</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #box {
+      width: 400px;
+      height: 400px;
+      background: #ffeba2;
+      box-sizing: border-box;
+      border: 1px solid blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+  // 事件捕获：由不太具体的节点更早得接收事件，而最具体的节点应该最后接收到事件
+
+  // 事件流： 事件捕获阶段，处于目标阶段，事件冒泡阶段
+
+  let box = document.getElementById('box')
+
+  box.addEventListener('click', ()=>{
+    box.innerHTML += 'box\n'
+  }, true)//如果参数为false（默认就是false），则代表走冒泡的逻辑，true则走捕获的逻辑
+
+  document.body.addEventListener('click', ()=>{
+    box.innerHTML += 'body\n'
+  }, true)
+
+  document.documentElement.addEventListener('click', ()=>{
+    box.innerHTML += 'html\n'
+  },true)
+
+  document.addEventListener('click', ()=>{
+    box.innerHTML += 'document\n'
+  },true)
+
+  window.addEventListener('click', ()=>{
+    box.innerHTML += 'window false\n'
+  })
+
+  window.addEventListener('click', ()=>{
+    box.innerHTML += 'window true\n'
+  },true)
+  </script>
+</body>
+</html>

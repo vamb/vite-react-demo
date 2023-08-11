@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件冒泡</title>
+  <style>
+    #parent, #son {
+      box-sizing: border-box;
+      border: 1px solid;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #parent {
+      width: 120px;
+      height: 120px;
+      background: lightgreen;
+      /*border: ;*/
+    }
+    #son {
+      width: 50px;
+      height: 50px;
+      background: #ECAD9E;
+    }
+  </style>
+</head>
+<body>
+  <div id="parent">
+    parent
+    <div id="son">son</div>
+  </div>
+<script>
+  /**
+   * bubbles => 返回一个布尔值，表示当前事件是否会冒泡，这是一个只读参数
+   * 大部分的事件都会冒泡，focus，blur, scroll事件不会冒泡
+   *
+   * cancelBubble => 用户阻止事件冒泡，默认为false，当设置为true，则阻止冒泡启动
+   * 全浏览器支持，但是不是标准写法
+   *
+   * stopPropagation => 表示取消事件的进一步冒泡，无返回值
+   * 但是无法阻止同一事件的其他监听函数被调用 ie8不支持
+   *
+   * stopImmediatePropagation 还可以把同级的其他方法都禁用，但是代码的执行顺序还是从上到下
+   * ie8不支持
+   */
+    let parent = document.getElementById("parent");
+    let son = document.getElementById("son");
+
+    parent.addEventListener("click", function (e) {
+      console.log("===click parent===");
+    });
+
+    son.addEventListener("click", function (e) {
+      e = e || window.event
+      console.log('eventPhase: 0=> 表示事件没有发生，1 => 表示捕获阶段，2 => 表示在冒泡阶段', e.eventPhase)
+      // e.stopImmediatePropagation();
+      // 兼容的写法
+      if(e.stopPropagation){
+        e.stopPropagation()
+      }else{
+        e.cancelable = true
+      }
+      // e.preventDefault() => 用于阻止默认事件（a标签的默认跳转） ie8不支持
+      // e.returnValue = false => 用于阻止默认事件（火狐旧版本浏览器不支持，ie8及更早的浏览器不支持）
+      // 兼容性写法
+      if(e.preventDefault){
+        e.preventDefault()
+      }else{
+        // 用来兼容ie8及更早的浏览器
+        e.returnValue = false
+      }
+      console.log("===click son（事件1）===");
+    });
+
+    son.addEventListener("click", function (e) {
+      console.log("===click son（事件2）===");
+    });
+</script>
+</body>
+</html>

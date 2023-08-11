@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件冒泡</title>
+  <style>
+    button {
+      width: 80px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+<button>btn</button>
+<input type="text" id="test">
+<script>
+  /**
+   * bubbles => 返回一个布尔值，表示当前事件是否会冒泡，这是一个只读参数
+   * 大部分的事件都会冒泡，focus，blur, scroll事件不会冒泡
+   *
+   * cancelBubble
+   * stopPropagation => 表示取消事件的进一步冒泡，无返回值
+   * 但是无法阻止同一事件的其他监听函数被调用
+   *
+   * stopImmediatePropagation
+  */
+
+  const btn = document.getElementsByTagName('button')[0]
+  const testItem = document.getElementById('test')
+
+
+  // bubbles
+  // btn.onclick = function (e) {
+  //   e = e || window.event
+  //   console.log(e.bubbles)
+  // }
+
+  // stopPropagation ie8不支持
+  // btn.onclick = function (e) {
+  //   e = e || window.event
+  //   // 阻止冒泡
+  //   e.stopPropagation()
+  //   console.log('btn click')
+  // }
+  // document.body.onclick = function () {
+  //   console.log('body click')
+  // }
+
+</script>
+</body>
+</html>

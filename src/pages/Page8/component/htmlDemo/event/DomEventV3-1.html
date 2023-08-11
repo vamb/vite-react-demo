@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Event 3-1</title>
+  <style>
+    #box {
+      width: 300px;
+      height: 100px;
+      background-color: orange;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<!-- 用来取消a标签的跳转功能 -->
+  <a href="javascript:void(0);"></a>
+  <div id="box"></div>
+  <script>
+    /**
+     * 1. 如何获取事件对象
+     * 2. 事件目标
+     * 3. 事件代理
+     * 4. 事件冒泡
+     * 5. 事件流阶段 eventPhase
+     * 6.取消默认事件
+     */
+
+    // 兼容性
+    window.onload = function() {
+      let box = document.getElementsByTagName('div')[0]
+      // 1. event对象是事件处理程序的第一个参数，IE8浏览器不兼容(undefined)
+      // box.addEventListener('click', (e)=>{
+      //   console.log('box click e', e)
+      // })
+
+      // 2. 直接可以使用event变量
+      // box.onclick = function() {
+      //   box.innerHTML = window.event
+      // }
+
+      // 3. 兼容的写法
+      box.onclick = function (e) {
+        e = e || window.event
+        box.innerHTML = e
+      }
+    }
+  </script>
+</body>
+</html>

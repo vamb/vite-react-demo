@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Event 3-2</title>
+  <style>
+    #box {
+      width: 300px;
+      height: 100px;
+      background-color: skyblue;
+      cursor: pointer;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    li {
+      background: coral;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+<!-- 用来取消a标签的跳转功能 -->
+  <a href="javascript:void(0);"></a>
+  <ul id="box">
+    <li class="item">1</li>
+    <li class="item">2</li>
+  </ul>
+  <script>
+    /**
+     * 1. 如何获取事件对象
+     * 2. 事件目标
+     * 3. 事件代理
+     * 4. 事件冒泡
+     * 5. 事件流阶段 eventPhase
+     * 6.取消默认事件
+     */
+
+    // 兼容性
+    /**
+     * 1. currentTarget => 返回绑定该事件绑定的节点
+     * 2. target => 实际响应事件的对象，可以是此节点，也可以是此节点的子节点
+     * 3. srcElement => 功能上和target相同，target在IE8上不支持，srcElement不支持火狐
+     */
+    let box = document.getElementsByTagName('ul')[0]
+
+    // 1. currentTarget
+    // box.onclick = function (e) {
+    //   e = e || window.event
+    //   console.log(e.currentTarget)
+    //   let item1 = document.getElementsByTagName('li')[0]
+    //   item1.innerHTML = e.currentTarget
+    // }
+
+    // 2. target属性
+    // box.onclick = function (e) {
+    //   e = e || window.event
+    //   console.log(e.target)
+    //   let item1 = document.getElementsByTagName('li')[0]
+    //   item1.innerHTML = e.currentTarget
+    // }
+
+    // 3. srcElement
+    // box.onclick = function (e) {
+    //   e = e || window.event
+    //   console.log(e.srcElement)
+    //   let item1 = document.getElementsByTagName('li')[0]
+    //   item1.innerHTML = e.currentTarget
+    // }
+
+    // 4. 兼容性的写法
+    box.onclick = function(e) {
+      e = e || window.event
+      var target = e.target || e.srcElement
+      target.style.background = 'blueviolet'
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Event 6-1</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background: skyblue;
+      box-sizing: border-box;
+      border: 1px solid blueviolet;
+      margin: 20px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<script>
+  let box = document.getElementsByTagName('div')[0]
+  box.onmouseover = function (e) {
+    e = e || window.event
+    console.log('e.clientX e.clientY => 相对于浏览器X轴和Y轴的距离(浏览器的有效区域)', e.clientX, e.clientY)
+    console.log('e.x e.y => 相对于浏览器X轴和Y轴的距离(浏览器的有效区域)', e.x, e.y)
+    console.log('e.offsetX e.offsetY 相对于当前绑定此事件的节点的偏移量', e.offsetX, e.offsetY)
+    console.log('e.screenX e.screenY => 相对于显示器屏幕的X轴和Y轴', e.screenX, e.screenY)
+    console.log('e.pageX e.pageY => 相对于页面的X轴和Y轴的距离（页面出现滚动条的时候和clientX的白哦先就不同了）', e.pageX, e.pageY)
+  }
+</script>
+</body>
+</html>

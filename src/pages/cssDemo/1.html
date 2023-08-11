@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title1_1</title>
+  <style type="text/css">
+    /* part1 */
+    /*h1, h2 {*/
+    /*  color: red;*/
+    /*}*/
+    /*h1 {*/
+    /*  background: green;*/
+    /*}*/
+    /*h1 {*/
+    /*  background: blue;*/
+    /*}*/
+    /*.success, .error {*/
+    /*  margin-bottom: 10px;*/
+    /*}*/
+    /*.success {*/
+    /*  color: green;*/
+    /*  border: solid 1px green;*/
+    /*}*/
+    /*.error {*/
+    /*  color: red;*/
+    /*  border: solid 1px red;*/
+    /*}*/
+    /*.mb10 {*/
+    /*  margin-bottom: 10px;*/
+    /*}*/
+    /*.wth150 {*/
+    /*  width: 150px;*/
+    /*}*/
+    /*#goodResp {*/
+    /*  color: green;*/
+    /*  border: solid 1px green;*/
+    /*}*/
+    /*#badResp {*/
+    /*  color: red;*/
+    /*  border: solid 1px red;*/
+    /*}*/
+    /* part2 */
+    /* 1 */
+    /*main article h2 {*/
+    /*  color: red;*/
+    /*}*/
+    /* 2 */
+    /*article>h2 {*/
+    /*  color: red;*/
+    /*}*/
+    /* 3 */
+    /*article h1~h2{*/
+    /*  color: green;*/
+    /*}*/
+    /* 4 */
+    /*h1+h2{*/
+    /*  color: green;*/
+    /*}*/
+    /* 5 */
+    /*h2[title] {*/
+    /*  color: red;*/
+    /*}*/
+    /* 6 */
+    /*h2[title][id] {*/
+    /*  color: red;*/
+    /*}*/
+    /* 7 */
+    /*h2[title='houdunren'] {*/
+    /*  color: #0BE59D;*/
+    /*}*/
+    /* 8 */
+    /*h2[title^='houdunren'] {*/
+    /*  color: #0DE0ED;*/
+    /*}*/
+    /* 9 */
+    /*h2[title$='com'] {*/
+    /*  color: #0BE59D;*/
+    /*}*/
+    /* 10 */
+    /*h2[title*='ren'] {*/
+    /*  color: #0DE0ED;*/
+    /*}*/
+    /* 11 */
+    /*h2[title~='ren'] {*/
+    /*  color: #0DE0ED;*/
+    /*}*/
+    /* 12 */
+    /*h2[title|='houdunren'] {*/
+    /*  color: #0DE0ED;*/
+    /*}*/
+    /* 13 */
+    /*a:link {*/
+    /*  color: red; !* 默认情况 *!*/
+    /*}*/
+    /*a:visited {*/
+    /*  color: yellow; !* 点击之后的 *!*/
+    /*}*/
+    /*a:hover {*/
+    /*  color: green;*/
+    /*}*/
+    /*a:active {*/
+    /*  color: aquamarine; !* 点击发生 *!*/
+    /*}*/
+    /*input:focus {*/
+    /*  background: aquamarine;*/
+    /*}*/
+    /* part3 */
+    /*div {*/
+    /*  height: 900px;*/
+    /*  width: 200px;*/
+    /*  border: solid 1px lightgreen;*/
+    /*}*/
+    /*div:target {*/
+    /*  color: red;*/
+    /*}*/
+    /* part3 */
+
+    /* part4 */
+    /*article :nth-child(2n) {*/
+    /*    color: red;*/
+    /*}*/
+    main>ul li:nth-child(-n+3):not(:nth-child(2)):not(:first-child) {
+      color: red;
+    }
+    /* part4 */
+  </style>
+</head>
+<body>
+
+  <!-- part4 -->
+  <main>
+    <ul>
+      <li>li 1</li>
+      <li>li 2</li>
+      <li>li 3</li>
+      <li>li 4</li>
+    </ul>
+    <article>
+      <h1>h1 text</h1>
+      <h2 title="houdunren">h2 text</h2>
+      <aside>
+        <h2 title="houdunren com" id>aside h2</h2>
+      </aside>
+      <h2>h2 text2</h2>
+    </article>
+  </main>
+  <!-- part4 -->
+
+<!-- part3 -->
+<!--<a href="#hdcms">hdcms</a>-->
+<!--<div></div>-->
+<!--<div id="hdcms">-->
+<!--  hdcms内容管理系统-->
+<!--</div>-->
+<!-- part3 -->
+
+<!-- part2 -->
+<!--  <a href="https://www.baidu.com">链接</a><br/>-->
+<!--  <input type="text" >-->
+<!--  <main>-->
+<!--    <article>-->
+<!--      <h1>h1 text</h1>-->
+<!--      <h2 title="houdunren">h2 text1</h2>-->
+<!--      <aside>-->
+<!--        <h2 title="houdunren com" id>aside h2</h2>-->
+<!--      </aside>-->
+<!--      <h2>h2 text2</h2>-->
+<!--    </article>-->
+<!--  </main>-->
+<!-- part2 -->
+
+<!-- part1 -->
+<!--  <h1>h1 content</h1>-->
+<!--  <h2>h2 content</h2>-->
+<!--  <div class="success">success message</div>-->
+<!--  <div class="error">error message</div>-->
+<!--  <div id="goodResp" class="mb10 wth150">good response</div>-->
+<!--  <div id="badResp" class="mb10 wth150">bad response</div>-->
+<!-- part1 -->
+<script>
+  var name = 'test1'
+  console.log(name)
+  if(true){
+    var name = 'test2'
+    console.log(name)
+  }
+
+  let age = 30
+  console.log(age)
+  if(true){
+    let age = 27
+    console.log(age)
+  }
+
+  var code = 'code1'
+  console.log(code)
+  if(true){
+    let code = 'code2'
+    console.log(code)
+  }
+  console.log(code)
+
+  for(var j=0;j<5;j++){
+    console.log(j)
+  }
+
+  for(var i=0;i<5;i++){
+    setTimeout(()=>console.log(i), 0)
+  }
+</script>
+</body>
+</html>

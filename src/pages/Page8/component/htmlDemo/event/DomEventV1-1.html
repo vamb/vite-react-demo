@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Event V1-1</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #box {
+      width: 400px;
+      height: 400px;
+      background: #ffeba2;
+      box-sizing: border-box;
+      border: 1px solid blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+  // 事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点（文档节点）
+
+  // 事件流： 事件捕获阶段，处于目标阶段，事件冒泡阶段
+  let box = document.getElementById('box')
+  box.onclick = () =>{
+    box.innerHTML += 'div\n'
+  }
+  document.body.onclick = () =>{
+    box.innerHTML += 'body\n'
+  }
+  document.documentElement.onclick = () =>{
+    box.innerHTML += 'html\n'
+  }
+  document.onclick = () =>{
+    box.innerHTML += 'document\n'
+  }
+  window.onclick = () =>{
+    box.innerHTML += 'window\n'
+  }
+  </script>
+</body>
+</html>

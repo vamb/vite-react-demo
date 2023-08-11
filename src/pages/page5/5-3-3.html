@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            margin: 0 auto;
+            border: 2px solid #aaa;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="targetPlace" width="600px" height="600px">您的浏览器版本过低，请审计浏览器或者使用chrome打开！</canvas>
+<script>
+  /* 使用原生JS操作canvas */
+
+  //获取canvas标签
+  const canvas = document.getElementById('targetPlace')
+  if(canvas){
+    const c = canvas.getContext('2d')
+    c.beginPath()
+    c.moveTo(100, 100)
+    c.lineTo(100, 200)
+    c.lineTo(120, 220)
+    c.strokeStyle = 'red'
+    c.lineWidth = 3
+    c.stroke()
+    c.closePath()
+  }
+
+</script>
+</body>
+</html>

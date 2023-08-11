@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Event 2-1</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    body > div {
+      width: 150px;
+      height: 50px;
+      box-sizing: border-box;
+      border: 1px solid blueviolet;
+      margin: 10px;
+      cursor: pointer;
+      color: blueviolet;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    body > div:nth-child(1){
+      background: skyblue;
+    }
+    body > div:nth-child(2) {
+      background: #ECAD9E;
+    }
+    /*body > div:nth-child(3) {*/
+    /*  background: #19CAAD;*/
+    /*}*/
+    button {
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div onclick="div1Test()"></div>
+  <div onclick="this.innerHTML += event.type"></div>
+  <button value="pppp" onclick="this.innerHTML += value"></button>
+  <script>
+    /**
+     * 事件处理程序
+     * 1. HTML事件处理程序
+     * 缺点： html 和 js五分离，后期不易维护
+     * 2. DOM0级事件处理程序
+     * 优点：简单，具有跨浏览器的优势，发生于事件的冒泡阶段
+     * 缺点：只能绑定一个事件，后面的会覆盖前面的（div1.onclick = null 可以将方法取消）
+     * 3. DOM2级事件处理程序
+     * 优点： 可以在同一个元素上绑定多个项目的响应事件
+     * 缺点： IE8不支持DOM2级事件
+     * 4. IE事件处理程序
+     * attachEvent(action, functionName, true || false) detachEvent()
+     */
+
+    // P6
+
+    // HTML事件处理程序
+    function div1Test() {
+      document.getElementsByTagName('div')[0].innerHTML += 'div1\n'
+    }
+
+    // DOM0级事件处理程序
+    let div1 = document.getElementsByTagName('div')[0]
+    div1.onclick = () =>{
+      div1.innerHTML += 'DOM0 action \n'
+    }
+
+    /**
+     *  DOM2级事件处理程序
+     *  addEventListener(action, function, true：捕捉阶段响应 || false：冒泡阶段响应 默认为false)
+     *
+     *  removeEventListener(action, functionName, true|| false)
+     *  removeEventListener的第三个参数是为了匹配捕获阶段的监听还是冒泡阶段的监听
+     */
+    const div1Action = ()=>{
+      div1.innerHTML += 'DOM2 action \n'
+    }
+    div1.addEventListener('click', div1Action,true)
+    div1.removeEventListener('click', div1Action)
+  </script>
+</body>
+</html>
