@@ -126,20 +126,33 @@ const Wrapper = styled('div')`
     align-items: center;
     transition: all 0.2s;
     height: 30px;
-    padding: 4px 4px 4px 15px;
+    margin-bottom: 3px;
     & > a {
+      transition: all 0.2s;
+      padding: 4px 4px 4px 15px;
       width: 100%;
     }
   }
   .router-unit-active {
-    background-color: #e6f4ff;
-    color: #1677ff;
+    & > a {
+      background-color: #e6f4ff;
+      padding-left: 13px;
+      color: #1677ff;
+    }
+  }
+  .router-unit-active::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: #1677ff;
   }
   .router-unit > a {
     color: rgba(0, 0, 0, 0.88);
   }
   .router-unit:hover {
-    background-color: rgba(150,150,150,.4);
+    & > a {
+      background-color: rgba(150,150,150,.4);
+    }
   }
 `
 
