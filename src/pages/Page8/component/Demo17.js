@@ -26,7 +26,7 @@ const Demo17 = memo(()=>{
 
 
   return(
-    <UnitContent unitTitle={'Demo17 setInterval demo'}>
+    <UnitContent unitTitle={'Demo17 setInterval demo btn loading'}>
       <Wrapper>
         <div>{`Interval TimeLabel: ${timeLabel}`}</div>
         <div>

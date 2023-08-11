@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import styled from "styled-components";
 import { Form, Select, InputNumber } from 'antd'
+import UnitContent from "../../components/UnitContent";
 
 const { Item }= Form
 const { Option } = Select
@@ -40,91 +41,93 @@ const Demo27_4 = () => {
   },[])
 
   return (
-    <Wrapper>
-      <div className={'classic-2-ctl-group'}>
-        <Form layout="inline" style={{height: '80px', lineHeight: '40px'}}>
-          <Item label={'box-num'}>
-            <InputNumber
-              min={1} max={20} step={1} value={boxNum}
-              style={{width: '120px'}} onChange={e=>setBoxNum(e)}
-            />
-          </Item>
-          <Item label={'flex-direction'}>
-            <Select
-              allowClear={false}
-              style={{width: '120px'}}
-              value={flexDirectionVal}
-              onChange={e=>setFlexDirectionVal(e)}
-            >
-              <Option value={'row'}>row</Option>
-              <Option value={'column'}>column</Option>
-            </Select>
-          </Item>
-          <Item label={'justify-content'}>
-            <Select
-              allowClear={false}
-              style={{width: '120px'}}
-              value={justifyContentVal}
-              onChange={e=>setJustifyContent(e)}
-            >
-              <Option value={'start'}>start</Option>
-              <Option value={'end'}>end</Option>
-              <Option value={'center'}>center</Option>
-              <Option value={'space-around'}>space-around</Option>
-              <Option value={'space-between'}>space-between</Option>
-            </Select>
-          </Item>
-          <Item label={'align-items'}>
-            <Select
-              allowClear={false}
-              style={{width: '120px'}}
-              value={alignItemsVal}
-              onChange={e=>setAlignItemsVal(e)}
-            >
-              <Option value={'start'}>start</Option>
-              <Option value={'end'}>end</Option>
-              <Option value={'center'}>center</Option>
-            </Select>
-          </Item>
-          <Item label={'align-content'}>
-            <Select
-              allowClear={false}
-              style={{width: '120px'}}
-              value={alignContentVal}
-              onChange={e=>setAlignContent(e)}
-            >
-              <Option value={'start'}>start</Option>
-              <Option value={'end'}>end</Option>
-              <Option value={'center'}>center</Option>
-              <Option value={'normal'}>normal</Option>
-            </Select>
-          </Item>
-          <Item label={'target order'}>
-            <InputNumber
-              min={-1} max={3} step={1} value={targetOrderVal}
-              style={{width: '120px'}} onChange={e=>setTargetOrderVal(e)}
-            />
-          </Item>
-          <Item label={'normal order'}>
-            <InputNumber
-              min={-1} max={3} step={1} value={normalOrderVal}
-              style={{width: '120px'}} onChange={e=>setNormalOrderVal(e)}
-            />
-          </Item>
-        </Form>
-      </div>
-      <div
-        className={'classic-2-content'}
-        style={{
-          justifyContent: justifyContentVal,
-          alignItems: alignItemsVal,
-          alignContent: alignContentVal,
-          flexDirection: flexDirectionVal
-        }}
-      >
-        {boxArr}
-      </div>
-    </Wrapper>
+    <UnitContent title={'Demo27_4 flex demo'}>
+      <Wrapper>
+        <div className={'classic-2-ctl-group'}>
+          <Form layout="inline" style={{height: '80px', lineHeight: '40px'}}>
+            <Item label={'box-num'}>
+              <InputNumber
+                min={1} max={20} step={1} value={boxNum}
+                style={{width: '120px'}} onChange={e=>setBoxNum(e)}
+              />
+            </Item>
+            <Item label={'flex-direction'}>
+              <Select
+                allowClear={false}
+                style={{width: '120px'}}
+                value={flexDirectionVal}
+                onChange={e=>setFlexDirectionVal(e)}
+              >
+                <Option value={'row'}>row</Option>
+                <Option value={'column'}>column</Option>
+              </Select>
+            </Item>
+            <Item label={'justify-content'}>
+              <Select
+                allowClear={false}
+                style={{width: '120px'}}
+                value={justifyContentVal}
+                onChange={e=>setJustifyContent(e)}
+              >
+                <Option value={'start'}>start</Option>
+                <Option value={'end'}>end</Option>
+                <Option value={'center'}>center</Option>
+                <Option value={'space-around'}>space-around</Option>
+                <Option value={'space-between'}>space-between</Option>
+              </Select>
+            </Item>
+            <Item label={'align-items'}>
+              <Select
+                allowClear={false}
+                style={{width: '120px'}}
+                value={alignItemsVal}
+                onChange={e=>setAlignItemsVal(e)}
+              >
+                <Option value={'start'}>start</Option>
+                <Option value={'end'}>end</Option>
+                <Option value={'center'}>center</Option>
+              </Select>
+            </Item>
+            <Item label={'align-content'}>
+              <Select
+                allowClear={false}
+                style={{width: '120px'}}
+                value={alignContentVal}
+                onChange={e=>setAlignContent(e)}
+              >
+                <Option value={'start'}>start</Option>
+                <Option value={'end'}>end</Option>
+                <Option value={'center'}>center</Option>
+                <Option value={'normal'}>normal</Option>
+              </Select>
+            </Item>
+            <Item label={'target order'}>
+              <InputNumber
+                min={-1} max={3} step={1} value={targetOrderVal}
+                style={{width: '120px'}} onChange={e=>setTargetOrderVal(e)}
+              />
+            </Item>
+            <Item label={'normal order'}>
+              <InputNumber
+                min={-1} max={3} step={1} value={normalOrderVal}
+                style={{width: '120px'}} onChange={e=>setNormalOrderVal(e)}
+              />
+            </Item>
+          </Form>
+        </div>
+        <div
+          className={'classic-2-content'}
+          style={{
+            justifyContent: justifyContentVal,
+            alignItems: alignItemsVal,
+            alignContent: alignContentVal,
+            flexDirection: flexDirectionVal
+          }}
+        >
+          {boxArr}
+        </div>
+      </Wrapper>
+    </UnitContent>
   )
 }
 
