@@ -12,11 +12,12 @@ import { Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,
   Demo26, Demo27, Demo27_1, Demo27_2, Demo27_3, Demo27_4, Demo27_5, Demo28_1,
   Demo28_2, Demo28_3, Demo28_4, Demo28_5, Demo28_6, Demo28_7, Demo28_8, Demo28_9,
   Demo28_10, Demo29_0, Demo29_1, Demo29_2, Demo30_0, Demo30_1, Demo31_0, Demo30_2,
-  Demo28_11, Demo28_12, Demo28_13, Demo28_14, Demo28_15, Demo28_16, Demo28_17, Demo29_3
+  Demo28_11, Demo28_12, Demo28_13, Demo28_14, Demo28_15, Demo28_16, Demo28_17, Demo29_3,
+  Demo32_0,
 } from './PageIndex'
 
 const ReactPage = () =>{
-  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB10.key)
+  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB14.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = (key) =>{
@@ -218,6 +219,15 @@ const ReactPage = () =>{
               </div>
             )
           },
+          {
+            label: TestConstant.TABS_MAP.TAB14.label,
+            key: TestConstant.TABS_MAP.TAB14.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo32_0 />
+              </div>
+            )
+          }
         ]}
       />
       <div className={'fixed-demo'}>fixed position</div>
