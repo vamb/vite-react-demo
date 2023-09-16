@@ -18,6 +18,7 @@ const PageContent = (props) => {
   const Page11Lazy = lazy(() => import("../Page11"))
   const Page12Lazy = lazy(() => import("../Page12"))
   const Page14Lazy = lazy(() => import("../Page14"))
+  const Page15Lazy = lazy(() => import("../Page15"))
 
   return (
     <ContentWrapper>
@@ -37,6 +38,7 @@ const PageContent = (props) => {
             <Route path='/eleventhPage' exact component={Page11Lazy} />
             <Route path='/twelvePage' exact component={Page12Lazy} />
             <Route path='/fourteenPage' exact component={Page14Lazy} />
+            <Route path='/butterflyDag' exact component={Page15Lazy} />
           </Switch>
         </div>
       </Suspense>

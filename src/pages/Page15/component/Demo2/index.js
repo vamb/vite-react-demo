@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react'
+import styled from "styled-components";
 import { Canvas } from 'butterfly-dag';
 import mockData from './data.js';
 
 import './index.less';
 import 'butterfly-dag/dist/index.css';
 
-class Decision extends Component {
+class Self1 extends React.Component {
 
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
-    console.log('root', root)
+    const root = document.getElementById('dag-canvas-self1');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -29,11 +29,18 @@ class Decision extends Component {
 
   render() {
     return (
+      <Wrapper>
         <div className='decision' style={{backgroundColor: 'lightyellow'}}>
-          <div className="decision-canvas" id="dag-canvas" />
+          <div className="decision-canvas" id="dag-canvas-self1" />
         </div>
+      </Wrapper>
     );
   }
 }
 
-export default Decision
+const Wrapper = styled('div')`
+  background-color: lightyellow;
+  height: 100%;
+`
+
+export default Self1

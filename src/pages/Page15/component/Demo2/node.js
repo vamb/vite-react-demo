@@ -1,7 +1,4 @@
-'use strict';
-
-// const Node = require('../../../index.js').Node;
-import {Node} from 'butterfly-dag';
+import { Node } from 'butterfly-dag';
 import $ from 'jquery';
 import './node.less';
 
@@ -9,6 +6,7 @@ class BaseNode extends Node {
   constructor(opts) {
     super(opts);
     this.options = opts;
+    // console.log('BaseNode opts', opts, typeof opts.label, opts.label)
   }
   draw = (opts) => {
     let container = $('<div class="decision-node"></div>')
@@ -29,8 +27,17 @@ class BaseNode extends Node {
     $(dom).append(iconContainer);
   }
 
+
   _createText(dom = this.dom) {
-    $('<span class="text-box"></span>').text(this.options.label).appendTo(dom);
+    if(this.options.label) {
+      $('<span class="text-box"></span>').text(this.options.label).appendTo(dom);
+    }else if(this.options.labelObj){
+      const { caseName, caseNo } = this.options.labelObj
+      const caseNameLabel = `案件名称: ${caseName}`
+      const caseNoLabel = `案件编号: ${caseNo}`
+      const labelContainer = $(`<div><div>${caseNameLabel}</div><div>${caseNoLabel}</div></div>`)
+      $('<span class="text-box"></span>').append(labelContainer).appendTo(dom)
+    }
   }
 }
 

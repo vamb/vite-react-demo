@@ -68,7 +68,7 @@ import Demo28_15 from './componentV2/Demo28_15'
 import Demo28_16 from './componentV3/Demo28_16'
 import Demo28_17 from './componentV3/Demo28_17'
 import Demo29_3 from "./componentV3/Demo29_3";
-import Demo32_0 from "./componentV3/Demo32_0/index";
+import Demo32_0 from "./componentV3/Demo32_0/Demo32_0";
 
 export {
   Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,

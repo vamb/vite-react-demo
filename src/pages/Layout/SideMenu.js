@@ -110,6 +110,13 @@ const SideMenu = (props) => {
           >14状态托管</Link>
           <div className={'bottom-mark'} />
         </div>
+        <div className={checkActive(activeKey, '/butterflyDag')}>
+          <Link
+            to={'/butterflyDag'} title={'流程图'}
+            onClick={()=>setActiveKey('/butterflyDag')}
+          >15 Butterfly Dag</Link>
+          <div className={'bottom-mark'} />
+        </div>
       </div>
     </Wrapper>
   )
