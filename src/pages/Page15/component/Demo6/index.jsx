@@ -114,7 +114,7 @@ class DagreLayout extends Component {
 
   render() {
     return (
-      <div className='dagreLayout-page'>
+      <div className='dagreLayout-page' style={{backgroundColor: "lightgreen"}}>
         <div className='operate-bar'>
           <div className='operate-bar-title'>属性配置</div>
           <div className='operate-item'>

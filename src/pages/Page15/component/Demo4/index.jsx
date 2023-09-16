@@ -49,7 +49,7 @@ class CompactBoxTree extends Component {
 
   render() {
     return (
-      <div className='compact-box-tree-page'>
+      <div className='compact-box-tree-page' style={{backgroundColor: 'lightyellow'}}>
         <div className="compact-box-tree-canvas" id="dag-canvas">
         </div>
       </div>

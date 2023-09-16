@@ -36,7 +36,7 @@ class ConcentLayout extends Component {
 
   render() {
     return (
-      <div className='concentLayout-page'>
+      <div className='concentLayout-page' style={{backgroundColor: "lightyellow"}}>
         <div className="flow-canvas" id="dag-canvas">
         </div>
       </div>

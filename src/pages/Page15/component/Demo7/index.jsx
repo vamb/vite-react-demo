@@ -29,7 +29,7 @@ class Diodes extends Component {
 
   render() {
     return (
-      <div className='diodes-page'>
+      <div className='diodes-page' style={{backgroundColor: 'lightpink'}}>
         <div className="diodes-canvas" id="dag-canvas">
         </div>
       </div>

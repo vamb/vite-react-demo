@@ -70,7 +70,7 @@ class Circle extends Component {
   }
   render() {
     return (
-      <div className='circle-page'>
+      <div className='circle-page' style={{backgroundColor: 'lightyellow'}}>
         <div className="circle-canvas" id="dag-canvas">
         </div>
       </div>
