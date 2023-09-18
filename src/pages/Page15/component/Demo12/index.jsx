@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import mockData from './data';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './index.less';
 
 class ForceTree extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-12');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -38,7 +37,7 @@ class ForceTree extends Component {
   render() {
     return (
       <div className='force-tree-page'>
-        <div className="force-tree-canvas" id="dag-canvas">
+        <div className="force-tree-canvas" id="dag-canvas-12">
         </div>
       </div>
     );

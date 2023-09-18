@@ -1,15 +1,14 @@
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import React, {Component} from 'react';
 
 import mockData from './data.js';
 
 import './index.less';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class Emergency extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-8');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -34,7 +33,7 @@ class Emergency extends Component {
   render() {
     return (
       <div className='emergency-page'>
-        <div className="emergency-canvas" id="dag-canvas">
+        <div className="emergency-canvas" id="dag-canvas-8">
         </div>
       </div>
     );

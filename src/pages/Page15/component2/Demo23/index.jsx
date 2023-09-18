@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Canvas from './canvas';
 import mockData from './data.js';
 
 import './index.less';
 import './iconfont.css';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class RelationalBook extends Component {
   constructor() {
@@ -13,7 +12,7 @@ class RelationalBook extends Component {
     this.canvas = null;
   }
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-23');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -35,7 +34,7 @@ class RelationalBook extends Component {
   render() {
     return (
       <div className='relational-books-page'>
-        <div className="flow-canvas" id="dag-canvas">
+        <div className="flow-canvas" id="dag-canvas-23">
         </div>
       </div>
     );

@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 
 import mockData from './data';
 
 import './index.less';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class Flow extends React.Component {
   constructor() {
@@ -15,7 +14,7 @@ class Flow extends React.Component {
 
   componentDidMount() {
     // css里面的类名限制太死了
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-11');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -35,7 +34,7 @@ class Flow extends React.Component {
   render() {
     return (
       <div className='flow-page'>
-        <div className="flow-canvas" id="dag-canvas">
+        <div className="flow-canvas" id="dag-canvas-11">
         </div>
       </div>
     );

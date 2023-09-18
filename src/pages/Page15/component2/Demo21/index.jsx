@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import mockData from './data.js';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './index.less';
 
 class Radial extends Component {
@@ -11,7 +10,7 @@ class Radial extends Component {
     super();
   }
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-21');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -67,7 +66,7 @@ class Radial extends Component {
   render() {
     return (
       <div className='radial-page'>
-        <div className="radial-canvas" id="dag-canvas">
+        <div className="radial-canvas" id="dag-canvas-21">
         </div>
       </div>
     );

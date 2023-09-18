@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import mockData from './data';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './index.less';
 
 class Fruchterman extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-13');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -56,7 +55,7 @@ class Fruchterman extends Component {
   render() {
     return (
       <div className='fruchterman-tree-page'>
-        <div className="fruchterman-tree-canvas" id="dag-canvas">
+        <div className="fruchterman-tree-canvas" id="dag-canvas-13">
         </div>
       </div>
     );

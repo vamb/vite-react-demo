@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 
 import mockData from './data.js';
 
 import './index.less';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class Entity extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-10');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -30,7 +29,7 @@ class Entity extends Component {
   render() {
     return (
       <div className='entity-page'>
-        <div className="entity-canvas" id="dag-canvas">
+        <div className="entity-canvas" id="dag-canvas-10">
         </div>
       </div>
     );

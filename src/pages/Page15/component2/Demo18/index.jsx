@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import mockData from './data.js';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './iconfont.css';
 import './index.less';
 
@@ -12,7 +11,7 @@ class LoginNew extends Component {
     super();
   }
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-18');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -31,7 +30,7 @@ class LoginNew extends Component {
   render() {
     return (
       <div className='login'>
-        <div className="login-canvas" id="dag-canvas">
+        <div className="login-canvas" id="dag-canvas-18">
         </div>
       </div>
     );

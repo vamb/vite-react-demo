@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import IndustryCanvas from './canvas';
 import mockData from './data.js';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './index.less';
 import './iconfont.css';
 class Industry extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-16');
     this.canvas = new IndustryCanvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -31,7 +30,7 @@ class Industry extends Component {
   render() {
     return (
       <div className='industry-page'>
-        <div className="industry-canvas" id="dag-canvas">
+        <div className="industry-canvas" id="dag-canvas-16">
         </div>
       </div>
     );

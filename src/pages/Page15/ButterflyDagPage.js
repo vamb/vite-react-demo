@@ -10,7 +10,7 @@ import {
 } from './Page15Index'
 
 const ButterflyDagPage = () => {
-  const [ activeKey, setActiveKey ] = useState(BFDagConstant.TABS_MAP.TAB2.key)
+  const [ activeKey, setActiveKey ] = useState(BFDagConstant.TABS_MAP.TAB4.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -294,7 +294,9 @@ const ButterflyDagPage = () => {
 }
 
 const Wrapper = styled('div')`
-
+  .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-list {
+    flex-wrap: wrap;
+  }
 `
 
 export default ButterflyDagPage

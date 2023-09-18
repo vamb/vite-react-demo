@@ -3,7 +3,7 @@ import { Canvas } from 'butterfly-dag';
 import mockData from './data.js';
 
 import './index.less';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class Decision extends Component {
 

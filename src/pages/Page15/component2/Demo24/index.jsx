@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import mockData from './data.js';
 import RelationEdge from './edgerelation.js';
 
 import './index.less';
 import './newIconfont.css';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class RelationalNetwork extends Component {
   constructor() {
@@ -15,7 +14,7 @@ class RelationalNetwork extends Component {
   }
   componentDidMount() {
     // css里面的类名限制太死了
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-24');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -39,7 +38,7 @@ class RelationalNetwork extends Component {
   render() {
     return (
       <div className='relationalNetwork-page'>
-        <div className="flow-canvas" id="dag-canvas">
+        <div className="flow-canvas" id="dag-canvas-24">
         </div>
       </div>
     );

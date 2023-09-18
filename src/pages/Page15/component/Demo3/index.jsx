@@ -5,11 +5,11 @@ import mockData from './data.js';
 import Canvas from './circleCanvas.js';
 
 import './index.less';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class Circle extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-3');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -71,7 +71,7 @@ class Circle extends Component {
   render() {
     return (
       <div className='circle-page' style={{backgroundColor: 'lightyellow'}}>
-        <div className="circle-canvas" id="dag-canvas">
+        <div className="circle-canvas" id="dag-canvas-3">
         </div>
       </div>
     );

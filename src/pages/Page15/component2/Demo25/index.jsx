@@ -7,8 +7,7 @@ import {TreeCanvas} from 'butterfly-dag';
 
 import './index.less';
 import 'antd/dist/antd.css';
-import 'butterfly-dag/dist/index.css';
-
+import '../../butterflyDag.css';
 
 const mockData = {
   nodes: {
@@ -237,7 +236,7 @@ class CompactBoxTree extends Component {
     data: {},
   }
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-25');
     let that = this;
     this.canvas = new TreeCanvas({
       root: root,
@@ -335,7 +334,7 @@ class CompactBoxTree extends Component {
             }
           )
         }
-        <div className="ruleTree-canvas" id="dag-canvas" />
+        <div className="ruleTree-canvas" id="dag-canvas-25" />
       </div>
     );
   }

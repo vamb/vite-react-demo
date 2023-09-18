@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {Node} from 'butterfly-dag';
+import { Node } from 'butterfly-dag';
 
 import './base_node.less';
 

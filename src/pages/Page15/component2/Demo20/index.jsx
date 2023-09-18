@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Canvas} from 'butterfly-dag';
 import mockData from './data.js';
 
 import './index.less';
 import './iconfont.css';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 class Policy extends Component {
   constructor() {
     super();
   }
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-20');
     this.canvas = new Canvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -32,7 +31,7 @@ class Policy extends Component {
   render() {
     return (
       <div className='policy-page'>
-        <div className="policy-canvas" id="dag-canvas">
+        <div className="policy-canvas" id="dag-canvas-20">
         </div>
       </div>
     );

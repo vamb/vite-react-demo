@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {TreeCanvas} from 'butterfly-dag';
 import mockData from './data';
 import Node from './node';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './iconfont.css';
 import './index.less';
 class IndentedTree extends Component {
@@ -12,7 +11,7 @@ class IndentedTree extends Component {
     super();
   }
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-15');
 
     this.canvas = new TreeCanvas({
       root: root,
@@ -86,7 +85,7 @@ class IndentedTree extends Component {
   render() {
     return (
       <div className='indented-tree-page'>
-        <div className="indented-tree-canvas" id="dag-canvas">
+        <div className="indented-tree-canvas" id="dag-canvas-15">
         </div>
       </div>
     );

@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {TreeCanvas} from 'butterfly-dag';
+import React, { Component } from 'react';
+import { TreeCanvas } from 'butterfly-dag';
 
 import mockData from './data';
 
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 import './index.less';
 
 class CompactBoxTree extends Component {
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-4');
     this.canvas = new TreeCanvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -50,7 +50,7 @@ class CompactBoxTree extends Component {
   render() {
     return (
       <div className='compact-box-tree-page' style={{backgroundColor: 'lightyellow'}}>
-        <div className="compact-box-tree-canvas" id="dag-canvas">
+        <div className="compact-box-tree-canvas" id="dag-canvas-4">
         </div>
       </div>
     );

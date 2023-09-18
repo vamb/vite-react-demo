@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {Button, Select, Slider} from 'antd';
+import React, { Component } from 'react';
+import { Button, Select, Slider } from 'antd';
 
 import mockData from './data';
 import node from './base_node';
@@ -8,8 +7,7 @@ import RelationEdge from './edge';
 import DagreCanvas from './dagre-canvas';
 
 import './index.less';
-import 'antd/dist/antd.css';
-import 'butterfly-dag/dist/index.css';
+import '../../butterflyDag.css';
 
 const Option = Select.Option;
 class DagreLayout extends Component {
@@ -22,7 +20,7 @@ class DagreLayout extends Component {
   }
 
   componentDidMount() {
-    let root = document.getElementById('dag-canvas');
+    let root = document.getElementById('dag-canvas-6');
     this.canvas = new DagreCanvas({
       root: root,
       disLinkable: true, // 可删除连线
@@ -150,7 +148,7 @@ class DagreLayout extends Component {
             <Slider defaultValue={40} onAfterChange = {this.optionsChange.bind(this, 'ranksep')} />
           </div>
         </div>
-        <div className="flow-canvas" id="dag-canvas">
+        <div className="flow-canvas" id="dag-canvas-6">
         </div>
       </div>
     );
