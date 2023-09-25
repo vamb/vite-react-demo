@@ -41,9 +41,6 @@ const Demo11_08 = () => {
    * @param high 移动的结束坐标（初始是最后一个叶子节点）
    */
   const sift = (arr, low, high) => {
-    // if(high === 1) {
-    //   debugger
-    // }
     let i = low // 最开始指向的根节点
     let j = 2 * i + 1 // 左子节点
     const temp = arr[low] // 要移动的数据
@@ -75,13 +72,10 @@ const Demo11_08 = () => {
     //================= 到这里，构造堆的任务完成 =======================
 
     for(let i = arrLength -1; i >= 0; i--) {
-      // if(i === 1) {
-      //   debugger
-      // }
       const temp = arr[i]
       arr[i] = arr[0]
       arr[0] = temp
-      sift(arr, 0, i-1 >0? i-1: 1) // 因为最后一位已经被原列表的第一个赋值了，且不需要在排序了，顾而是 i-1
+      sift(arr, 0, i-1) // 因为最后一位已经被原列表的第一个赋值了，且不需要在排序了，顾而是 i-1
     }
   }
 
