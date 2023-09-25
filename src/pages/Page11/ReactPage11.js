@@ -5,6 +5,9 @@ import P11Constant from "./P11Constant";
 import Demo11_01 from "./component/Demo11_01";
 import Demo11_02 from "./component/Demo11_02";
 import Demo11_03 from "./component/Demo11_03";
+import Demo11_04 from "./component/Demo11_04";
+import Demo11_05 from "./component/Demo11_05";
+import Demo11_06 from "./component/Demo11_06";
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
 
 const { TabPane } = Tabs
@@ -41,6 +44,9 @@ const ReactPage11 = () => {
         <TabPane tab={P11Constant.TABS_MAP.TAB2.label} key={P11Constant.TABS_MAP.TAB2.key}>
           <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
             <Demo11_03 />
+            <Demo11_04 />
+            <Demo11_05 />
+            <Demo11_06 />
           </div>
         </TabPane>
       </Tabs>

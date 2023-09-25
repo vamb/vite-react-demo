@@ -49,3 +49,19 @@ export const findPageContentHeight = () => {
   const pageContentDom = document.getElementsByClassName('page-content')?.[0]
   return pageContentDom? pageContentDom.clientHeight: 0
 }
+
+export const generateRandomArr = (length, limit) => {
+  const tempArr = []
+  if(length) {
+    if(limit) {
+      for(let i=0;i<length;i++){
+        tempArr.push(Math.floor(Math.random() * limit))
+      }
+    }else{
+      for(let i=0;i<length;i++){
+        tempArr.push(Math.floor(Math.random()))
+      }
+    }
+  }
+  return tempArr
+}
