@@ -8,7 +8,7 @@ const PageContent = (props) => {
   const Page1Lazy = lazy(() => import("../Page1"))
   const Page2Lazy = lazy(() => import("../Page2"))
   const Page3Lazy = lazy(() => import("../Page3/ThirdPageCombine"))
-  const Page4Lazy = lazy(() => import("../Page3/ThirdPageCombine"))
+  const Page4Lazy = lazy(() => import("../Page4/FourthPageCombine"))
   const Page5Lazy = lazy(() => import("../page5"))
   const Page6Lazy = lazy(() => import("../page6"))
   const Page7Lazy = lazy(() => import("../Page7"))

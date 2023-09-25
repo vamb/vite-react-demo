@@ -1,21 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
+import { Button } from 'antd'
 
 interface ContentProps {
   idx?: any,
   unitTitle?: any,
   title?: any,
   children: any,
+  disBtn?: boolean
 }
 
 const UnitContent = (props: ContentProps) =>{
-  const { idx, unitTitle, title } = props
+  const { idx, unitTitle, title, disBtn } = props
+  const [ hideContent, setHideContent ] = useState(false)
+
+  useEffect(()=>{
+    disBtn? setHideContent(disBtn): null
+  },[disBtn])
+
   return (
     <Wrapper>
-      {props.children}
+      { !hideContent && props.children }
       {
         (idx || unitTitle || title) &&
         <div className={'common-unit-content-idx-display'}>{`${idx? idx: ''} ${unitTitle || title}`}</div>
+      }
+      {
+        disBtn &&
+        <Button
+          type={'primary'} size={'small'} className={'common-unit-content-btn-display'}
+          onClick={()=>setHideContent(!hideContent)}
+        >{hideContent? '展示': '隐藏'}</Button>
       }
     </Wrapper>
   )
@@ -33,6 +48,11 @@ const Wrapper = styled('div')`
     font-size: 12px;
     font-weight: 500;
     opacity: 0.6;
+  }
+  .common-unit-content-btn-display {
+    position: absolute;
+    top: 1px;
+    right: 10px;
   }
 `
 
