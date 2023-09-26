@@ -11,6 +11,7 @@ import Demo11_06 from "./component/Demo11_06";
 import Demo11_07 from "./component/Demo11_07";
 import Demo11_08 from "./component/Demo11_08";
 import Demo11_09 from "./component/Demo11_09";
+import Demo11_10 from "./component/Demo11_10";
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
 
 const { TabPane } = Tabs
@@ -53,6 +54,7 @@ const ReactPage11 = () => {
             <Demo11_07 />
             <Demo11_08 />
             <Demo11_09 />
+            <Demo11_10 />
           </div>
         </TabPane>
       </Tabs>
