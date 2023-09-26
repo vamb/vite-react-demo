@@ -3,7 +3,9 @@ import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import { generateRandomArr } from '../../utils/utils'
 
-
+/**
+ * 时间复杂度 O(n*logn)
+ */
 const Demo11_07 = () => {
   const [ randomArr, setRandomArr ] = useState([])
   const [ restArr, setRestArr ] = useState([])
