@@ -7,6 +7,9 @@ import { generateRandomArr } from '../../utils/utils'
  * 归并排序
  * 假设现在的列表分两段有序，如何将其合成为一个有序列表
  *
+ * 时间复杂度：O(n*logn)
+ * 空间复杂度：O(n)
+ *
  * 1) 将列表越分越小，直至分成一个元素
  * 2) 终止条件：一个元素是有序的
  * 3) 合并：将两个有序列表归并，列表越来越大
@@ -27,6 +30,7 @@ const Demo11_09 = () => {
     initRandomArr()
   },[])
 
+  // 一次归并操作
   const merge = (arr, low, mid, high) => {
     let i = low
     let j = mid + 1
