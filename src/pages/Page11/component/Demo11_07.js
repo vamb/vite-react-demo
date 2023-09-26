@@ -64,7 +64,7 @@ const Demo11_07 = () => {
   },[randomArr])
 
   return (
-    <UnitContent title={'11_7 快速排序'}>
+    <UnitContent title={'11_7 快速排序'} disBtn={false}>
       <Wrapper>
         <div>{`Random Array: ${randomArr}`}</div>
         <div>{`Random Array after: ${restArr}`}</div>
