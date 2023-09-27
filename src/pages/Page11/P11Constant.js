@@ -6,7 +6,9 @@ P11Constant.STORE_KEY = 'P11_TAB_KEY'
 
 P11Constant.TABS_MAP = {
   TAB1: { key: 'P11_TAB_1', label: '3作用域' },
-  TAB2: { key: 'P11_TAB_2', label: 'algorithm' }
+  TAB2: { key: 'P11_TAB_2', label: 'algorithm' },
+  TAB3: { key: 'P11_TAB_3', label: 'TAB3' },
+
 }
 
 P11Constant.DEMO_11_0_GROUP_MAP = {
