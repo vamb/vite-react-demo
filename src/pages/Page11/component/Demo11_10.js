@@ -99,14 +99,72 @@ const Demo11_10 = () => {
     return matrix
   };
 
+  const findDiagonalOrder = function(mat) {
+    let i = 0;
+    let j = 0;
+    let tempArr = [mat[0][0]]
+    while(i < mat.length-1 || j < mat[0].length-1){
+      while(true){
+        i--
+        j++
+        if(i < 0 && j<mat[0].length){
+          i = 0
+          tempArr.push(mat[i][j])
+          break
+        }else if(i<0 && j===mat[0].length){
+          i=i+2
+          j = mat[0].length-1
+          if(i<mat.length){
+            tempArr.push(mat[i][j])
+          }
+          break
+        }
+        if(j===mat[0].length){
+          i = i+2
+          j = mat[0].length-1
+          if(i<mat.length){
+            tempArr.push(mat[i][j])
+          }
+          break
+        }
+        tempArr.push(mat[i][j])
+      }
+      while(true){
+        i++
+        j--
+        if(j<0 && i<mat.length){
+          j=0
+          tempArr.push(mat[i][j])
+          break
+        }else if(j < 0 && i === mat.length -1){
+          j=j+2
+          i = mat.length-1
+          if(j<mat[0].length){
+            tempArr.push(mat[i][j])
+          }
+          break
+        }
+        if(i===mat.length) {
+          j=j+2
+          i=mat.length-1
+          if(j<mat[0].length){
+            tempArr.push(mat[i][j])
+          }
+          break
+        }
+        tempArr.push(mat[i][j])
+      }
+    }
+    return tempArr
+  };
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
-
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
-
     // const rest = rotate([[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]])
+    // const rest = setZeroes([[0,1,2,0],[3,4,5,2],[1,3,1,5]])
 
-    const rest = setZeroes([[0,1,2,0],[3,4,5,2],[1,3,1,5]])
+    const rest = findDiagonalOrder([[2,3]])
 
     console.log('rest', rest)
   },[])
