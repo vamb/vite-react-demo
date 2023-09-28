@@ -158,13 +158,50 @@ const Demo11_10 = () => {
     return tempArr
   };
 
+  const findDiagonalOrderV2 = function(mat) {
+    let i = mat.length
+    let j = mat[0].length
+    const loopNum = i+j-1
+  }
+
+  const longestCommonPrefix = function(strs) {
+    if(strs.length===1){
+      return strs[0]
+    }
+    for(let i=0;i<strs.length - 1;i++) {
+      if(strs[i].length<strs[i+1].length){
+        let temp = strs[i]
+        strs[i] = strs[i+1]
+        strs[i+1] = temp
+      }
+    }
+    let smallStr = strs[strs.length-1]
+    let prefixStr = ''
+
+    debugger
+    console.log('strs', strs)
+    for(let i=1;i<=smallStr.length;i++){
+      debugger
+      for(let j=0;j<strs.length-1;j++){
+        if(strs[j].substring(0, i) !== smallStr.substring(0,i)){
+          return prefixStr
+        }
+      }
+      prefixStr = smallStr.substring(0,i)
+    }
+    return prefixStr
+  };
+
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
     // const rest = rotate([[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]])
     // const rest = setZeroes([[0,1,2,0],[3,4,5,2],[1,3,1,5]])
+    // const rest = findDiagonalOrder([[2,3]]) //[[1,2,3],[4,5,6],[7,8,9]]
+    const rest = longestCommonPrefix(["ab", "a"]) // ["flower","flow","flight"] ["dog","racecar","car"] ["ab", "a"]
 
-    const rest = findDiagonalOrder([[2,3]])
+    // const rest = longestPalindrome("cbbd") // "cbbd" "babad"
 
     console.log('rest', rest)
   },[])
