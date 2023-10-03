@@ -69,7 +69,7 @@ const Demo11_09 = () => {
   }
 
   return (
-    <UnitContent title={'11_9 归并排序'} disBtn={false}>
+    <UnitContent title={'11_09 归并排序'} disBtn={false}>
       <Wrapper>
         <div>{`Random Array: ${randomArr}`}</div>
         <div>{`Random Array after: ${restArr}`}</div>
