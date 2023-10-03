@@ -402,8 +402,28 @@ const Demo11_10 = () => {
         }
       }
     }
-
     return find(nums, startIdx, endIdx)
+  };
+
+  const sortArray = function(nums) {
+    let targetArr = [nums[0]]
+
+    for(let i=1;i<nums.length;i++){
+      let isPassed = false
+      const newArr = []
+      for(let j=0;j<targetArr.length;j++) {
+        if(targetArr[j] > nums[i] && !isPassed){
+          newArr.push(nums[i])
+          isPassed = true
+        }
+        newArr.push(targetArr[j])
+      }
+      if(!isPassed){
+        newArr.push(nums[i])
+      }
+      targetArr = newArr
+    }
+    return targetArr
   };
 
   React.useEffect(()=>{
@@ -420,8 +440,9 @@ const Demo11_10 = () => {
     // const rest = generate(5)
     // const rest = getRow(30)
     // const rest = reverseWords("Let's take LeetCode contest")
+    // const rest = findMin([2, 3, 1]) // [3,4,5,1,2] [1]
+    const rest = sortArray([5,2,3,1])
 
-    const rest = findMin([2, 3, 1]) // [3,4,5,1,2] [1]
     console.log('rest', rest)
   },[])
 
