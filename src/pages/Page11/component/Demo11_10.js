@@ -426,6 +426,60 @@ const Demo11_10 = () => {
     return targetArr
   };
 
+  const findIdx = function(arr, x) {
+    let left = 0, right = arr.length -1
+    while(left<=right) {
+      let mid = left + ((right - left) >> 1)
+      if(arr[mid] === x) {
+        return mid
+      }else if(arr[mid] < x) {
+        left = mid + 1
+      }else if(arr[mid] > x) {
+        right = mid - 1
+      }
+    }
+    return left
+  }
+  const handleArr = (arr, idx, k, isLeft)=> {
+    let leftIdx = idx
+    let rightIdx = idx
+    let currMode = isLeft
+    let tempArr = [arr[idx]]
+    let loop = 1
+    debugger
+    while(loop < k) {
+      if(currMode) {
+        if(leftIdx - 1 >=0) {
+          tempArr = [arr[leftIdx - 1]].concat(tempArr)
+          loop ++
+        }
+        leftIdx = leftIdx - 1
+        currMode = false
+      }else{
+        if(rightIdx + 1 < arr.length) {
+          tempArr.push(arr[rightIdx + 1])
+          loop ++
+        }
+        rightIdx = rightIdx + 1
+        currMode = true
+      }
+    }
+    return tempArr
+  }
+  const findClosestElements = function(arr, k, x) {
+    const idx = findIdx(arr, x)
+    let targetArr = []
+    debugger
+    if(arr[idx] === x) {
+      targetArr = handleArr(arr, idx, k, true)
+    }else if(arr[idx] < x) {
+      targetArr = handleArr(arr, idx, k, false)
+    }else if(arr[idx] > x) {
+      targetArr = handleArr(arr, idx - 1 >=0? idx-1: 0, k, true)
+    }
+    return targetArr
+  };
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
@@ -441,7 +495,8 @@ const Demo11_10 = () => {
     // const rest = getRow(30)
     // const rest = reverseWords("Let's take LeetCode contest")
     // const rest = findMin([2, 3, 1]) // [3,4,5,1,2] [1]
-    const rest = sortArray([5,2,3,1])
+    // const rest = sortArray([5,2,3,1])
+    const rest = findClosestElements([0,1,1,1,2,3,6,7,8,9] ,9 ,4) // [-2,-1,1,2,3,4,5] ,7, 3 || [1,2,3,4,5], 4, 3 || [0,1,1,1,2,3,6,7,8,9] ,9 ,4
 
     console.log('rest', rest)
   },[])

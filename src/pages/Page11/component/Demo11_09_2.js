@@ -52,19 +52,19 @@ const Demo11_09_2 = () => {
     if(nums.length === 1){
       return nums[0]
     }else if(nums.length === 2) {
-      return nums[0] < nums[1]? 0: 1
+      return nums[0] < nums[1]? nums[0]: nums[1]
     }
 
     let left = 0, right = nums.length - 1
     while(left < right) {
       let mid = left + ((right - left) >> 1)
-      if(nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]){
+      if(nums[mid] < nums[mid - 1<0? nums.length-1: mid-1] && nums[mid] < nums[mid + 1 === nums.length?0: mid+1]){
         return nums[mid]
-      }else if(nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
+      }else if(nums[mid] > nums[mid - 1<0? nums.length-1: mid-1] && nums[mid] > nums[mid + 1 === nums.length?0: mid+1]) {
         return nums[mid + 1]
-      }else if(nums[mid] > nums[mid - 1] && nums[mid] < nums[right]) {
+      }else if(nums[mid] > nums[mid - 1<0? nums.length-1: mid-1] && nums[mid] < nums[right]) {
         right = mid - 1
-      }else if(nums[mid] > nums[mid - 1] && nums[mid] > nums[right]) {
+      }else if(nums[mid] > nums[mid - 1<0? nums.length-1: mid-1] && nums[mid] > nums[right]) {
         left = mid + 1
       }
     }
@@ -85,7 +85,7 @@ const Demo11_09_2 = () => {
       <Wrapper>
         <div>{`Random Array: ${randomArr}`}</div>
         <div>{`Find ${randomArr[4]}: ${divideSort(randomArr, randomArr[4])}`}</div>
-        <div>{`Find min: ${findMin(randomArr)}`}</div>
+        <div>{`Find min: ${findMin([1,2,3,4,5])}`}</div>
       </Wrapper>
     </UnitContent>
   )
