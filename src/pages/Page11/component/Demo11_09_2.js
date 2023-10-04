@@ -6,10 +6,11 @@ import { generateRandomArr } from '../../utils/utils'
 const Demo11_09_2 = () => {
   const [ randomArr, setRandomArr ] = useState([])
 
+  // 普通二分法
   const divideSort = function(nums, target) {
     let left = 0, right = nums.length - 1;
     while(left <= right) {
-      let mid = (left + right) >>> 1;
+      let mid = left + ((right - left) >>> 1);
       if(nums[mid] < target) {
         left = mid + 1;
       }else if(nums[mid] > target) {
@@ -20,6 +21,31 @@ const Demo11_09_2 = () => {
     }
     return -1;
   };
+
+  // 应对旋转的二分法
+  const rotateDivideSort = function (nums, target) {
+    let left=0, right=nums.length-1;
+    while(left<=right) {
+      let mid=left + ((right - left) >> 1)
+      if(nums[mid]===target){
+        return mid;
+      } else if(nums[left]<=nums[mid]) {
+        if(target<nums[mid]&&target>=nums[left]){
+          right=mid-1;
+        } else {
+          left=mid+1;
+        }
+      }
+      else{
+        if(target<=nums[right]&&target>nums[mid]){
+          left=mid+1;
+        }else {
+          right=mid-1;
+        }
+      }
+    }
+    return -1;
+  }
 
   const initRandomArr = () => {
     const randomArr = generateRandomArr(10, 100)
