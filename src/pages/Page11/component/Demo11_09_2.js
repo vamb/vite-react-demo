@@ -22,7 +22,7 @@ const Demo11_09_2 = () => {
     return -1;
   };
 
-  // 应对旋转的二分法
+  // 应对旋转的二分法 - 查询特定数字
   const rotateDivideSort = function (nums, target) {
     let left=0, right=nums.length-1;
     while(left<=right) {
@@ -47,6 +47,30 @@ const Demo11_09_2 = () => {
     return -1;
   }
 
+  // 应对旋转的二分法 - 查询特定最小数
+  const findMin = function(nums) {
+    if(nums.length === 1){
+      return nums[0]
+    }else if(nums.length === 2) {
+      return nums[0] < nums[1]? 0: 1
+    }
+
+    let left = 0, right = nums.length - 1
+    while(left < right) {
+      let mid = left + ((right - left) >> 1)
+      if(nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]){
+        return nums[mid]
+      }else if(nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
+        return nums[mid + 1]
+      }else if(nums[mid] > nums[mid - 1] && nums[mid] < nums[right]) {
+        right = mid - 1
+      }else if(nums[mid] > nums[mid - 1] && nums[mid] > nums[right]) {
+        left = mid + 1
+      }
+    }
+    return left === right? nums[left]: -1
+  };
+
   const initRandomArr = () => {
     const randomArr = generateRandomArr(10, 100)
     setRandomArr(randomArr)
@@ -61,6 +85,7 @@ const Demo11_09_2 = () => {
       <Wrapper>
         <div>{`Random Array: ${randomArr}`}</div>
         <div>{`Find ${randomArr[4]}: ${divideSort(randomArr, randomArr[4])}`}</div>
+        <div>{`Find min: ${findMin(randomArr)}`}</div>
       </Wrapper>
     </UnitContent>
   )
