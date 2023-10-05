@@ -545,8 +545,32 @@ const Demo11_10 = () => {
         return sum
       }
     }
-
     return cal(num, count, 0, 0, 0, 0)
+  };
+
+  const searchInsert = function(nums, target) {
+    if(target <= nums[0]) {
+      return 0
+    }else if(target >= nums[nums.length - 1]) {
+      return nums.length - 1
+    }else {
+      let left = 0, right = nums.length - 1
+      while(left<=right) {
+        let mid = left + ((right - left) >> 1)
+        if(nums[mid] === target) {
+          return mid
+        }else if(nums[mid] < target) {
+          left = mid + 1
+        }else if(nums[mid] > target) {
+          right = mid - 1
+        }
+      }
+      if(nums[left] < target) {
+        return left + 1
+      }else if(nums[left] > target) {
+        return left
+      }
+    }
   };
 
   React.useEffect(()=>{
@@ -567,8 +591,11 @@ const Demo11_10 = () => {
     // const rest = sortArray([5,2,3,1])
     // const rest = findClosestElements([1,3],1 ,2) // [-2,-1,1,2,3,4,5] ,7, 3 || [1,2,3,4,5], 4, 3 || [0,1,1,1,2,3,6,7,8,9] ,9 ,4 || [3,5,8,10] ,2 ,15 || [1,3],1 ,2
     // const rest = myPow(0.00001, 10)
+    // const rest = multiply(73807517 ,14) // 3, 4 || 73807517 ,14
 
-    const rest = multiply(73807517 ,14) // 3, 4 || 73807517 ,14
+    const rest = searchInsert([1,3,5,6], 2)
+
+
     console.log('rest', rest)
   },[])
 
