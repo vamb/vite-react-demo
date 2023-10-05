@@ -440,44 +440,113 @@ const Demo11_10 = () => {
     }
     return left
   }
-  const handleArr = (arr, idx, k, isLeft)=> {
+  const handleArr = (arr, idx, k, x)=> {
     let leftIdx = idx
     let rightIdx = idx
-    let currMode = isLeft
     let tempArr = [arr[idx]]
     let loop = 1
     debugger
     while(loop < k) {
-      if(currMode) {
-        if(leftIdx - 1 >=0) {
-          tempArr = [arr[leftIdx - 1]].concat(tempArr)
-          loop ++
+      if(leftIdx - 1 >=0 && rightIdx + 1 < arr.length) {
+        const nextLeftIdx = leftIdx - 1
+        const nextRightIdx = rightIdx + 1
+        if(Math.abs(arr[nextLeftIdx] - x) <= Math.abs(arr[nextRightIdx] - x)) {
+          leftIdx = nextLeftIdx
+          tempArr = [arr[nextLeftIdx]].concat(tempArr)
+        }else {
+          rightIdx = nextRightIdx
+          tempArr.push(arr[nextRightIdx])
         }
-        leftIdx = leftIdx - 1
-        currMode = false
-      }else{
-        if(rightIdx + 1 < arr.length) {
-          tempArr.push(arr[rightIdx + 1])
-          loop ++
-        }
-        rightIdx = rightIdx + 1
-        currMode = true
+        loop ++
+      }else if(leftIdx - 1 >= 0 && rightIdx +1 >= arr.length) {
+        const nextLeftIdx = leftIdx - 1
+        leftIdx = nextLeftIdx
+        tempArr = [arr[nextLeftIdx]].concat(tempArr)
+        loop ++
+      }else if(leftIdx - 1 <0 && rightIdx + 1< arr.length) {
+        const nextRightIdx = rightIdx + 1
+        rightIdx = nextRightIdx
+        tempArr.push(arr[nextRightIdx])
+        loop ++
       }
     }
     return tempArr
   }
   const findClosestElements = function(arr, k, x) {
-    const idx = findIdx(arr, x)
+    let idx
+    if(x<= arr[0]) {
+      idx = 0
+    }else if(x >= arr[arr.length - 1]){
+      idx = arr.length - 1
+    }else {
+      idx = findIdx(arr, x)
+    }
     let targetArr = []
     debugger
-    if(arr[idx] === x) {
-      targetArr = handleArr(arr, idx, k, true)
-    }else if(arr[idx] < x) {
-      targetArr = handleArr(arr, idx, k, false)
-    }else if(arr[idx] > x) {
-      targetArr = handleArr(arr, idx - 1 >=0? idx-1: 0, k, true)
+    if(arr[idx] < x && idx + 1 < arr.length && x - arr[idx] > arr[idx + 1] - x) {
+      targetArr = handleArr(arr, idx+1, k, x)
+    }else if(arr[idx] > x && idx - 1 >=0 && x - arr[idx-1] <= arr[idx] - x) {
+      targetArr = handleArr(arr, idx-1, k, x)
+    }else {
+      targetArr = handleArr(arr, idx, k, x)
     }
     return targetArr
+  };
+
+  const myPow = function(x, n) {
+    if(x === 0) {
+      return 0
+    }else if(n === 0) {
+      return 1
+    }else {
+      return n>0? x * myPow(parseFloat(x), n-1): 1/x * myPow(parseFloat(x), n + 1)
+    }
+  };
+
+  const multiply = function(A, B) {
+    let num, count
+    if(A >= B) {
+      num = BigInt(A)
+      count = BigInt(B)
+    }else {
+      num = BigInt(B)
+      count = BigInt(A)
+    }
+    /*
+    * num -> 要迭代的数字
+    * count -> 需要迭代的次数
+    * preCount -> 上一次迭代到第几次
+    * loopCount -> 上一次迭代用的数字是多少倍
+    * preNum -> 上一次迭代用的数字是多少
+    * sum -> 计算到上一次的总和是多少
+    */
+    const cal = (num, count, preCount, preNum, loopCount, sum) => {
+      debugger
+      if(preCount === 0) {
+        sum = BigInt(sum) + BigInt(num)
+        preNum = num
+        preCount ++
+        loopCount = 1n
+      }else if((BigInt(preCount) + BigInt(loopCount) + 1n) <= count) {
+        preCount = BigInt(preCount) + BigInt(loopCount) + 1n
+        loopCount = BigInt(loopCount) + 1n
+        preNum = BigInt(preNum) + BigInt(num)
+        sum = BigInt(sum) + BigInt(preNum)
+      }else{
+        preCount = BigInt(preCount) + 1n
+        preNum = num
+        loopCount = 1n
+        sum = BigInt(sum) + BigInt(num)
+      }
+
+      if(preCount < count){
+        return cal(num, count, preCount, preNum, loopCount, sum)
+      }else {
+        return sum
+      }
+    }
+
+    return cal(num, count, 0, 0, 0, 0)
   };
 
   React.useEffect(()=>{
@@ -496,8 +565,10 @@ const Demo11_10 = () => {
     // const rest = reverseWords("Let's take LeetCode contest")
     // const rest = findMin([2, 3, 1]) // [3,4,5,1,2] [1]
     // const rest = sortArray([5,2,3,1])
-    const rest = findClosestElements([0,1,1,1,2,3,6,7,8,9] ,9 ,4) // [-2,-1,1,2,3,4,5] ,7, 3 || [1,2,3,4,5], 4, 3 || [0,1,1,1,2,3,6,7,8,9] ,9 ,4
+    // const rest = findClosestElements([1,3],1 ,2) // [-2,-1,1,2,3,4,5] ,7, 3 || [1,2,3,4,5], 4, 3 || [0,1,1,1,2,3,6,7,8,9] ,9 ,4 || [3,5,8,10] ,2 ,15 || [1,3],1 ,2
+    // const rest = myPow(0.00001, 10)
 
+    const rest = multiply(73807517 ,14) // 3, 4 || 73807517 ,14
     console.log('rest', rest)
   },[])
 
