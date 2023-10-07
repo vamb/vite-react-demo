@@ -11,6 +11,24 @@ const Demo11_06 = () => {
     setRandomArr(randomArr)
   }
 
+  /**
+   * 标准插入排序的写法
+   * @param arr
+   * @returns {*}
+   */
+  const insertSortV2 = arr => {
+    for(let i=1;i<arr.length;i++) {
+      const temp = arr[i]
+      let j = i - 1
+      while(arr[j] > temp && j >= 0){
+        arr[j + 1] = arr[j]
+        j--
+      }
+      arr[j+1] = temp
+    }
+    return arr
+  }
+
   const insertSort = arr => {
     let restArr = [arr?.[0]]
     if(Array.isArray(arr) && arr.length >0) {
@@ -41,7 +59,7 @@ const Demo11_06 = () => {
     <UnitContent title={'11_06 插入排序'} disBtn={false}>
       <Wrapper>
         <div>{`Random Array: ${randomArr}`}</div>
-        <div>{`Random Array after: ${insertSort(randomArr)}`}</div>
+        <div>{`Random Array after: ${insertSortV2(randomArr)}`}</div>
       </Wrapper>
     </UnitContent>
   )
