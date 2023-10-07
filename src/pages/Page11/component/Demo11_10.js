@@ -595,7 +595,6 @@ const Demo11_10 = () => {
 
     const rest = searchInsert([1,3,5,6], 2)
 
-
     console.log('rest', rest)
   },[])
 

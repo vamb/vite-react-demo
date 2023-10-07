@@ -9,6 +9,7 @@ import Demo11_04 from "./component/Demo11_04";
 import Demo11_05 from "./component/Demo11_05";
 import Demo11_06 from "./component/Demo11_06";
 import Demo11_07 from "./component/Demo11_07";
+import Demo11_07_02 from './component/Demo11_07_02'
 import Demo11_08 from "./component/Demo11_08";
 import Demo11_09 from "./component/Demo11_09";
 import Demo11_09_2 from "./component/Demo11_09_2";
@@ -18,7 +19,7 @@ import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
 const { TabPane } = Tabs
 
 const ReactPage11 = () => {
-  const [ activeKey, setActiveKey ] = useState(P11Constant.TABS_MAP.TAB3.key)
+  const [ activeKey, setActiveKey ] = useState(P11Constant.TABS_MAP.TAB2.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -53,6 +54,7 @@ const ReactPage11 = () => {
             <Demo11_05 />
             <Demo11_06 />
             <Demo11_07 />
+            <Demo11_07_02 />
             <Demo11_08 />
             <Demo11_09 />
             <Demo11_09_2 />

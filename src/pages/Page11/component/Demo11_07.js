@@ -28,6 +28,7 @@ const Demo11_07 = () => {
         if(arr[right] < midVal) {
           arr[left] = arr[right]
           currMove = 0
+          left ++
         }else {
           right --
         }
@@ -35,6 +36,7 @@ const Demo11_07 = () => {
         if(arr[left] > midVal) {
           arr[right] = arr[left]
           currMove = 1
+          right --
         }else {
           left ++
         }
