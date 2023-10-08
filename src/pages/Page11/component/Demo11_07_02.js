@@ -94,7 +94,9 @@ const Demo11_07_02 = () => {
 }
 
 const Wrapper = styled('div')`
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `
 
 export default Demo11_07_02

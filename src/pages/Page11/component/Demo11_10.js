@@ -573,6 +573,77 @@ const Demo11_10 = () => {
     }
   };
 
+
+  const partition = (nums, start, end) => {
+    let midVal = nums[start]
+    let left = start + 1
+    let right = end
+    while(left < right) {
+      while(left < right && nums[left] <= midVal) {
+        left ++
+      }
+      if(left !== right) {
+        const temp = nums[left]
+        nums[left] = nums[right]
+        nums[right] = temp
+        right --
+      }
+    }
+    if(left === right && nums[right] > midVal) {
+      right --
+    }
+    if(start !== right) {
+      const temp = nums[start]
+      nums[start] = nums[right]
+      nums[right] = temp
+    }
+    return right
+  }
+
+  const quickSort = (nums, start, end) => {
+    if(start < end) {
+      const mid = partition(nums, start, end)
+      quickSort(nums, start, mid - 1)
+      quickSort(nums, mid + 1, end)
+    }
+  }
+
+  const divideFind = (nums, target) =>{
+    let left = 0, right = nums.length - 1
+    while(left <= right) {
+      const mid = left + ((right - left) >> 1)
+      if(nums[mid] > target) {
+        right = mid - 1
+      }else if(nums[mid] < target) {
+        left = mid + 1
+      }else {
+        return mid
+      }
+    }
+    return -1
+  }
+  const handleScoreStr = (nums, idx) => {
+    if(nums.length - idx === 1) {
+      return "Gold Medal"
+    } else if(nums.length - idx === 2) {
+      return "Silver Medal"
+    }else if(nums.length - idx === 3) {
+      return "Bronze Medal"
+    }else {
+      return nums.length - idx + ''
+    }
+  }
+  const findRelativeRanks = function(score) {
+    let fakeArr = JSON.parse(JSON.stringify(score))
+    quickSort(fakeArr, 0, fakeArr.length - 1)
+    const newArr = []
+    for(let i=0;i<score.length;i++) {
+      const thisIdx = divideFind(fakeArr, score[i])
+      newArr.push(handleScoreStr(fakeArr, thisIdx))
+    }
+    return newArr
+  };
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
@@ -592,9 +663,9 @@ const Demo11_10 = () => {
     // const rest = findClosestElements([1,3],1 ,2) // [-2,-1,1,2,3,4,5] ,7, 3 || [1,2,3,4,5], 4, 3 || [0,1,1,1,2,3,6,7,8,9] ,9 ,4 || [3,5,8,10] ,2 ,15 || [1,3],1 ,2
     // const rest = myPow(0.00001, 10)
     // const rest = multiply(73807517 ,14) // 3, 4 || 73807517 ,14
+    // const rest = searchInsert([1,3,5,6], 2)
 
-    const rest = searchInsert([1,3,5,6], 2)
-
+    const rest = findRelativeRanks([1,2,3,4,5])
     console.log('rest', rest)
   },[])
 
