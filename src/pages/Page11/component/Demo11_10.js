@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
+import { generateRandomArr } from '../../utils/utils'
 
 const Demo11_10 = () => {
 
@@ -665,7 +666,9 @@ const Demo11_10 = () => {
     // const rest = multiply(73807517 ,14) // 3, 4 || 73807517 ,14
     // const rest = searchInsert([1,3,5,6], 2)
 
-    const rest = findRelativeRanks([1,2,3,4,5])
+    const tempArr = generateRandomArr(10, 100)
+    console.log('tempArr', tempArr)
+    const rest = findRelativeRanks(tempArr)
     console.log('rest', rest)
   },[])
 
