@@ -12,6 +12,7 @@ import Demo11_07 from "./component/Demo11_07";
 import Demo11_07_02 from './component/Demo11_07_02'
 import Demo11_07_03 from './component/Demo11_07_03'
 import Demo11_08 from "./component/Demo11_08";
+import Demo11_08_02 from "./component/Demo11_08_02";
 import Demo11_09 from "./component/Demo11_09";
 import Demo11_09_2 from "./component/Demo11_09_2";
 import Demo11_10 from "./component/Demo11_10";
@@ -58,6 +59,7 @@ const ReactPage11 = () => {
             <Demo11_07_02 />
             <Demo11_07_03 />
             <Demo11_08 />
+            <Demo11_08_02 />
             <Demo11_09 />
             <Demo11_09_2 />
           </div>

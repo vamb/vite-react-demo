@@ -36,6 +36,7 @@ const Demo11_08 = () => {
   },[])
 
   /**
+   * 目前是大根堆
    * 一次移动（从上往下移动）
    * @param arr 完整的数组
    * @param low 移动的起始坐标（初始是顶层）
@@ -60,7 +61,6 @@ const Demo11_08 = () => {
     }
     arr[i] = temp
   }
-
 
   const heapSort = (arr) => {
     const arrLength = arr.length
