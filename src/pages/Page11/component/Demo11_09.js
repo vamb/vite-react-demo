@@ -61,7 +61,7 @@ const Demo11_09 = () => {
 
   const mergeSort = (arr, low, high) =>{
     if(low < high) { // 至少有两个元素，递归
-      let mid = parseInt((low + high) / 2)
+      let mid = (low+high) >> 1
       mergeSort(arr, low, mid)
       mergeSort(arr, mid+1, high)
       merge(arr, low, mid, high)
