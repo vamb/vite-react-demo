@@ -22,7 +22,7 @@ import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
 const { TabPane } = Tabs
 
 const ReactPage11 = () => {
-  const [ activeKey, setActiveKey ] = useState(P11Constant.TABS_MAP.TAB3.key)
+  const [ activeKey, setActiveKey ] = useState(P11Constant.TABS_MAP.TAB2.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {

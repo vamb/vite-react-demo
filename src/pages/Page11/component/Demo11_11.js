@@ -26,17 +26,16 @@ const Demo11_11 = () => {
     }
 
     for(let idx = 0;idx<nums.length;idx ++) {
-      const bucketIdx = parseInt(nums[idx] / (max_num / n))
+      const bucketIdx = parseInt(nums[idx] / parseInt(max_num / n))
+
       buckets[bucketIdx].push(nums[idx])
-      for(let j = buckets[bucketIdx].length - 2;j>=0;j--) {
-        if(buckets[bucketIdx][j] > buckets[bucketIdx][buckets[bucketIdx].length - 1]) {
-          const temp = buckets[bucketIdx][j]
-          buckets[bucketIdx][j] = buckets[bucketIdx][buckets[bucketIdx].length - 1]
-          buckets[bucketIdx][buckets[bucketIdx].length - 1] = temp
-        }else{
-          break
-        }
+      const temp = nums[idx]
+      let j = buckets[bucketIdx].length - 2
+      while(j>=0 && buckets[bucketIdx][j] > temp) {
+        buckets[bucketIdx][j + 1] = buckets[bucketIdx][j]
+        j--
       }
+      buckets[bucketIdx][j + 1] = temp
     }
 
     const tempArr = []
