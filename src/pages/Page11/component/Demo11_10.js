@@ -645,6 +645,72 @@ const Demo11_10 = () => {
     return newArr
   };
 
+
+  const divideFindRelativeSortArray = (nums, target) => {
+    for(let i =0;i<nums.length;i++) {
+      if(nums[i] === target) {
+        return i
+      }
+    }
+    return -1
+  }
+  const mergeRelativeSortArray = (nums, low, high, mid) => {
+    let i = low
+    let j = mid+1
+    const temp = []
+    while(i<=mid && j<=high) {
+      if(nums[i] < nums[j]) {
+        temp.push(nums[i])
+        i++
+      }else {
+        temp.push(nums[j])
+        j++
+      }
+    }
+    while(i<=mid) {
+      temp.push(nums[i])
+      i++
+    }
+    while(j<=high) {
+      temp.push(nums[j])
+      j++
+    }
+    for(let i =low;i<=high;i++) {
+      nums[i] = temp[i-low]
+    }
+  }
+  const mergeSort = (nums, low, high) => {
+    if(low < high) {
+      const mid = (low + high) >> 1
+      mergeSort(nums, low, mid)
+      mergeSort(nums, mid+1, high)
+      mergeRelativeSortArray(nums, low, high, mid)
+    }
+  }
+  const relativeSortArray = function(arr1, arr2) {
+    const arr2Count = new Array(arr2.length)
+    const arr1SplitArr = []
+    debugger
+    for(let i=0;i<arr1.length;i++) {
+      const idx = divideFindRelativeSortArray(arr2, arr1[i]) // 找到arr1数组中的某个数在arr2中的下标
+      if(idx !== -1) {
+        arr2Count[idx] = !arr2Count[idx]? 1: arr2Count[idx]++
+      }else {
+        arr1SplitArr.push(arr1[i])
+      }
+    }
+    debugger
+    mergeSort(arr1SplitArr, 0, arr1SplitArr.length-1)
+    let temp = []
+    for(let i = arr2;i<arr2.length;i++) {
+      for(let j=0;j<arr2Count[i];j++) {
+        temp.push(arr2[i])
+      }
+    }
+    temp = temp.concat(arr1SplitArr)
+    return temp
+  };
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
@@ -666,9 +732,12 @@ const Demo11_10 = () => {
     // const rest = multiply(73807517 ,14) // 3, 4 || 73807517 ,14
     // const rest = searchInsert([1,3,5,6], 2)
 
-    const tempArr = generateRandomArr(10, 100)
-    console.log('tempArr', tempArr)
-    const rest = findRelativeRanks(tempArr)
+    // const tempArr = generateRandomArr(10, 100)
+    // console.log('tempArr', tempArr)
+    // const rest = findRelativeRanks(tempArr)
+
+
+    const rest = relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6])
     console.log('rest', rest)
   },[])
 
