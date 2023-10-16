@@ -645,8 +645,7 @@ const Demo11_10 = () => {
     return newArr
   };
 
-
-  const divideFindRelativeSortArray = (nums, target) => {
+  const search = (nums, target) => {
     for(let i =0;i<nums.length;i++) {
       if(nums[i] === target) {
         return i
@@ -654,61 +653,61 @@ const Demo11_10 = () => {
     }
     return -1
   }
-  const mergeRelativeSortArray = (nums, low, high, mid) => {
-    let i = low
-    let j = mid+1
-    const temp = []
-    while(i<=mid && j<=high) {
-      if(nums[i] < nums[j]) {
-        temp.push(nums[i])
-        i++
-      }else {
-        temp.push(nums[j])
-        j++
+  const relativePartition = (nums, start, end) => {
+    const midVal = nums[start]
+    let left = start + 1
+    let right = end
+    while(left < right) {
+      while(left < right && nums[left] <= midVal) {
+        left ++
+      }
+      if(left !== right) {
+        const temp = nums[left]
+        nums[left] = nums[right]
+        nums[right] = temp
+        right--
       }
     }
-    while(i<=mid) {
-      temp.push(nums[i])
-      i++
+    if(left === right && nums[right] > midVal) {
+      right --
     }
-    while(j<=high) {
-      temp.push(nums[j])
-      j++
+    if(start !== right) {
+      const temp = nums[start]
+      nums[start] = nums[right]
+      nums[right] = temp
     }
-    for(let i =low;i<=high;i++) {
-      nums[i] = temp[i-low]
-    }
+    return right
   }
-  const mergeSort = (nums, low, high) => {
-    if(low < high) {
-      const mid = (low + high) >> 1
-      mergeSort(nums, low, mid)
-      mergeSort(nums, mid+1, high)
-      mergeRelativeSortArray(nums, low, high, mid)
+  const relativeQuickSort = (nums, start, end) => {
+    if(start < end) {
+      const mid = relativePartition(nums, start, end)
+      relativeQuickSort(nums, start , mid-1)
+      relativeQuickSort(nums, mid+1, end)
     }
   }
   const relativeSortArray = function(arr1, arr2) {
     const arr2Count = new Array(arr2.length)
-    const arr1SplitArr = []
-    debugger
+    const arr1Rest = []
     for(let i=0;i<arr1.length;i++) {
-      const idx = divideFindRelativeSortArray(arr2, arr1[i]) // 找到arr1数组中的某个数在arr2中的下标
-      if(idx !== -1) {
-        arr2Count[idx] = !arr2Count[idx]? 1: arr2Count[idx]++
-      }else {
-        arr1SplitArr.push(arr1[i])
+      debugger
+      const idx = search(arr2, arr1[i])
+      if(-1===idx) {
+        arr1Rest.push(arr1[i])
+      }else{
+        !arr2Count[idx]? arr2Count[idx] = 1: arr2Count[idx]++
       }
     }
     debugger
-    mergeSort(arr1SplitArr, 0, arr1SplitArr.length-1)
-    let temp = []
-    for(let i = arr2;i<arr2.length;i++) {
-      for(let j=0;j<arr2Count[i];j++) {
-        temp.push(arr2[i])
+    relativeQuickSort(arr1Rest,0 , arr1Rest.length-1)
+
+    let tempArr = []
+    for(let i = 0;i<arr2.length;i++) {
+      for(let j = 0;j<arr2Count[i];j++) {
+        tempArr.push(arr2[i])
       }
     }
-    temp = temp.concat(arr1SplitArr)
-    return temp
+    tempArr = tempArr.concat(arr1Rest)
+    return tempArr
   };
 
   React.useEffect(()=>{
