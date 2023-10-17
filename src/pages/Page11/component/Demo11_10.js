@@ -710,6 +710,38 @@ const Demo11_10 = () => {
     return tempArr
   };
 
+  const shellSort = nums => {
+    for(let gap=(nums.length >>1); gap>0; gap = (gap>>1)){
+      for(let i = gap;i<nums.length;i++) {
+        const temp = nums[i]
+        let j = i - gap
+        while(j>=0 && nums[j] > temp){
+          nums[j+gap] = nums[j]
+          j = j - gap
+        }
+        nums[j+gap] = temp
+      }
+    }
+  }
+
+  const longestConsecutive = function(nums) {
+    shellSort(nums)
+    let temp = 0
+    let max = 0
+    for(let i =0;i<nums.length-1;i++) {
+      if(nums[i+1] - nums[i]===1){
+        temp++
+      }else if(temp!==0){
+        max = temp+1 > max? temp+1: max
+        temp = 0
+      }
+    }
+    if(temp>0){
+      max = temp+1 > max? temp+1: max
+    }
+    return max
+  };
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
@@ -734,9 +766,10 @@ const Demo11_10 = () => {
     // const tempArr = generateRandomArr(10, 100)
     // console.log('tempArr', tempArr)
     // const rest = findRelativeRanks(tempArr)
+    // const rest = relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6])
+    const rest = longestConsecutive([0,3,7,2,5,8,4,6,0,1])
 
 
-    const rest = relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6])
     console.log('rest', rest)
   },[])
 
