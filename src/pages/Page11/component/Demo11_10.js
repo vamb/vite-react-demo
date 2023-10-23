@@ -742,6 +742,95 @@ const Demo11_10 = () => {
     return max
   };
 
+  const ubarraySum = function(nums, k) {
+    let start = 0
+    let count = 0
+    while(start < nums.length) {
+      let sum = 0
+      let idx = start
+      debugger
+      while(idx < nums.length) {
+        sum = sum + nums[idx]
+        if(sum === k){
+          count ++
+          start ++
+          break
+        }else if(sum > k) {
+          start ++
+          break
+        }else{
+          idx ++
+        }
+      }
+      if(start === nums.length-1){
+        break
+      }
+    }
+    if(nums[nums.length-1] === k){
+      count ++
+    }
+    return count
+  };
+
+  const singleNumber = function(nums) {
+    quickSort(nums,0,nums.length-1)
+    for(let i=0;i<nums.length-1;i=i+2) {
+      if(nums[i] !== nums[i+1]) {
+        return nums[i]
+      }
+    }
+    return nums[nums.length-1]
+  };
+
+  const yhArr = (preArr, n, idx) => {
+    if(idx === 0 || idx === n-1 || n === 1) {
+      return 1
+    }else {
+      return preArr[idx-1] + preArr[idx]
+    }
+  }
+  const generateV2 = function(numRows) {
+    const targetArr = []
+    for(let i =0;i<numRows;i++) {
+      const temp = []
+      for(let j=0;j<i+1;j++) {
+        if(i>0) {
+          temp.push(yhArr(targetArr[i-1], i+1, j))
+        }else{
+          temp.push(yhArr([],i+1,j))
+        }
+      }
+      targetArr.push(temp)
+    }
+    return targetArr
+  };
+
+  const maxSubArray = function(nums) {
+    let pre = 0, maxAns = nums[0];
+    nums.forEach((x) => {
+      pre = Math.max(pre + x, x);
+      maxAns = Math.max(maxAns, pre);
+    });
+    return maxAns;
+  };
+
+  const longestPalindrome = function(s) {
+    let i = 0,j=1,target = ''
+    while(i<s.length && s.length - target.length > i) {
+      while(j<=s.length) {
+        const temp = s.substring(i,j)
+        const temp2 = temp.split('').reverse().join('')
+        if(temp === temp2 && temp.length > target.length) {
+          target = temp
+        }
+        j++
+      }
+      i++
+      j=i+1
+    }
+    return target
+  };
+
   React.useEffect(()=>{
     // const rest = pivotIndex([1,7,3,6,5,6])
     // const rest = merge([[1,3],[2,6],[8,10],[15,18]])
@@ -767,8 +856,12 @@ const Demo11_10 = () => {
     // console.log('tempArr', tempArr)
     // const rest = findRelativeRanks(tempArr)
     // const rest = relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6])
-    const rest = longestConsecutive([0,3,7,2,5,8,4,6,0,1])
-
+    // const rest = longestConsecutive([0,3,7,2,5,8,4,6,0,1])
+    // const rest = ubarraySum([1,2,3], 3) // [1,2,3], 3 ||[1,1,1], 2
+    // const rest = singleNumber([1,0,1])
+    // const rest = generateV2(5)
+    // const rest = maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
+    const rest = longestPalindrome("babad")
 
     console.log('rest', rest)
   },[])

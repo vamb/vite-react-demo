@@ -3,6 +3,13 @@ import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import { shallowClone, deepClone } from '../../utils/utils'
 
+/**
+ * JSON.parse(JSON.stringify(target)) 是有局限性的
+ * 会忽略 undefined
+ * 会忽略 symbol
+ * 不能序列化函数
+ * 不能解决循环引用的对象
+ */
 const Demo9_1 = memo(()=>{
 
   useEffect(()=>{
