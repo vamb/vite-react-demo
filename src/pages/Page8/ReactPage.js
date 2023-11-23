@@ -13,11 +13,11 @@ import { Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,
   Demo28_2, Demo28_3, Demo28_4, Demo28_5, Demo28_6, Demo28_7, Demo28_8, Demo28_9,
   Demo28_10, Demo29_0, Demo29_1, Demo29_2, Demo30_0, Demo30_1, Demo31_0, Demo30_2,
   Demo28_11, Demo28_12, Demo28_13, Demo28_14, Demo28_15, Demo28_16, Demo28_17, Demo29_3,
-  Demo32_0,
+  Demo32_0, Demo33_0,
 } from './PageIndex'
 
 const ReactPage = () =>{
-  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB14.key)
+  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB10.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = (key) =>{
@@ -167,6 +167,7 @@ const ReactPage = () =>{
             key: TestConstant.TABS_MAP.TAB10.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo33_0 />
                 <Demo28_17 />
                 <Demo28_16 />
                 <Demo28_15 />
