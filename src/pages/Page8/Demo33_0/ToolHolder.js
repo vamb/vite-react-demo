@@ -12,9 +12,8 @@ const ToolHolder = props => {
     // 创建一个新的 div 元素
     const newContainer = document.createElement('div');
     newContainer.style.position = 'fixed'
-    newContainer.style.left = '50%'
-    newContainer.style.top = '40%'
-    newContainer.style.transform = `translate(-50%, -50%)`
+    newContainer.style.left = '0'
+    newContainer.style.top = '0'
     newContainer.style.zIndex = '1000'
 
     // 将新的 div 元素添加到 body 节点上
