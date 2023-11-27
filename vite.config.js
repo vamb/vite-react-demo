@@ -7,7 +7,11 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  assetsInclude: ['**/*.awebp', '**/*.webp', '**/*.jpg', '**/*.jpeg', '**/*.png'],
+  assetsInclude: [
+    '**/*.awebp', '**/*.webp', '**/*.jpg', '**/*.jpeg',
+    '**/*.png', '**/*.docx', '**/*.doc', '**/*.pdf', '**/*.xlsx', '**/*.txt',
+    '**/*.pptx',
+  ],
   resolve: {
     alias: {
       'src': resolve(__dirname,'src'),

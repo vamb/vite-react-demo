@@ -19,6 +19,7 @@ TestContext.TABS = [
   { key: 'tab12', label: '3D' },
   { key: 'tab13', label: 'CSS色卡 - v2' },
   { key: 'tab14', label: 'ButterflyDag' },
+  { key: 'tab15', label: '文件预览' },
 ]
 
 TestContext.TABS_MAP = {
@@ -36,6 +37,7 @@ TestContext.TABS_MAP = {
   TAB12: { key: 'tab12', label: '3D' },
   TAB13: { key: 'tab13', label: 'CSS色卡 - v2' },
   TAB14: { key: 'tab14', label: 'ButterflyDag' },
+  TAB15: { key: 'tab15', label: '文件预览' },
 }
 
 export default TestContext

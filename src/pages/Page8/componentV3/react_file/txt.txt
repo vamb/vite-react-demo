@@ -1,0 +1,14 @@
+register --messageApp=C:\Users\admin\AppData\Local\QuickBot\NativeMessaging\Chrome\SkybridgeChromeNativeMessaging.exe --manifest=C:\Users\admin\AppData\Local\QuickBot\NativeMessaging\Chrome\SkybridgeChromeNativeMessaging.exe.manifest.json
+
+HKEY_CURRENT_USER\Software\Google\Chrome\NativeMessagingHosts\skybridge.native_messaging
+
+
+F:\software\Skybridge.RPA\Extension\Output\Debug\SkybridgeChromeNativeMessaging\SkybridgeChromeNativeMessaging.exe.manifest.json
+
+
+HKEY_CURRENT_USER\Software\Google\Chrome\NativeMessagingHosts\skybridge.native_messaging
+
+F:\software\Skybridge.RPA\Extension\Output\Debug\SkybridgeChromeNativeMessaging\SkybridgeChromeNativeMessaging.exe.manifest.json
+
+
+
