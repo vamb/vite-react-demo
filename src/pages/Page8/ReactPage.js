@@ -17,7 +17,7 @@ import { Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,
 } from './PageIndex'
 
 const ReactPage = () =>{
-  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB15.key)
+  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB13.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = (key) =>{
