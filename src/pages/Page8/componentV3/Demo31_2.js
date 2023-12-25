@@ -5,7 +5,7 @@ import { Button } from 'antd'
 
 const Demo31_2 = () => {
 
-  const initComponent = () => {
+  const initTree = () => {
     for(let i=0;i<=8;i++) {
       let tree = document.createElement('div')
       tree.classList.add('trees')
@@ -14,12 +14,34 @@ const Demo31_2 = () => {
     }
   }
 
+  const initBoxColor = () => {
+    const colors = ["#f4d348", "#37799e", "#bb3e39", "#e388b1"];
+    // 定义颜色计数对象
+    const colorCount = {};
+    // 获取所有class为.box的元素
+    const boxes = document.querySelectorAll(".box");
+    // 遍历每个.box元素
+    boxes.forEach(box => {
+      // 生成随机颜色
+      let randomColor = colors[Math.floor(Math.random() * colors.length)];
+      // 当颜色出现次数超过2次时，重新生成随机颜色
+      while (colorCount[randomColor] >= 2) {
+        randomColor = colors[Math.floor(Math.random() * colors.length)];
+      }
+      // 设置.box元素的背景颜色为随机颜色
+      box.style.backgroundColor = randomColor;
+      // 更新颜色计数对象，记录该颜色出现的次数
+      colorCount[randomColor] = (colorCount[randomColor] || 0) + 1;
+    });
+  }
+
   useEffect(()=>{
-    initComponent()
+    initTree()
+    initBoxColor()
   },[])
 
   const handleRefresh = () => {
-
+    initBoxColor()
   }
 
   return (
