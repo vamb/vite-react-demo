@@ -40,7 +40,7 @@ const Demo29_0 = () => {
   },[])
 
   return (
-    <UnitContent title={'Demo29_0 Tool 调色盘'}>
+    <UnitContent title={'Demo29_0 Tool 调色盘 https://flatuicolors.com/'}>
       <Wrapper>
         <div className={'linear-card'}>
           <div
