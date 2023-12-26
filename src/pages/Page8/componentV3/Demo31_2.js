@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import { Button } from 'antd'
+import { selfHref } from '../../utils/utils'
 
 const Demo31_2 = () => {
 
@@ -44,6 +45,10 @@ const Demo31_2 = () => {
     initBoxColor()
   }
 
+  const handleLinkClick = url => {
+    selfHref(url, true)
+  }
+
   return (
     <UnitContent title={'31_2 christmas tree'}>
       <Wrapper>
@@ -62,10 +67,16 @@ const Demo31_2 = () => {
           </div>
           <div className={'trunk'} />
         </div>
-        <Button
-          className={'refresh-btn'} type={'primary'}
-          onClick={()=>handleRefresh()}
-        >Refresh</Button>
+        <div className={'ctl-area'}>
+          <Button
+            className={'refresh-btn'} type={'primary'}
+            onClick={()=>handleRefresh()}
+          >Refresh</Button>
+          <div
+            className={'link-style'}
+            onClick={()=>handleLinkClick('https://flatuicolors.com/')}
+          >https://flatuicolors.com/(在线配色卡)</div>
+        </div>
       </Wrapper>
     </UnitContent>
   )
@@ -118,10 +129,19 @@ const Wrapper = styled('div')`
   .tree div:nth-child(4n+4) {
     background-color: #459763;
   }
-  .refresh-btn {
+  .ctl-area {
     position: absolute;
     left: 30px;
     top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .link-style {
+    cursor: pointer;
+  }
+  .link-style:hover {
+    border-bottom: 1px dashed gray;
   }
 `
 

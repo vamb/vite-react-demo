@@ -65,3 +65,19 @@ export const generateRandomArr = (length, limit) => {
   }
   return tempArr
 }
+
+/**
+ * 自定义点击跳转
+ * @param url 跳转链接
+ * @param isBlank =》 true 则打开新窗口跳转，不填或者否则在当前窗口跳转
+ */
+export const selfHref = (url, isBlank) =>{
+  const oa = document.createElement('a');
+  oa.href = url;
+  if(true === isBlank){
+    oa.setAttribute('target', '_blank');
+  }
+  document.body.appendChild(oa);
+  oa.click();
+  oa.remove()
+}
