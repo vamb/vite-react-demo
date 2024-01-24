@@ -63,7 +63,8 @@
     "web-vitals": "^2.1.0",
     "xmind": "^2.2.33",
     "xmind-embed-viewer": "^1.2.0",
-    "xmind-generator": "^1.0.1"
+    "xmind-generator": "^1.0.1",
+    "jszip": "3.10.1"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
