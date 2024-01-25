@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/charts": "^2.0.3",
+    "@ant-design/graphs": "^1.4.1",
     "@ant-design/icons": "^4.0.0",
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
@@ -34,6 +36,7 @@
     "butterfly-react": "^1.0.1",
     "jquery": "^3.5.1",
     "js-md5": "^0.7.3",
+    "jszip": "3.10.1",
     "laravel-vite-plugin": "^0.8.0",
     "less": "^4.2.0",
     "mobx": "^6.9.0",
@@ -63,8 +66,7 @@
     "web-vitals": "^2.1.0",
     "xmind": "^2.2.33",
     "xmind-embed-viewer": "^1.2.0",
-    "xmind-generator": "^1.0.1",
-    "jszip": "3.10.1"
+    "xmind-generator": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
