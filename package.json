@@ -13,6 +13,7 @@
     "@ant-design/charts": "^2.0.3",
     "@ant-design/graphs": "^1.4.1",
     "@ant-design/icons": "^4.0.0",
+    "@antv/g2plot": "^2.4.31",
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",

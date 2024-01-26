@@ -34,7 +34,7 @@ const Demo32_1 = () => {
 }
 
 const Wrapper = styled('div')`
-
+  width: 80%;
 `
 
 export default Demo32_1

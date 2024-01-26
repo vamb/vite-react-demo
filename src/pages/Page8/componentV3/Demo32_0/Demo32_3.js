@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FundFlowGraph } from '@ant-design/graphs';
 import UnitContent from "../../../components/UnitContent";
 import styled from "styled-components";
+import { Button } from 'antd'
 
 const Demo32_3 = () => {
 
@@ -96,9 +97,29 @@ const Demo32_3 = () => {
     B: '#72CC4A',
   };
   const config = {
+    fitCenter: false,
+    autoFit: false,
     data,
+    nodeCfg: {
+      type: 'rect',
+      style: {
+        stroke: 'red'
+      },
+      // label: {
+      //   style: {
+      //     fill: 'red'
+      //   }
+      // }
+      nodeStateStyles: {
+        hover: {
+          stroke: '#FFAA15',
+          lineWidth: 2,
+        },
+      },
+
+    },
     edgeCfg: {
-      // type: 'line',
+      type: 'polyline',
       endArrow: (edge) => {
         const { value } = edge;
         return {
@@ -113,7 +134,7 @@ const Demo32_3 = () => {
       },
       edgeStateStyles: {
         hover: {
-          stroke: '#1890ff',
+          stroke: 'blueviolet',
           lineWidth: 2,
           endArrow: {
             fill: '#1890ff',
@@ -130,18 +151,32 @@ const Demo32_3 = () => {
     },
   };
 
+  const getImg = () =>  {
+  }
 
   return (
     <UnitContent title={'32_3'}>
       <Wrapper>
-        <FundFlowGraph {...config} />;
+        <Button type={'primary'} onClick={()=>getImg()}>下载</Button>
+        <div className={'charts-content'}>
+          <FundFlowGraph {...config} />
+        </div>
       </Wrapper>
     </UnitContent>
   )
 }
 
 const Wrapper = styled('div')`
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: start;
+  align-items: start;
+  width: 80%;
+  background-color: lightgreen;
+  & > .charts-content {
+    width: 100%;
+  }
 `
 
 export default Demo32_3
