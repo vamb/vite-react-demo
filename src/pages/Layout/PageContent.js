@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import styled from "styled-components";
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import { Switch } from "react-router";
 
 const PageContent = (props) => {
@@ -25,20 +25,21 @@ const PageContent = (props) => {
       <Suspense fallback={<div>loading...</div>}>
         <div className={'page-content'} style={{minHeight: `${parentHeight}px`}}>
           <Switch>
-            <Route path="/" exact component={Page1Lazy} />
-            <Route path="/secondPage" exact component={Page2Lazy} />
-            <Route path="/thirdPage" exact component={Page3Lazy} />
-            <Route path="/forthPage" exact component={Page4Lazy} />
-            <Route path='/fifthPage' exact component={Page5Lazy} />
-            <Route path='/sixthPage' exact component={Page6Lazy} />
-            <Route path='/seventhPage' exact component={Page7Lazy} />
-            <Route path='/eighthPage' exact component={Page8Lazy} />
-            <Route path='/ninthPage' exact component={Page9Lazy} />
-            <Route path='/tenthPage' exact component={Page10Lazy} />
-            <Route path='/eleventhPage' exact component={Page11Lazy} />
-            <Route path='/twelvePage' exact component={Page12Lazy} />
-            <Route path='/fourteenPage' exact component={Page14Lazy} />
-            <Route path='/butterflyDag' exact component={Page15Lazy} />
+            <Route path="/main/firstPage" exact component={Page1Lazy} />
+            <Route path="/main/secondPage" exact component={Page2Lazy} />
+            <Route path="/main/thirdPage" exact component={Page3Lazy} />
+            <Route path="/main/forthPage" exact component={Page4Lazy} />
+            <Route path='/main/fifthPage' exact component={Page5Lazy} />
+            <Route path='/main/sixthPage' exact component={Page6Lazy} />
+            <Route path='/main/seventhPage' exact component={Page7Lazy} />
+            <Route path='/main/eighthPage' exact component={Page8Lazy} />
+            <Route path='/main/ninthPage' exact component={Page9Lazy} />
+            <Route path='/main/tenthPage' exact component={Page10Lazy} />
+            <Route path='/main/eleventhPage' exact component={Page11Lazy} />
+            <Route path='/main/twelvePage' exact component={Page12Lazy} />
+            <Route path='/main/fourteenPage' exact component={Page14Lazy} />
+            <Route path='/main/butterflyDag' exact component={Page15Lazy} />
+            <Redirect from="/main" to="/main/firstPage" />
           </Switch>
         </div>
       </Suspense>
