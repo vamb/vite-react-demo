@@ -78,8 +78,10 @@ import Demo32_3 from "./componentV3/Demo32_0/Demo32_3";
 import Demo32_4 from "./componentV3/Demo32_0/Demo32_4";
 import Demo33_0 from "./Demo33_0/Demo33_0";
 import Demo34_0 from "./componentV3/Demo34_0";
+import SinglePage from "./SinglePage"
 
 export {
+  SinglePage,
   Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,
   Demo5, Demo6, Demo7, Demo8, Demo8_2, Demo8_3, Demo8_4, Demo9,
   Demo10, Demo11, Demo12, Demo13, Demo14, Demo15, Demo15_2, Demo16,

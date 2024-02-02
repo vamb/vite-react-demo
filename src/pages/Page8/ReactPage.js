@@ -4,7 +4,8 @@ import { Tabs } from 'antd'
 import styled from "styled-components";
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
 
-import { Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,
+import {
+  SinglePage, Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,
   Demo5, Demo6, Demo7, Demo8, Demo8_2, Demo8_3, Demo8_4, Demo9,
   Demo10, Demo11, Demo12, Demo13, Demo14, Demo15, Demo15_2, Demo16,
   Demo17, Demo18, Demo19, Demo20, Demo21, Demo22, Demo23, Demo23_5,
@@ -245,6 +246,15 @@ const ReactPage = () =>{
                 <Demo34_0 />
               </div>
             )
+          },
+          {
+            label: TestConstant.TABS_MAP.TAB16.label,
+            key: TestConstant.TABS_MAP.TAB16.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <SinglePage />
+              </div>
+            )
           }
         ]}
       />
@@ -258,10 +268,11 @@ const Wrapper = styled('div')`
     // 这玩意儿的表现和absolute一样，都是后面的元素可以覆盖前面的元素，要么html放在最后，要么设置z-index
     position: fixed; 
     // z-index: 1;
-    top: 80px; 
+    bottom: 50px; 
     right: 40px;
-    width: 100px;
-    height: 30px;
+    padding: 3px 5px;
+    // width: 100px;
+    // height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
