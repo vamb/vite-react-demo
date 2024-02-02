@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import styled from "styled-components";
 import { Route, Redirect } from "react-router-dom"
 import { Switch } from "react-router";
+import LoadingPage from '../components/LoadingPage'
 
 const PageContent = (props) => {
   const { parentHeight } = props
@@ -22,7 +23,7 @@ const PageContent = (props) => {
 
   return (
     <ContentWrapper>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<LoadingPage />}>
         <div className={'page-content'} style={{minHeight: `${parentHeight}px`}}>
           <Switch>
             <Route path="/main/firstPage" exact component={Page1Lazy} />
