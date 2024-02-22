@@ -13,23 +13,33 @@ const Demo32_2 = () => {
           Topic('Salad')
             .markers([Marker.Arrow.refresh])
             .children([
-              Topic('Garden Salad').ref('topic:baz').labels(['Lemon Vinaigrette', 'Ginger Dressing']),
-              Topic('Tomato Salad').ref('topic:qux')
+              Topic('Garden Salad')
+                .ref('topic:baz')
+                .labels(['Lemon Vinaigrette', 'Ginger Dressing']),
+              Topic('Tomato Salad')
+                .ref('topic:qux')
             ])
-            .summaries([Summary('Get 10% off', { from: 'topic:baz', to: 'topic:qux' })]),
+            .summaries([
+              Summary('Get 10% off', { from: 'topic:baz', to: 'topic:qux' })
+            ]),
           Topic('Starters')
             .ref('topic:bar')
             .note('With free soft drink')
             .children([
-              Topic('Smoked Bacon').ref('topic:fred'),
-              Topic('Fried Chicken').ref('topic:thud').labels(['Hot Chilli'])
+              Topic('Smoked Bacon')
+                .ref('topic:fred'),
+              Topic('Fried Chicken')
+                .ref('topic:thud')
+                .labels(['Hot Chilli'])
             ])
         ])
         .relationships([
           Relationship('', { from: 'Salad', to: 'topic:bar' }),
           Relationship('Special', { from: 'topic:fred', to: 'topic:thud' })
         ])
-        .summaries([Summary('Fresh and Delicious', { from: 'Salad', to: 'topic:bar' })])
+        .summaries([
+          Summary('Fresh and Delicious', { from: 'Salad', to: 'topic:bar' })
+        ])
     )
     workbook.archive().then(buf=>{
       const blob = new Blob([buf]);

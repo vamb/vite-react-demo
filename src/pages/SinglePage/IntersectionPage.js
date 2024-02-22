@@ -60,7 +60,7 @@ const Wrapper = styled('div')`
     background-position: 0 100%;
   }
   
-  mark.animate {
+  .animate {
     animation: 2s highlight ease-in-out forwards;
   }
   
