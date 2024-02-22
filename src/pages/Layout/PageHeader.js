@@ -6,8 +6,8 @@ const PageHeader = () => {
 
   return (
     <Wrapper>
-      <img src={arkTankImg} alt={''} />
-      <div className={'head-title'}>Self Demo</div>
+      <img src={arkTankImg} alt={''} onClick={()=>window.location.href = '/main'} />
+      <div className={'head-title'} onClick={()=>window.location.href = '/main'}>Self Demo</div>
     </Wrapper>
   )
 }
@@ -27,11 +27,15 @@ const Wrapper = styled('div')`
   gap: 20px;
   & > img {
     height: 100%;
+    cursor: pointer;
+    user-select: none;
   }
   .head-title {
     font-size: 36px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.88);
+    cursor: pointer;
+    user-select: none;
   }
 `
 
