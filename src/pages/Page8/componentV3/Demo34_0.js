@@ -3,6 +3,7 @@ import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import { Button } from "antd";
 import FileViewer from 'react-file-viewer';
+import { Document, Page, pdfjs } from "react-pdf";
 
 import excelFile from './react_file/xlsx.xlsx'
 import pptFile from './react_file/pptx.pptx'
@@ -15,12 +16,28 @@ import txtFile from './react_file/txt.txt'
 import pdf2 from './react_file/pdf2.pdf'
 import docFile from './react_file/doc.doc'
 
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.js',
+  import.meta.url,
+).toString();
+
+const options = {
+  cMapUrl: '/cmaps/',
+  standardFontDataUrl: '/standard_fonts/',
+};
+
 const Demo34_0 = () => {
   const [ fileType, setFileType ] = useState(null)
   const [ isPdf1, setIsPdf1 ] = useState(true)
   const [ isDocx1, setIsDocx1 ] = useState(true)
   const [ randomKey, setRandomKey ] = useState(Math.random())
-  console.log('isDocx1', isDocx1)
+  const [ numPages, setNumPages ] = useState(0)
+  const [ pageNumber, setPageNumber ] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+
 
   useEffect(()=>{
     setRandomKey(Math.random())
@@ -30,9 +47,9 @@ const Demo34_0 = () => {
     <>
       <UnitContent title={'34_0'}>
         <Wrapper>
-          <Button type={'primary'} onClick={()=>setIsPdf1(!isPdf1)}>change pdf</Button>
+          <Button type={'primary'} onClick={()=>setIsPdf1(!isPdf1)}>change pdf (iframe)</Button>
           <iframe src={isPdf1? pdfFile: pdf2} width={800} height={800} />
-          <Button type={'primary'} onClick={()=>setIsDocx1(!isDocx1)}>change docx</Button>
+          <Button type={'primary'} onClick={()=>setIsDocx1(!isDocx1)}>change docx（react-file-viewer）</Button>
           <div style={{width: 800, height: 800, overflowY: "auto", backgroundColor: 'lightyellow'}} key={randomKey}>
             <FileViewer
               styled={{width: 800, height: 800}}
@@ -43,6 +60,16 @@ const Demo34_0 = () => {
               unsupportedComponent={console.log("不支持")} //[可选]：在不支持文件格式的情况下呈现的组件。
             />
           </div>
+          <Document
+            file={'./react_file/ppp2.pdf'}
+            loading={'加载中...'} options={options}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
+            <Page pageNumber={pageNumber} />
+          </Document>
+          <p>
+            Page {pageNumber} of {numPages}
+          </p>
         </Wrapper>
       </UnitContent>
     </>

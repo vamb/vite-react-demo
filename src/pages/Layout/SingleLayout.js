@@ -7,12 +7,14 @@ import LoadingPage from "../components/LoadingPage";
 const SingleLayout = () => {
 
   const intersectionPage = lazy(()=>import("../SinglePage/IntersectionPage"))
+  const perspectivePage = lazy(()=>import("../SinglePage/Perspective/PerspectivePage"))
 
   return (
     <Wrapper>
       <Suspense fallback={<LoadingPage />}>
         <Switch>
           <Route path="/single/intersection" exact component={intersectionPage} />
+          <Route path="/single/perspectivePage" exact component={perspectivePage} />
         </Switch>
       </Suspense>
     </Wrapper>
