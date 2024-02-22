@@ -15,7 +15,7 @@ const SinglePage = () => {
         <Link
           target = "_blank" title={'监听Demo'}
           to='/single/perspectivePage'
-        >Perspective 高度差</Link>
+        >Perspective 高度差 (山羊の前端小窝)</Link>
       </Wrapper>
     </UnitContent>
   )
