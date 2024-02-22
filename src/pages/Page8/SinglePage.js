@@ -16,6 +16,26 @@ const SinglePage = () => {
           target = "_blank" title={'监听Demo'}
           to='/single/perspectivePage'
         >Perspective 高度差 (山羊の前端小窝)</Link>
+        <Link
+          target = "_blank" title={'监听Demo'}
+          to='/single/switchDemoPage'
+        >switchDemoPage</Link>
+        <Link
+          target = "_blank" title={'监听Demo'}
+          to='/single/scrollDemoV1'
+        >scrollDemoV1</Link>
+        <Link
+          target = "_blank" title={'监听Demo'}
+          to='/single/dragDemoV1'
+        >dragDemoV1</Link>
+        <Link
+          target = "_blank" title={'监听Demo'}
+          to='/single/dragDemoV2'
+        >dragDemoV2</Link>
+        <Link
+          target = "_blank" title={'监听Demo'}
+          to='/single/dragDemoV3'
+        >dragDemoV2</Link>
       </Wrapper>
     </UnitContent>
   )
