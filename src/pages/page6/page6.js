@@ -12,13 +12,14 @@ import Demo7 from "./component/Demo7";
 import Demo8Page from "./component/Demo8Index";
 import Demo9 from "./component/Demo9";
 import Demo10 from "./component/Demo10";
+import Demo6_5_1 from "./IndexedDB/Demo6_5_1";
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
 
 const { TabPane } = Tabs
 
 const Page6 = () =>{
   const [ pageKey, setPageKey ] = useState(KEYS.DEMO1)
-  const [ activeKey, setActiveKey ] = useState(Constant6.TABS_MAP.TAB3.key)
+  const [ activeKey, setActiveKey ] = useState(Constant6.TABS_MAP.TAB5.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key =>{
@@ -76,6 +77,11 @@ const Page6 = () =>{
           <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
             <Demo9 />
             <Demo10 />
+          </div>
+        </TabPane>
+        <TabPane tab={Constant6.TABS_MAP.TAB5.label} key={Constant6.TABS_MAP.TAB5.key}>
+          <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+            <Demo6_5_1 />
           </div>
         </TabPane>
       </Tabs>

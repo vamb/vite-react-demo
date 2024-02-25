@@ -81,3 +81,37 @@ export const selfHref = (url, isBlank) =>{
   oa.click();
   oa.remove()
 }
+
+const PLACEHOLDER = '--'
+
+export const checkInputNone = (input, placeHolder, suffix)=>{
+  let result = ''
+  const finalPlaceholder = placeHolder? placeHolder: PLACEHOLDER
+  if(isNaN(input)){
+    result = input? input: finalPlaceholder
+  }else{
+    if(Array.isArray(input)) {
+      if(input.length>0){
+        let tempStr = ''
+        input.map((item, idx)=>{
+          tempStr = tempStr + item
+          if(idx !== input.length -1){
+            tempStr = tempStr + ', '
+          }
+        })
+        result = tempStr
+      }else {
+        result = finalPlaceholder
+      }
+    }else {
+      result = input !== null && input !== undefined && input !== ''? input: finalPlaceholder
+    }
+  }
+  if(suffix && result !== finalPlaceholder){
+    return result + ' ' + suffix
+  }else if(suffix && result === finalPlaceholder){
+    return finalPlaceholder
+  }else{
+    return result
+  }
+}

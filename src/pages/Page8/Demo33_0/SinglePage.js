@@ -1,5 +1,5 @@
 import React from 'react'
-import UnitContent from "../components/UnitContent";
+import UnitContent from "../../components/UnitContent";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 

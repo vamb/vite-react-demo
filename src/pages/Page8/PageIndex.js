@@ -79,7 +79,7 @@ import Demo32_3 from "./componentV3/Demo32_0/Demo32_3";
 import Demo32_4 from "./componentV3/Demo32_0/Demo32_4";
 import Demo33_0 from "./Demo33_0/Demo33_0";
 import Demo34_0 from "./componentV3/Demo34_0";
-import SinglePage from "./SinglePage"
+import SinglePage from "./Demo33_0/SinglePage"
 
 export {
   SinglePage,

@@ -6,7 +6,11 @@ export const Context6 = createContext({})
 const initData = {
   demo8ModalShow: false,
   demo8SearchObj: null,
-  demo8FormData: null
+  demo8FormData: null,
+
+  db: null,
+  newUserModalVisible: false,
+  userRecord: null
 }
 
 const reducer = (state, action) =>{
