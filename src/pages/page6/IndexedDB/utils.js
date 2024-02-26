@@ -1,5 +1,4 @@
 import Constant6 from "../Constant6";
-import {rejects} from "assert";
 
 /**
  * 打开数据库
