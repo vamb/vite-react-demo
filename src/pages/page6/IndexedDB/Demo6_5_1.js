@@ -3,23 +3,23 @@ import Constant6 from "../Constant6";
 import { Context6 } from "../Constent6"
 import UnitContent from "../../components/UnitContent";
 import styled from "styled-components";
-import { openDB, getDataByKey, cursorGetData } from './utils'
+import { openDB, cursorGetData, pageQuery, deleteDBData } from './DBUtils'
 import { checkInputNone } from "../../utils/utils";
 import UserModal from "./UserModal";
-import { Input, Button, Table, Tooltip, Modal, message, Select } from 'antd'
+import { Button, Table, Tooltip, Modal, message } from 'antd'
 
 const Demo6_5_1 = () => {
   const { content6Data, dispatchContent6 } = useContext(Context6)
   const { db } = content6Data
   const [ loading, setLoading ] = useState(false)
-  const [ pageTotal, setPageTotal ] = useState(0)
+  const [ pageTotal, setPageTotal ] = useState(0) // 目前没有办法获取数据总数
   const [ tblList, setTblList ] = useState([])
   const [ searchParam, setSearchParam ] = useState({ page: 1, size: 10 })
   const [ allUser, setAllUser ] = useState([])
   const [ cursorRest, setCursorRest ] = useState([])
 
   const connectDB = () => {
-    openDB(Constant6.INDEXEDDB_DB_NAME, 1).then(db=>{
+    openDB(Constant6.INDEXEDDB_DB_NAME).then(db=>{
       dispatchContent6({
         type: Constant6.UPDATE_DATA,
         data: { db: db }
@@ -37,11 +37,23 @@ const Demo6_5_1 = () => {
 
   const fetchTblData = param => {
     const reqParam = param || searchParam
-    // setLoading(true)
+    reqParam['pageSize'] = reqParam.size
+    reqParam['storeName'] = Constant6.INDEXEDDB_TBL_NAME
+    reqParam['db'] = db
+    setLoading(true)
+    pageQuery(reqParam).then(res=>{
+      setLoading(false)
+      setTblList(res)
+      // console.log('fetchTblData res', res)
+    }).catch(err=>{
+      setLoading(false)
+      message.error(`查询本地数据失败，请稍后重试`)
+      console.error(`pageQuery err: ${JSON.stringify(err)}`)
+    })
   }
 
   const fetchAll = (db, tbl) => {
-    getDataByKey(db, tbl, null).then(res=>{
+    cursorGetData(db, tbl).then(res=>{
       console.log('getDataByKey res', res)
       setAllUser(res)
     }).catch(err=>{
@@ -68,8 +80,34 @@ const Demo6_5_1 = () => {
     if(db) {
       fetchAll(db, Constant6.INDEXEDDB_TBL_NAME)
       fetchByCursor(db, Constant6.INDEXEDDB_TBL_NAME)
+      fetchTblData()
     }
   },[db])
+
+  const reqDelete = (itemData) => {
+    setLoading(true)
+    deleteDBData(db, Constant6.INDEXEDDB_TBL_NAME, itemData?.['t_id']).then(res=>{
+      setLoading(false)
+      fetchTblData()
+      fetchAll(db, Constant6.INDEXEDDB_TBL_NAME)
+      fetchByCursor(db, Constant6.INDEXEDDB_TBL_NAME)
+      message.success('本地删除成功')
+    }).catch(err=>{
+      setLoading(false)
+      message.error('本地删除数据失败，请稍后重试')
+      console.error(`deleteDBData err: ${JSON.stringify(err)}`)
+    })
+  }
+
+  const handleDelete = itemData => {
+    Modal.confirm({
+      title: '删除用户',
+      content: `确认删除【${itemData.username}】吗？`,
+      okText: '确定',
+      cancelText: '取消',
+      onOk: () => reqDelete(itemData)
+    });
+  }
 
   const columns = [
     {
@@ -79,13 +117,13 @@ const Demo6_5_1 = () => {
     },
     {
       title: '姓名',
-      dataIndex: 'name',
+      dataIndex: 'username',
       width: 100,
       ellipsis: { showTitle: false },
       render: (text) => <Tooltip title={text} placement="topLeft">{checkInputNone(text)}</Tooltip>
     },
     {
-      title: '姓名',
+      title: '年龄',
       dataIndex: 'age',
       width: 100,
       ellipsis: { showTitle: false },
@@ -93,10 +131,21 @@ const Demo6_5_1 = () => {
     },
     {
       title: '操作',
-      width: 100,
+      width: 300,
       ellipsis: { showTitle: false },
       render: (text, record) => {
-        return <div>action</div>
+        return (
+          <div className={'ctl-group'}>
+            <div
+              className={'ctl-unit'}
+              onClick={()=>handleCommitUser(record)}
+            >编辑</div>
+            <div
+              className={'ctl-unit'}
+              onClick={()=>handleDelete(record)}
+            >删除</div>
+          </div>
+        )
       }
     }
   ]
@@ -104,7 +153,7 @@ const Demo6_5_1 = () => {
   const handlePaginationChange = pagination => {
     const reqParam = { ...searchParam, ...{page: pagination.current, size: pagination.pageSize} }
     setSearchParam(reqParam)
-    // fetchTblData(reqParam)
+    fetchTblData(reqParam)
   }
 
   const handleCommitUser = recordData => {
@@ -130,21 +179,21 @@ const Demo6_5_1 = () => {
           columns={columns}
           dataSource={tblList}
           size={'small'}
-          scroll={{x: 1150}}
+          scroll={{x: 560}}
           onChange={handlePaginationChange}
           pagination={{
             showQuickJumper: true,
             showSizeChanger: true,
             current: searchParam.page,
             pageSize: searchParam.size,
-            total: pageTotal,
-            showTotal: () =>{
-              return <span>{`共 ${pageTotal} 条数据`}</span>;
-            }
+            // total: pageTotal,
+            // showTotal: () =>{
+            //   return <span>{`共 ${pageTotal} 条数据`}</span>;
+            // }
           }}
         />
       </Wrapper>
-      <UserModal fetchAll={fetchAll} />
+      <UserModal fetchAll={fetchAll} fetchTblData={fetchTblData} />
     </UnitContent>
   )
 }

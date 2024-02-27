@@ -115,3 +115,8 @@ export const checkInputNone = (input, placeHolder, suffix)=>{
     return result
   }
 }
+
+// 默认生成100以内的随机数
+export const generateRandom = (max) => {
+  return Math.round(Math.random() * (max || 100))
+}
