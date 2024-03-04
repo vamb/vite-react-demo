@@ -8,9 +8,9 @@ const Demo35 = () => {
   return (
     <UnitContent title={'35_0'}>
       <Wrapper>
-        <div className={'h-screen w-full bg-red-200'}>
-
-        </div>
+        <h1 className={'text-3xl font-bold underline'}>
+          Hello world!
+        </h1>
       </Wrapper>
     </UnitContent>
   )
