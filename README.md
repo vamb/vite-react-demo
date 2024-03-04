@@ -9,73 +9,36 @@
 ### npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 #### TM为了搞TS导致所有js的依赖包都要装一遍TS的版本
 
-# Getting Started with Create React App
+### gitignore 不起效
+#### 原因是因为在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### gitignore 清理缓存
+`[root@kevin ~]# git rm -r --cached .` <br/>
+`[root@kevin ~]# git add .` <br/>
+`[root@kevin ~]# git commit -m 'update .gitignore'` <br/>
+`[root@kevin ~]# git push -u origin master` <br/>
 
-## Available Scripts
+#### .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。
 
-In the project directory, you can run:
 
-### `yarn start`
+============== 添加 tailwind 配置 --- 开始，加了tailwind依赖会导致 antd 的样式被污染 ======================== <br/>
+// 根目录 postcss.config.cjs <br/>
+`module.exports = {` <br/>
+`plugins: {` <br/>
+`tailwindcss: {},` <br/>
+`autoprefixer: {},` <br/>
+`}` <br/>
+`}`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+// 根目录 tailwind.config.cjs <br/>
+`module.exports = {` <br/>
+`content: [` <br/>
+`"./index.html",` <br/>
+`"./src/**/*.{vue,js,ts,jsx,tsx}",` <br/>
+`],` <br/>
+`theme: {` <br/>
+`extend: {},` <br/>
+`},` <br/>
+`plugins: [],` <br/>
+`}`
+============== 添加 tailwind 配置 --- 结束 ======================== <br/>
