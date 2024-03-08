@@ -16,6 +16,7 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         'src': resolve(__dirname,'src'),
+        '@': resolve(__dirname, 'src') // tsconfig.json 或 jsconfig.json 中配置了路径别名要在这里对应的配置一下，否则无法启动
       }
     },
     esbuild: {
