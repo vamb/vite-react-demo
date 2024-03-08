@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
-import { shallowClone, deepClone } from '../../utils/utils'
+import { shallowClone, deepClone } from '@/utils/utils'
 
 /**
  * JSON.parse(JSON.stringify(target)) 是有局限性的

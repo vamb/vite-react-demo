@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
-import { generateRandomArr } from '../../utils/utils'
+import { generateRandomArr } from '@/utils/utils'
 
 const numCount = 10 // 一共有几个数字
 const max_num = 100 // 最大的数字是多少

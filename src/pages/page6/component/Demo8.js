@@ -6,7 +6,7 @@ import Demo8Modal from './Demo8Modal'
 import { PlusOutlined } from '@ant-design/icons';
 import { Context6 } from '../Constent6'
 import Constant6 from "../Constant6";
-import { Http } from '../../utils/Http'
+import { Http } from '@/utils/Http'
 
 const Demo8 = () => {
   const [ search, setSearch ] = useState({page: 1, size: 10})

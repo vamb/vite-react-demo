@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import { handleCopyAction } from '../../utils/utils'
+import { handleCopyAction } from '@/utils/utils'
 
 const ColorCard = props => {
   const { colorArr } = props

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 import { Tabs } from 'antd'
 import BFDagConstant from "./BFDagConstant";
-import { DEFAULT_TAB_HEIGHT, findPageContentHeight } from "../utils/utils";
+import { DEFAULT_TAB_HEIGHT, findPageContentHeight } from "@/utils/utils";
 import {
   Demo1, Demo2, Demo3, Demo4, Demo5, Demo6, Demo7, Demo8, Demo9, Demo10,
   Demo11, Demo12, Demo13, Demo14, Demo15, Demo16, Demo17, Demo18, Demo19, Demo20,

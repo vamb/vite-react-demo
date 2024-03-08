@@ -11,7 +11,7 @@ import Demo14_6 from './component/Demo14_6'
 import Demo14_7 from "./component/Demo14_7";
 import Demo14_8 from "./component/Demo14_8";
 import Demo14_9 from "./component/Demo14_9";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const ReactPage14 = () => {
   const [ activeKey, setActiveKey ] = useState(P14Constant.TABS_MAP.TAB3.key)

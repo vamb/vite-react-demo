@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
-import { generateRandomArr } from '../../utils/utils'
+import { generateRandomArr } from '@/utils/utils'
 
 /**
  * 时间复杂度 O(n*logn)

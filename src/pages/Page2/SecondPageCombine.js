@@ -10,7 +10,7 @@ import Comp from "./BigTest/Comp";
 import Demo2_1 from "./Demo2_1";
 import Demo2_2 from "./Demo2_2";
 import Demo2_3 from "./Demo2_3";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const SecondPageCombine = () => {
   const [ activeKey, setActiveKey ] = useState(Page2Constant.P2_TABS_MAP.TAB2.key)

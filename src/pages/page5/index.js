@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 import Demo5_1 from "./Demo5_1";
 import Demo5_2 from "./Demo5_2";
 import Demo5_3 from "./Demo5_3";

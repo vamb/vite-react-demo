@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import UnitContent from "../../components/UnitContent";
 import styled from "styled-components";
-import { generateRandomArr } from '../../utils/utils'
+import { generateRandomArr } from '@/utils/utils'
 
 const Demo11_07_02 = () => {
   const [ randomArr, setRandomArr ] = useState([])

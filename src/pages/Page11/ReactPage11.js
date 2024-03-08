@@ -17,7 +17,7 @@ import Demo11_09 from "./component/Demo11_09";
 import Demo11_09_2 from "./component/Demo11_09_2";
 import Demo11_10 from "./component/Demo11_10";
 import Demo11_11 from "./component/Demo11_11";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const { TabPane } = Tabs
 

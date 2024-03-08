@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import UnitContent from "../../components/UnitContent";
 import styled from "styled-components";
-import { generateRandomArr } from '../../utils/utils'
+import { generateRandomArr } from '@/utils/utils'
 
 /**
  * 对于TopK问题

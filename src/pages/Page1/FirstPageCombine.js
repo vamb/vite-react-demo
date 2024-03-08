@@ -17,7 +17,7 @@ import Demo1_9_4 from './Demo1_9_4/App'
 import Demo1_9_5 from './Demo1_9_5/App'
 import Demo1_9_6 from './Demo1_9_6/App'
 import Demo1_9_7 from './Demo1_9_7/App'
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const FirstPageCombine = () => {
   const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB3.key)

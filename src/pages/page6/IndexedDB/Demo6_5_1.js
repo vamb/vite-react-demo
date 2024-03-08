@@ -4,7 +4,7 @@ import { Context6 } from "../Constent6"
 import UnitContent from "../../components/UnitContent";
 import styled from "styled-components";
 import { openDB, cursorGetData, pageQuery, deleteDBData } from './DBUtils'
-import { checkInputNone } from "../../utils/utils";
+import { checkInputNone } from "@/utils/utils";
 import UserModal from "./UserModal";
 import { Button, Table, Tooltip, Modal, message } from 'antd'
 

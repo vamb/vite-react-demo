@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import { handleCopyAction } from '../../utils/utils'
+import { handleCopyAction } from '@/utils/utils'
 
 const Demo29_3_unit = props => {
   const { title, colorArr, index, handleBgLinearCSSStr } = props

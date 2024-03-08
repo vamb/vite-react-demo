@@ -4,7 +4,7 @@ import { Tabs } from 'antd'
 import P10Constant from "./P10Constant";
 import Demo10_1 from "./component/Demo10_1";
 import Demo10_2 from "./component/Demo10_2";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const { TabPane } = Tabs
 

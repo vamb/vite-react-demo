@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import { Button } from 'antd'
-import { selfHref } from '../../utils/utils'
+import { selfHref } from '@/utils/utils'
 
 const Demo31_2 = () => {
 

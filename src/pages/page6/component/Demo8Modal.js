@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Context6 } from '../Constent6'
 import Constant6 from "../Constant6";
 import { Modal, Form, Button, message, Spin, Input } from "antd";
-import { Http } from '../../utils/Http'
+import { Http } from '@/utils/Http'
 
 const { Item } = Form
 

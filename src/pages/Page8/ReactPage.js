@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TestConstant from "./TestConstant";
 import { Tabs } from 'antd'
 import styled from "styled-components";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 import {
   SinglePage, Demo1, Demo2, Demo3, Demo3_1, Demo3_2, Demo3_3, Demo4,

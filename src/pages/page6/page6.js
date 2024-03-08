@@ -13,7 +13,7 @@ import Demo8Page from "./component/Demo8Index";
 import Demo9 from "./component/Demo9";
 import Demo10 from "./component/Demo10";
 import Demo6_5_1 from "./IndexedDB/Demo6_5_1";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const { TabPane } = Tabs
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UnitContent from "../../components/UnitContent";
 import styled from "styled-components";
-import { Http } from '../../utils/Http'
+import { Http } from '@/utils/Http'
 import { Table, Tooltip, Form, Input, Button, message } from 'antd'
 
 const { Item } = Form

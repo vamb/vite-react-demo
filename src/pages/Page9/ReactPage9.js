@@ -5,7 +5,7 @@ import PageConstant from "./PageConstant";
 import Demo9_1 from './component/Demo9_1'
 import Demo9_2 from "./component/Demo9_2";
 import Demo9_2_index from "./component/Demo9_2_index";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '../utils/utils'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 
 const { TabPane } = Tabs
 

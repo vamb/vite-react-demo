@@ -3,7 +3,7 @@ import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import P8V3Constant from './P8V3Constant'
 import { Button, Input, Select, message } from 'antd'
-import { handleCopyAction } from '../../utils/utils'
+import { handleCopyAction } from '@/utils/utils'
 
 const colorArr = P8V3Constant.COLOR_ARR_29
 
