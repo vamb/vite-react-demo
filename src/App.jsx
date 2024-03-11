@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter, Redirect } from "react-router-dom"
+import { BrowserRouter, Route } from "react-router-dom"
 import BasicLayout from './pages/Layout/BasicLayout'
 import SingleLayout from "./pages/Layout/SingleLayout";
-import { Route } from "react-router-dom"
 
 function App() {
 
