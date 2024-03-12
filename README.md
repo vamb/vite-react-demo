@@ -45,3 +45,7 @@
 
 #### tsconfig.json 的配置只对 ts 文件有效， 同理 jsconfig.json 的配置只对 js 有效
 #### tsconfig.json 或 jsconfig.json 中配置了路径别名要在 vite.config.js 对应的配置一下，否则无法启动
+
+============== 路由文件配置 ======================== <br/>
+
+#### 目前的路由是半自动的，在 src/NewLayout/routerConfig.js 里面配置
