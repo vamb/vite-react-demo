@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SideMenu from "./SideMenu";
 import PageContent from "./PageContent";
 import PageHeader from "./PageHeader";
+import routerConfig from "@/NewLayout/routerConfig";
 
 const BasicLayout = () => {
   const [ contentBodyHeight, setContentBodyHeight ] = useState(0)
@@ -42,10 +43,10 @@ const BasicLayout = () => {
       </div>
       <div className={'layout-content'}>
         <div className={'content-menus'}>
-          <SideMenu parentHeight={contentMenuHeight} />
+          <SideMenu routers={routerConfig?.[0]?.children} parentHeight={contentMenuHeight} />
         </div>
         <div className={'content-body'}>
-          <PageContent parentHeight={contentBodyHeight} />
+          <PageContent routers={routerConfig?.[0].children} parentHeight={contentBodyHeight} />
         </div>
       </div>
     </Wrapper>

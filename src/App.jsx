@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Route } from "react-router-dom"
-import BasicLayout from './pages/Layout/BasicLayout'
-import SingleLayout from "./pages/Layout/SingleLayout";
+// import BasicLayout from './pages/Layout/BasicLayout'
+// import SingleLayout from "./pages/Layout/SingleLayout";
+import routerConfig from "@/NewLayout/routerConfig";
 
 function App() {
 
@@ -18,8 +19,18 @@ function App() {
 
   return (
     <BrowserRouter basename="/">
-      <Route path={`/main`} component={BasicLayout} />
-      <Route path={'/single'} component={SingleLayout} />
+      {
+        routerConfig?.map((item, idx) => {
+          return (
+            <Route
+              path={item?.path} key={`base-router-${idx}`}
+              component={item?.element}
+            />
+          )
+        })
+      }
+      {/*<Route path={`/main`} component={BasicLayout} />*/}
+      {/*<Route path={'/single'} component={SingleLayout} />*/}
       {/*<Redirect from="/" to="/main" />*/}
     </BrowserRouter>
   )
