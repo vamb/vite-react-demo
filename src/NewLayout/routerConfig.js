@@ -32,76 +32,91 @@ const routerConfig = [
     title: 'Main',
     path: '/main',
     element: BasicLayoutPage,
+    component: "@/pages/Layout/BasicLayout",
     children: [
       {
         title: '1 - Hooks Related',
         path: '/main/firstPage',
-        element: MainPage1
+        element: MainPage1,
+        component: "@/pages/Page1"
       },
       {
         title: '2 - Page',
         path: '/main/secondPage',
-        element: MainPage2
+        element: MainPage2,
+        component: "@/pages/Page2",
       },
       {
         title: '3 - LifeCycle',
         path: '/main/thirdPage',
-        element: MainPage3
+        element: MainPage3,
+        component: "@/pages/Page3/ThirdPageCombine",
       },
       {
         title: '4 - Page',
         path: '/main/forthPage',
-        element: MainPage4
+        element: MainPage4,
+        component: "@/pages/Page4/FourthPageCombine",
       },
       {
         title: '5 - Canvas',
         path: '/main/fifThPage',
-        element: MainPage5
+        element: MainPage5,
+        component: "@/pages/page5",
       },
       {
         title: '6 - XHR & Fetch',
         path: '/main/sixthPage',
-        element: MainPage6
+        element: MainPage6,
+        component: "@/pages/page6",
       },
       {
         title: '7 - Web3.0',
         path: '/main/seventhPage',
-        element: MainPage7
+        element: MainPage7,
+        component: "@/pages/Page7",
       },
       {
         title: '8 - CSS',
         path: '/main/eighthPage',
-        element: MainPage8
+        element: MainPage8,
+        component: "@/pages/Page8"
       },
       {
         title: '9 - Page',
         path: '/main/ninthPage',
-        element: MainPage9
+        element: MainPage9,
+        component: "@/pages/Page9",
       },
       {
         title: '10 - threeJs',
         path: '/main/tenthPage',
-        element: MainPage10
+        element: MainPage10,
+        component: "@/pages/Page10"
       },
       {
         title: '11 - JS练习',
         path: '/main/eleventhPage',
-        element: MainPage11
+        element: MainPage11,
+        component: "@/pages/Page11"
       },
       {
         title: '12 - 爪哇',
         path: '/main/twelvePage',
-        element: MainPage12
+        element: MainPage12,
+        component: "@/pages/Page12"
       },
       {
         title: '14 - 状态托管',
         path: '/main/fourteenPage',
-        element: MainPage14
+        element: MainPage14,
+        component: "@/pages/Page14"
       },
       {
         title: '15 - 蝴蝶图标',
         path: '/main/butterflyDag',
-        element: MainPage15
+        element: MainPage15,
+        component: "@/pages/Page15"
       },
     ]
   },
@@ -109,41 +124,57 @@ const routerConfig = [
     title: 'SinglePage',
     path: '/single',
     element: SingleLayoutPage,
+    component: "@/pages/Layout/SingleLayout",
+    isBlank: true,
     children: [
       {
         title: 'intersection',
         path: '/single/intersection',
-        element: IntersectionPage
+        element: IntersectionPage,
+        component: "@/pages/SinglePage/IntersectionPage",
+        isBlank: true,
       },
       {
         title: 'perspective',
         path: '/single/perspectivePage',
-        element: PerspectivePage
+        element: PerspectivePage,
+        component: "@/pages/SinglePage/Perspective/PerspectivePage",
+        isBlank: true,
       },
       {
         title: 'switchDemo',
         path: '/single/perspectivePage',
-        element: SwitchDemoPage
+        element: SwitchDemoPage,
+        component: "@/pages/SinglePage/SwitchDemo",
+        isBlank: true,
       },
       {
         title: 'scrollDemoV1',
         path: '/single/scrollDemoV1',
-        element: ScrollDemoV1
+        element: ScrollDemoV1,
+        component: "@/pages/SinglePage/ScrollDemoV1",
+        isBlank: true,
       },
       {
         title: 'dragDemoV1',
         path: '/single/dragDemoV1',
-        element: DragDemoV1
+        element: DragDemoV1,
+        component: "@/pages/SinglePage/DragDemoV1",
+        isBlank: true,
       },
       {
         title: 'dragDemoV2',
         path: '/single/dragDemoV2',
-        element: DragDemoV2
+        element: DragDemoV2,
+        component: "@/pages/SinglePage/DragDemoV2",
+        isBlank: true,
       },
       {
         title: 'dragDemoV3',
         path: '/single/dragDemoV3',
-        element: DragDemoV3
+        element: DragDemoV3,
+        component: "@/pages/SinglePage/DragDemoV3",
+        isBlank: true,
       },
     ]
   }
