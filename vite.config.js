@@ -6,7 +6,8 @@ import { resolve } from 'path'
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
-export default defineConfig(() => {
+export default defineConfig(config => {
+  console.log('config', config)
   return {
     assetsInclude: [
       '**/*.awebp', '**/*.webp', '**/*.jpg', '**/*.jpeg',
