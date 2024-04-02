@@ -106,6 +106,7 @@ export default defineConfig(config => {
     // },
     server: {
       port: 8002, // 设置服务启动端口号
+      host: '0.0.0.0',
       open: true, // 默认打开浏览器
       cors: true, // 允许跨域
       proxy: {
