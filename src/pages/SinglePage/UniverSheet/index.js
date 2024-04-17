@@ -90,7 +90,9 @@ const UniverSheet = forwardRef(({ data }, ref) => {
     };
   }, [data]);
 
-  return <div ref={containerRef} className="univer-container" />;
+  return (
+    <div ref={containerRef} className="univer-container" />
+  )
 });
 
 export default UniverSheet;
