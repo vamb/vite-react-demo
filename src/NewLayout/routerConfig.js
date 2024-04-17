@@ -26,6 +26,7 @@ const ScrollDemoV1 = lazy(()=>import ("@/pages/SinglePage/ScrollDemoV1"))
 const DragDemoV1 = lazy(()=>import("@/pages/SinglePage/DragDemoV1"))
 const DragDemoV2 = lazy(()=>import("@/pages/SinglePage/DragDemoV2"))
 const DragDemoV3 = lazy(()=>import("@/pages/SinglePage/DragDemoV3"))
+const UniverDemo = lazy(() => import("@/pages/SinglePage/UniverDemo"))
 
 const routerConfig = [
   {
@@ -174,6 +175,13 @@ const routerConfig = [
         path: '/single/dragDemoV3',
         element: DragDemoV3,
         component: "@/pages/SinglePage/DragDemoV3",
+        isBlank: true,
+      },
+      {
+        title: 'UniverDemo',
+        path: '/single/univerDemo',
+        element: UniverDemo,
+        component: "@/pages/SinglePage/UniverDemo",
         isBlank: true,
       },
     ]
