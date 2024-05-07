@@ -41,7 +41,12 @@ const Demo2_1 = () => {
     <UnitContent title={'Demo2_1原型链 简单案例'}>
       <Wrapper>
         <div className={'class-unit'}>
-          <div>{`Person Name: ${personData?.name}, drink: ${personData.drink()}`}</div>
+          <div>
+            <span>Person Name: </span>
+            <strong>{personData?.name}</strong>
+            <span>, drink: </span>
+            <strong>{personData.drink()}</strong>
+          </div>
           <Form.Item label={'Person'}>
             <Input
               value={personData?.name}
@@ -54,7 +59,14 @@ const Demo2_1 = () => {
           </Form.Item>
         </div>
         <div className={'class-unit'}>
-          <div>{`Student Name: ${stuData?.name}, drink: ${stuData.drink()}, say: ${stuData.say()}`}</div>
+          <div>
+            <span>Student Name: </span>
+            <strong>{stuData?.name}</strong>
+            <span>, drink: </span>
+            <strong>{stuData.drink()}</strong>
+            <span>, say: </span>
+            <strong>{stuData.say()}</strong>
+          </div>
           <Form.Item label={'Student'}>
             <Input
               value={stuData?.name}
@@ -67,7 +79,14 @@ const Demo2_1 = () => {
           </Form.Item>
         </div>
         <div className={'class-unit'}>
-          <div>{`Teacher Name: ${teacherData?.name}, drink: ${teacherData.drink()}, info: ${teacherData.info()}`}</div>
+          <div>
+            <span>Teacher Name: </span>
+            <strong>{teacherData?.name}</strong>
+            <span>, drink: </span>
+            <strong>{teacherData.drink()}</strong>
+            <span>, info: </span>
+            <strong>{teacherData.info()}</strong>
+          </div>
           <Form.Item label={'Teacher'}>
             <Input
               value={teacherData?.name}
