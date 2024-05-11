@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import PageConstant from "./PageConstant";
+import { Demo9_1, Demo9_2, Demo9_2_index, Demo9_3 } from './PageIndex'
+import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 import styled from "styled-components";
 import { Tabs } from 'antd'
-import PageConstant from "./PageConstant";
-import Demo9_1 from './component/Demo9_1'
-import Demo9_2 from "./component/Demo9_2";
-import Demo9_2_index from "./component/Demo9_2_index";
-import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
-
-const { TabPane } = Tabs
 
 const ReactPage9 = () =>{
-  const [ activeKey, setActiveKey ] = useState(PageConstant.TABS_MAP.TAB1.key)
+  const [ activeKey, setActiveKey ] = useState(PageConstant.TABS_MAP.TAB4.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -31,23 +27,44 @@ const ReactPage9 = () =>{
 
   return (
     <Wrapper>
-      <Tabs activeKey={activeKey} onChange={e=>updateActiveKey(e)}>
-        <TabPane tab={PageConstant.TABS_MAP.TAB1.label} key={PageConstant.TABS_MAP.TAB1.key}>
-          <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-            <Demo9_1 />
-          </div>
-        </TabPane>
-        <TabPane tab={PageConstant.TABS_MAP.TAB2.label} key={PageConstant.TABS_MAP.TAB2.key}>
-          <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-            <Demo9_2 />
-          </div>
-        </TabPane>
-        <TabPane tab={PageConstant.TABS_MAP.TAB3.label} key={PageConstant.TABS_MAP.TAB3.key}>
-          <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-            <div className={'spec-tip'}>此页面有自己独立的createContext，被父的createContext包裹，可以正常使用</div>
-            <Demo9_2_index />
-          </div>
-        </TabPane>
+      <Tabs
+        activeKey={activeKey} onChange={e=>updateActiveKey(e)}
+        items={[
+          {
+            label: PageConstant.TABS_MAP.TAB1.label, key: PageConstant.TABS_MAP.TAB1.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo9_1 />
+              </div>
+            )
+          },
+          {
+            label: PageConstant.TABS_MAP.TAB2.label, key: PageConstant.TABS_MAP.TAB2.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo9_2 />
+              </div>
+            )
+          },
+          {
+            label: PageConstant.TABS_MAP.TAB3.label, key: PageConstant.TABS_MAP.TAB3.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <div className={'spec-tip'}>此页面有自己独立的createContext，被父的createContext包裹，可以正常使用</div>
+                <Demo9_2_index />
+              </div>
+            )
+          },
+          {
+            label: PageConstant.TABS_MAP.TAB4.label, key: PageConstant.TABS_MAP.TAB4.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo9_3 />
+              </div>
+            )
+          },
+        ]}
+      >
       </Tabs>
     </Wrapper>
   )

@@ -8,6 +8,7 @@ PageConstant.TABS_MAP = {
   TAB1: { key: 'P9_TAB_1', label: '浅拷贝 & 深拷贝' },
   TAB2: { key: 'P9_TAB_2', label: 'Cron Demo1' },
   TAB3: { key: 'P9_TAB_3', label: 'Cron Demo2' },
+  TAB4: { key: 'P9_TAB_4', label: 'Test' },
 }
 
 PageConstant.CRON_TABS = {
