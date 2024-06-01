@@ -82,7 +82,10 @@
     "web-vitals": "^2.1.0",
     "xmind": "^2.2.33",
     "xmind-embed-viewer": "^1.2.0",
-    "xmind-generator": "^1.0.1"
+    "xmind-generator": "^1.0.1",
+    "rxjs": "^7.8.1",
+    "@wendellhu/redi": "0.15.2",
+    "@univerjs/engine-numfmt": "0.1.12"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
