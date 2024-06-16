@@ -3,7 +3,7 @@ import React, { lazy } from "react";
 const MainPage1 = lazy(()=> import("@/pages/Page1"))
 const MainPage2 = lazy(()=> import("@/pages/Page2"))
 const MainPage3 = lazy(()=> import("@/pages/Page3"))
-const MainPage4 = lazy(()=> import("@/pages/Page4"))
+const MainPage4 = lazy(()=> import("@/pages/page4"))
 const MainPage5 = lazy(()=> import("@/pages/page5"))
 const MainPage6 = lazy(()=> import("@/pages/page6"))
 const MainPage7 = lazy(()=> import("@/pages/Page7"))

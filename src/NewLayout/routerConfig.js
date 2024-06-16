@@ -6,7 +6,7 @@ const SingleLayoutPage = lazy(()=>import("@/pages/Layout/SingleLayout"))
 const MainPage1 = lazy(()=> import("@/pages/Page1"))
 const MainPage2 = lazy(()=> import("@/pages/Page2"))
 const MainPage3 = lazy(()=> import("@/pages/Page3/ThirdPageCombine"))
-const MainPage4 = lazy(()=> import("@/pages/Page4/FourthPageCombine"))
+const MainPage4 = lazy(()=> import("@/pages/page4/FourthPageCombine"))
 const MainPage5 = lazy(()=> import("@/pages/page5"))
 const MainPage6 = lazy(()=> import("@/pages/page6"))
 const MainPage7 = lazy(()=> import("@/pages/Page7"))
@@ -57,7 +57,7 @@ const routerConfig = [
         title: '4 - Page',
         path: '/main/forthPage',
         element: MainPage4,
-        component: "@/pages/Page4/FourthPageCombine",
+        component: "@/pages/page4/FourthPageCombine",
       },
       {
         title: '5 - Canvas',
