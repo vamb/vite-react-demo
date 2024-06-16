@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 import { Button } from "antd";
-import pdfFile from "./react_file/ppp2.pdf";
-import pdf2 from "./react_file/pdf2.pdf";
+import pdfFile from "./react_file/pdf_file.pdf";
+import pdf2 from "./react_file/pdf_file_2.pdf";
 
 const Demo34_1 = () => {
   const [ isPdf1, setIsPdf1 ] = useState(true)

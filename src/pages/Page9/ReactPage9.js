@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Tabs } from 'antd'
 
 const ReactPage9 = () =>{
-  const [ activeKey, setActiveKey ] = useState(PageConstant.TABS_MAP.TAB4.key)
+  const [ activeKey, setActiveKey ] = useState(PageConstant.TABS_MAP.TAB3.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -52,14 +52,6 @@ const ReactPage9 = () =>{
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
                 <div className={'spec-tip'}>此页面有自己独立的createContext，被父的createContext包裹，可以正常使用</div>
                 <Demo9_2_index />
-              </div>
-            )
-          },
-          {
-            label: PageConstant.TABS_MAP.TAB4.label, key: PageConstant.TABS_MAP.TAB4.key,
-            children: (
-              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Demo9_3 />
               </div>
             )
           },
