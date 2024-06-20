@@ -9,7 +9,7 @@ import {
   Demo5, Demo6, Demo7, Demo8, Demo8_2, Demo8_3, Demo8_4, Demo9,
   Demo10, Demo11, Demo12, Demo13, Demo14, Demo15, Demo15_2, Demo16,
   Demo17, Demo18, Demo19, Demo20, Demo21, Demo22, Demo23, Demo23_5,
-  Demo23_6, Demo24, Demo25, Demo25_1_2, Demo25_2, Demo25_3, Demo25_4,
+  Demo23_6, Demo24, Demo25, Demo25_1_2, Demo25_2, Demo25_3, Demo25_4, Demo25_4_2, Demo25_4_3,
   Demo26, Demo27, Demo27_1, Demo27_2, Demo27_3, Demo27_4, Demo27_5, Demo28_1,
   Demo28_2, Demo28_3, Demo28_4, Demo28_5, Demo28_6, Demo28_7, Demo28_8, Demo28_9,
   Demo28_10, Demo29_0, Demo29_1, Demo29_2, Demo30_0, Demo30_1,
@@ -20,7 +20,7 @@ import {
 } from './PageIndex'
 
 const ReactPage = () =>{
-  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB16.key)
+  const [ activeKey, setActiveKey ] = useState(TestConstant.TABS_MAP.TAB8.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = (key) =>{
@@ -146,6 +146,8 @@ const ReactPage = () =>{
                 <Demo25_2 />
                 <Demo25_3 />
                 <Demo25_4 />
+                <Demo25_4_2 />
+                <Demo25_4_3 />
                 <Demo26 />
               </div>
             )

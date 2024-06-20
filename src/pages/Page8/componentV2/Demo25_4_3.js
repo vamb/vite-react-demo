@@ -4,6 +4,7 @@ import { Form, Tabs, InputNumber, Tooltip, Image } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons';
 import img11 from './assets/11.awebp'
 import img12 from './assets/12.awebp'
+import UnitContent from "../../components/UnitContent";
 
 const { TabPane } = Tabs
 const SELF_TAB = {
@@ -41,94 +42,96 @@ const Demo25_4_3 = () => {
   },[activeKey])
 
   return (
-    <Wrapper>
-      <Tabs activeKey={activeKey} onChange={e=>setActiveKey(e)}>
-        <TabPane tab={SELF_TAB.TAB1.label} key={SELF_TAB.TAB1.key}>
-          <Form layout={'inline'}>
-            <Form.Item label={'flex-grow'}>
-              <InputNumber
-                style={{width: '100%'}} step={1}
-                min={0} max={1} value={flexGrowVal}
-                onChange={e=>setFlexGrowVal(e)}
-              />
-            </Form.Item>
-            <Form.Item label={"Book's flex-grow"}>
-              <InputNumber
-                style={{width: '100%'}} step={1}
-                min={0} max={3} value={targetGrowVal}
-                onChange={e=>setTargetGrowVal(e)}
-              />
-            </Form.Item>
-          </Form>
-        </TabPane>
-        <TabPane tab={SELF_TAB.TAB2.label} key={SELF_TAB.TAB2.key}>
-          <Form layout={'inline'}>
-            <Form.Item label={'flex-shrink'}>
-              <InputNumber
-                style={{width: '100%'}} step={1}
-                min={0} max={1} value={flexShrinkVal}
-                onChange={e=>setFlexShrinkVal(e)}
-              />
-            </Form.Item>
-            <Form.Item label={"Book's flex-shrink"}>
-              <InputNumber
-                style={{width: '100%'}} step={1}
-                min={0} max={3} value={targetShrinkVal}
-                onChange={e=>setTargetShrinkVal(e)}
-              />
-            </Form.Item>
-          </Form>
-        </TabPane>
-      </Tabs>
-      <div className={'flex-size-demo'}>
-        <div className={'main-content'} style={{inlineSize: `${inlineSizeVal}px`}}>
-          <div
-            className={'item-unit'} title={'A long long word'}
-            style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
-            <div className={'word-start'}>A</div>
-            <div className={'word-main'}>longlongword</div>
-          </div>
-          <div
-            className={'item-unit'}  title={'book'}
-            style={{flexGrow: targetGrowVal, flexShrink: targetShrinkVal}}>
-            <div className={'word-start'}>B</div>
-            <div className={'word-main'}>ook</div>
-          </div>
-          <div
-            className={'item-unit'} title={'Countries in the east'}
-            style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
-            <div className={'word-start'}>C</div>
-            <div className={'word-main'}>ountries in the east</div>
-          </div>
-          <div
-            className={'item-unit'} title={'Discuss'}
-            style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
-            <div className={'word-start'}>D</div>
-            <div className={'word-main'}>iscuss</div>
-          </div>
-          <div
-            className={'item-unit'} title={'Eastern'}
-            style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
-            <div className={'word-start'}>E</div>
-            <div className={'word-main'}>astern</div>
+    <UnitContent title={'25_4_3'}>
+      <Wrapper>
+        <Tabs activeKey={activeKey} onChange={e=>setActiveKey(e)}>
+          <TabPane tab={SELF_TAB.TAB1.label} key={SELF_TAB.TAB1.key}>
+            <Form layout={'inline'}>
+              <Form.Item label={'flex-grow'}>
+                <InputNumber
+                  style={{width: '100%'}} step={1}
+                  min={0} max={1} value={flexGrowVal}
+                  onChange={e=>setFlexGrowVal(e)}
+                />
+              </Form.Item>
+              <Form.Item label={"Book's flex-grow"}>
+                <InputNumber
+                  style={{width: '100%'}} step={1}
+                  min={0} max={3} value={targetGrowVal}
+                  onChange={e=>setTargetGrowVal(e)}
+                />
+              </Form.Item>
+            </Form>
+          </TabPane>
+          <TabPane tab={SELF_TAB.TAB2.label} key={SELF_TAB.TAB2.key}>
+            <Form layout={'inline'}>
+              <Form.Item label={'flex-shrink'}>
+                <InputNumber
+                  style={{width: '100%'}} step={1}
+                  min={0} max={1} value={flexShrinkVal}
+                  onChange={e=>setFlexShrinkVal(e)}
+                />
+              </Form.Item>
+              <Form.Item label={"Book's flex-shrink"}>
+                <InputNumber
+                  style={{width: '100%'}} step={1}
+                  min={0} max={3} value={targetShrinkVal}
+                  onChange={e=>setTargetShrinkVal(e)}
+                />
+              </Form.Item>
+            </Form>
+          </TabPane>
+        </Tabs>
+        <div className={'flex-size-demo'}>
+          <div className={'main-content'} style={{inlineSize: `${inlineSizeVal}px`}}>
+            <div
+              className={'item-unit'} title={'A long long word'}
+              style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
+              <div className={'word-start'}>A</div>
+              <div className={'word-main'}>longlongword</div>
+            </div>
+            <div
+              className={'item-unit'}  title={'book'}
+              style={{flexGrow: targetGrowVal, flexShrink: targetShrinkVal}}>
+              <div className={'word-start'}>B</div>
+              <div className={'word-main'}>ook</div>
+            </div>
+            <div
+              className={'item-unit'} title={'Countries in the east'}
+              style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
+              <div className={'word-start'}>C</div>
+              <div className={'word-main'}>ountries in the east</div>
+            </div>
+            <div
+              className={'item-unit'} title={'Discuss'}
+              style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
+              <div className={'word-start'}>D</div>
+              <div className={'word-main'}>iscuss</div>
+            </div>
+            <div
+              className={'item-unit'} title={'Eastern'}
+              style={{flexGrow: flexGrowVal, flexShrink: flexShrinkVal}}>
+              <div className={'word-start'}>E</div>
+              <div className={'word-main'}>astern</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={'images'}>
-        <div><Image width={280} src={img11} /></div>
-        <div><Image width={280} src={img12} /></div>
-      </div>
-      <div className={'tips-unit'}>
-        <Tooltip
-          title={
-            SELF_TAB.TAB1.key === activeKey?
-              'flex-grow 使得子元素得以按照设定的值去分配父元素剩余的空间':
-              'flex-shrink 使得子元素按照设定好的比较缩小其宽度'
-          }
-        ><InfoCircleOutlined style={{fontSize: '24px'}} />
-        </Tooltip>
-      </div>
-    </Wrapper>
+        <div className={'images'}>
+          <div><Image width={280} src={img11} /></div>
+          <div><Image width={280} src={img12} /></div>
+        </div>
+        <div className={'tips-unit'}>
+          <Tooltip
+            title={
+              SELF_TAB.TAB1.key === activeKey?
+                'flex-grow 使得子元素得以按照设定的值去分配父元素剩余的空间':
+                'flex-shrink 使得子元素按照设定好的比较缩小其宽度'
+            }
+          ><InfoCircleOutlined style={{fontSize: '24px'}} />
+          </Tooltip>
+        </div>
+      </Wrapper>
+    </UnitContent>
   )
 }
 
