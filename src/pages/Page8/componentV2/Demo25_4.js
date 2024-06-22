@@ -1,60 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import UnitContent from "../../components/UnitContent";
 
 const Demo25_4 = () => {
+  const [ count, setCount ] = useState(6)
+  const msgGroup = []
+  for(let i=0;i<count;i++) {
+    msgGroup.push(
+      <div className={'msg-unit'} key={`25_4-${i}`}>
+        <div className={'img-area'} />
+        <div className={'msg-content'}>
+          <div className={'msg-title'}>UX Design</div>
+          <div className={'msg-text'}>Make it easier to search and filter</div>
+          <div className={'msg-sender'}>XXXXX</div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <UnitContent title={'Demo25_4'}>
       <Wrapper>
         <div className={'phone-view'}>
-          <div className={'msg-unit'}>
-            <div className={'img-area'} />
-            <div className={'msg-content'}>
-              <div className={'msg-title'}>UX Design</div>
-              <div className={'msg-text'}>Make it easier to search and filter</div>
-              <div className={'msg-sender'}>XXXXX</div>
-            </div>
-          </div>
-          <div className={'msg-unit'}>
-            <div className={'img-area'} />
-            <div className={'msg-content'}>
-              <div className={'msg-title'}>UX Design</div>
-              <div className={'msg-text'}>Make it easier to search and filter</div>
-              <div className={'msg-sender'}>XXXXX</div>
-            </div>
-          </div>
-          <div className={'msg-unit'}>
-            <div className={'img-area'} />
-            <div className={'msg-content'}>
-              <div className={'msg-title'}>UX Design</div>
-              <div className={'msg-text'}>Make it easier to search and filter</div>
-              <div className={'msg-sender'}>XXXXX</div>
-            </div>
-          </div>
-          <div className={'msg-unit'}>
-            <div className={'img-area'} />
-            <div className={'msg-content'}>
-              <div className={'msg-title'}>UX Design</div>
-              <div className={'msg-text'}>Make it easier to search and filter</div>
-              <div className={'msg-sender'}>XXXXX</div>
-            </div>
-          </div>
-          <div className={'msg-unit'}>
-            <div className={'img-area'} />
-            <div className={'msg-content'}>
-              <div className={'msg-title'}>UX Design</div>
-              <div className={'msg-text'}>Make it easier to search and filter</div>
-              <div className={'msg-sender'}>XXXXX</div>
-            </div>
-          </div>
-          <div className={'msg-unit'}>
-            <div className={'img-area'} />
-            <div className={'msg-content'}>
-              <div className={'msg-title'}>UX Design</div>
-              <div className={'msg-text'}>Make it easier to search and filter</div>
-              <div className={'msg-sender'}>XXXXX</div>
-            </div>
-          </div>
+          { msgGroup }
         </div>
       </Wrapper>
     </UnitContent>
