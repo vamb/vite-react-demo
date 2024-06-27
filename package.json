@@ -85,7 +85,8 @@
     "xmind-generator": "^1.0.1",
     "rxjs": "^7.8.1",
     "@wendellhu/redi": "0.15.2",
-    "@univerjs/engine-numfmt": "0.1.12"
+    "@univerjs/engine-numfmt": "0.1.12",
+    "video-react": "^0.16.0"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
