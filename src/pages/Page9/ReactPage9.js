@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PageConstant from "./PageConstant";
-import { Demo9_1, Demo9_2, Demo9_2_index, Demo9_3, Demo9_4 } from './PageIndex'
+import { Demo9_1, Demo9_2, Demo9_2_index, Demo9_3, Demo9_4, Demo9_5 } from './PageIndex'
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 import styled from "styled-components";
 import { Tabs } from 'antd'
@@ -60,6 +60,7 @@ const ReactPage9 = () =>{
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
                 <Demo9_4 />
+                <Demo9_5 />
               </div>
             )
           },
