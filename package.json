@@ -37,6 +37,7 @@
     "@univerjs/engine-formula": "^0.1.7",
     "@univerjs/engine-render": "^0.1.7",
     "@univerjs/facade": "^0.1.7",
+    "@univerjs/rpc": "^0.1.16",
     "@univerjs/sheets": "^0.1.7",
     "@univerjs/sheets-formula": "^0.1.7",
     "@univerjs/sheets-ui": "^0.1.7",
