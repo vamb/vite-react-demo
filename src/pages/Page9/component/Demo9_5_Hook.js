@@ -16,11 +16,31 @@ const useMediaRecorder = () => {
     }
     mediaRecorder.current.onstop = () => {
       const blob = new Blob(mediaBlobs.current, { type: 'audio/wav' })
+      requestApi(blob)
       const url = URL.createObjectURL(blob);
       convertToBase64(blob)
       setMediaUrl(url);
     }
     mediaRecorder.current?.start();
+  }
+
+  const requestApi = blob => {
+    let reader = new FileReader();
+    reader.onload = function(event) {
+      let base64Data = event.target.result.split(',')[1];
+      fetch('http://192.168.15.6:5000/ASR', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Credentials": true
+        },
+        body: JSON.stringify({ audio_base64: base64Data })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+    };
+    reader.readAsDataURL(blob);
   }
 
   // 将二进制数据转换为Base64
