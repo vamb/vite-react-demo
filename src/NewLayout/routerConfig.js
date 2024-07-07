@@ -27,6 +27,7 @@ const DragDemoV1 = lazy(()=>import("@/pages/SinglePage/DragDemoV1"))
 const DragDemoV2 = lazy(()=>import("@/pages/SinglePage/DragDemoV2"))
 const DragDemoV3 = lazy(()=>import("@/pages/SinglePage/DragDemoV3"))
 const UniverDemo = lazy(() => import("@/pages/SinglePage/UniverDemo"))
+const AudioRecordDemo = lazy(() => import("@/pages/SinglePage/audioRecord"))
 
 const routerConfig = [
   {
@@ -184,6 +185,13 @@ const routerConfig = [
         component: "@/pages/SinglePage/UniverDemo",
         isBlank: true,
       },
+      {
+        title: 'UniverDemo',
+        path: '/single/audioRecord',
+        element: AudioRecordDemo,
+        component: "@/pages/SinglePage/audioRecord",
+        isBlank: true,
+      }
     ]
   }
 ]

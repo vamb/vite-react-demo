@@ -51,6 +51,7 @@
     "axios": "^0.26.1",
     "butterfly-dag": "^4.3.28",
     "butterfly-react": "^1.0.1",
+    "http-proxy-middleware": "^3.0.0",
     "jquery": "^3.5.1",
     "js-audio-recorder": "^1.0.7",
     "js-md5": "^0.7.3",
@@ -88,7 +89,10 @@
     "web-vitals": "^2.1.0",
     "xmind": "^2.2.33",
     "xmind-embed-viewer": "^1.2.0",
-    "xmind-generator": "^1.0.1"
+    "xmind-generator": "^1.0.1",
+    "lamejs": "^1.2.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.1"
   },
   "devDependencies": {
     "eslint": "^8.45.0",

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import UnitContent from "@/pages/components/UnitContent";
 import { Button, message } from "antd"
 import Recorder from 'js-audio-recorder';
+import {Link} from "react-router-dom";
 
 const Demo9_6 = () => {
   const [ recoder, setRecoder ] = useState(new Recorder({
@@ -28,19 +29,43 @@ const Demo9_6 = () => {
 
   //停止录音
   const stopRecordAudio = (recorder) => {
-    console.log("停止录音");
+    console.log("停止录音", recorder, recorder?.stop);
     recorder?.stop();
+  }
+
+  const destroyRecordAudio = recoder => {
+
   }
 
   //播放录音
   function playRecordAudio(recorder) {
-    console.log("播放录音");
+    console.log("播放录音", recorder);
     recorder?.play();
+  }
+
+  const requestApi = blob => {
+    let reader = new FileReader();
+    reader.onload = function(event) {
+      let base64Data = event.target.result.split(',')[1];
+      fetch('http://192.168.15.6:5000/ASR', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Credentials": true
+        },
+        body: JSON.stringify({ audio_base64: base64Data })
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    };
+    reader.readAsDataURL(blob);
   }
 
   //获取PCB录音数据
   function getPCBRecordAudioData(recorder) {
     const pcmBlob = recorder?.getPCMBlob();
+    requestApi(pcmBlob)
     console.log(pcmBlob);
   }
 
@@ -63,14 +88,22 @@ const Demo9_6 = () => {
   return (
     <UnitContent title={'9_6'}>
       <Wrapper>
-        <Button type="button" onClick={()=>startRecordAudio(recoder)}>开始录音</Button>
-        {/*<h3>录音时长：{{ recorder?.duration?.toFixed(4) }}</h3>*/}
-        <Button type="button" onClick={()=>stopRecordAudio(recoder)}>停止录音</Button>
-        <Button type="button" onClick={()=>playRecordAudio(recoder)}>播放录音</Button>
-        <Button type="button" onClick={()=>getPCBRecordAudioData(recoder)}>获取PCB录音数据</Button>
-        <Button type="button" onClick={()=>downloadPCBRecordAudioData(recoder)}>下载PCB录音文件</Button>
-        <Button type="button" onClick={()=>getWAVRecordAudioData(recoder)}>获取WAV录音数据</Button>
-        <Button type="button" onClick={()=>downloadWAVRecordAudioData(recoder)}>下载WAV录音文件</Button>
+        <div className={'one-line'}>
+          <Button type="button" onClick={()=>startRecordAudio(recoder)}>开始录音</Button>
+          {/*<h3>录音时长：{{ recorder?.duration?.toFixed(4) }}</h3>*/}
+          <Button type="button" onClick={()=>stopRecordAudio(recoder)}>停止录音</Button>
+          <Button type="button" onClick={()=>playRecordAudio(recoder)}>播放录音</Button>
+          <Button type="button" onClick={()=>getPCBRecordAudioData(recoder)}>获取PCB录音数据</Button>
+          <Button type="button" onClick={()=>downloadPCBRecordAudioData(recoder)}>下载PCB录音文件</Button>
+          <Button type="button" onClick={()=>getWAVRecordAudioData(recoder)}>获取WAV录音数据</Button>
+          <Button type="button" onClick={()=>downloadWAVRecordAudioData(recoder)}>下载WAV录音文件</Button>
+        </div>
+        <div>
+          <Link
+            target = "_blank" title={'JS Audio Record'}
+            to='/single/audioRecord'
+          >JS Audio Record</Link>
+        </div>
       </Wrapper>
     </UnitContent>
   )
@@ -78,8 +111,13 @@ const Demo9_6 = () => {
 
 const Wrapper = styled('div')`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
+  .one-line {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
 `
 
 export default Demo9_6
