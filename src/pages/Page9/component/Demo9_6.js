@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components";
 import UnitContent from "@/pages/components/UnitContent";
 import { Button, message } from "antd"
@@ -25,6 +25,50 @@ const Demo9_6 = () => {
   const [ numChannels, setNumChannels ] = useState(1)
   const [ compiling, setCompiling ] = useState(false)
   // const [ recorder, setRecorder ] = useState()
+
+  const [ audioAvailable, setAudioAvailable ] = useState(false)
+
+  const checkAudioInputAvailable = () => {
+    try {
+      navigator.mediaDevices.enumerateDevices().then(function (devices) {
+        let newAudioAvail = false
+        devices.forEach(function (device) {
+          switch (device?.kind) {
+            case 'audioinput':
+              console.log('音频输入设备(麦克风|话筒)：', device);
+              newAudioAvail = true
+              return
+            // case 'audiooutput':
+            //   console.log('音频输出设备(扬声器|音响)：', device);
+            //   break;
+            // case 'videoinput':
+            //   console.log('视频输入设备(摄像头|相机)：', device);
+            //   break;
+            // default:
+            //   console.log('当前可用的媒体设备: ', device);
+            //   break;
+          }
+        });
+        setAudioAvailable(newAudioAvail)
+        if(!newAudioAvail) {
+          message.error('未检测到音频输入设备(麦克风|话筒)')
+        }
+      }).catch(function (err) {
+        console.error(err);
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+        console.log("不支持mediaDevices.enumerateDevices(), 未识别到多媒体设备！");
+      }
+    }
+  }
+
+  useEffect(()=>{
+    checkAudioInputAvailable()
+  },[])
+
 
   const collectData = () => {
     return { sampleBits, sampleRate, numChannels, compiling };
@@ -246,27 +290,27 @@ const Demo9_6 = () => {
     <UnitContent title={'9_6'}>
       <Wrapper>
         <div className={'one-line'}>
-          <Button type="button" onClick={()=>startRecordAudio(recoder)}>开始录音</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>startRecordAudio(recoder)}>开始录音</Button>
           {/*<h3>录音时长：{{ recorder?.duration?.toFixed(4) }}</h3>*/}
-          <Button type="button" onClick={()=>stopRecordAudio(recoder)}>停止录音</Button>
-          <Button type="button" onClick={()=>playRecordAudio(recoder)}>播放录音</Button>
-          <Button type="button" onClick={()=>getPCBRecordAudioData(recoder)}>获取PCB录音数据</Button>
-          <Button type="button" onClick={()=>downloadPCBRecordAudioData(recoder)}>下载PCB录音文件</Button>
-          <Button type="button" onClick={()=>getWAVRecordAudioData(recoder)}>获取WAV录音数据</Button>
-          <Button type="button" onClick={()=>downloadWAVRecordAudioData(recoder)}>下载WAV录音文件</Button>
-          <Button type="button" onClick={()=>destroyRecordAudio(recoder)}>销毁实例</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>stopRecordAudio(recoder)}>停止录音</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>playRecordAudio(recoder)}>播放录音</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>getPCBRecordAudioData(recoder)}>获取PCB录音数据</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>downloadPCBRecordAudioData(recoder)}>下载PCB录音文件</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>getWAVRecordAudioData(recoder)}>获取WAV录音数据</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>downloadWAVRecordAudioData(recoder)}>下载WAV录音文件</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>destroyRecordAudio(recoder)}>销毁实例</Button>
         </div>
         <div className={'one-line'}>
-          <Button type="button" onClick={()=>startRecordV2()}>开始录音V2</Button>
-          <Button type="button" onClick={()=>endRecord()}>停止录音V2</Button>
-          <Button type="button" onClick={()=>playRecordV2()}>播放录音V2</Button>
-          <Button type="button" onClick={()=>destroyRecordV2()}>销毁实例V2</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>startRecordV2()}>开始录音V2</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>endRecord()}>停止录音V2</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>playRecordV2()}>播放录音V2</Button>
+          <Button type="button" disabled={!audioAvailable} onClick={()=>destroyRecordV2()}>销毁实例V2</Button>
         </div>
         <div className={'one-line'}>
           {
             isStop?
-            <Button type={'primary'} onClick={()=>combineStart()}>开始录音</Button>:
-            <Button type={'primary'} onClick={()=>combineStop(recorder)}>停止录音</Button>
+            <Button type={'primary'} disabled={!audioAvailable} onClick={()=>combineStart()}>开始录音</Button>:
+            <Button type={'primary'} disabled={!audioAvailable} onClick={()=>combineStop(recorder)}>停止录音</Button>
           }
         </div>
         <div>
