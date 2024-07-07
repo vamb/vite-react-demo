@@ -18,6 +18,8 @@ const Demo9_6 = () => {
     // compiling: false,(0.x版本中生效,1.x增加中)  // 是否边录边转换，默认是false
   }))
 
+  const [ isStop, setIsStop ] = useState(true)
+
   const [ sampleBits, setSampleBits ] = useState(16)
   const [ sampleRate, setSampleRate ] = useState(16000)
   const [ numChannels, setNumChannels ] = useState(1)
@@ -178,11 +180,13 @@ const Demo9_6 = () => {
     });
   }
 
+  // 播放录音
   const playRecordV2 = () => {
     recorder && recorder.play();
     console.log('播放录音');
   }
 
+  // 销毁实例
   const destroyRecordV2 = () => {
     if (recorder) {
       recorder.destroy().then(() => {
@@ -190,6 +194,52 @@ const Demo9_6 = () => {
         recorder = null;
       });
     }
+  }
+
+  // 停止录音
+  const endRecord = () => {
+    recorder && recorder.stop();
+    console.log('结束录音');
+  }
+
+  const combineStart = () => {
+    setIsStop(false)
+    startRecordV2()
+  }
+
+  const combineStop = (recorder) => {
+    const selfEnd = ({recorder}) => {
+      return new Promise((resolve)=> {
+        recorder && recorder.stop();
+        resolve({recorder})
+      })
+    }
+
+    const selfPlay = ({recorder}) => {
+      return new Promise(resolve => {
+        recorder && recorder.play();
+        resolve({recorder})
+      })
+    }
+
+    const selfDestroy = ({recorder}) => {
+      return new Promise(resolve => {
+        if (recorder) {
+          recorder.destroy().then(() => {
+            console.log('销毁实例');
+            recorder = null;
+            resolve()
+            setIsStop(true)
+          });
+        }else{
+          setIsStop(true)
+          resolve()
+        }
+      })
+    }
+    new Promise(resolve => {
+      resolve({recorder})
+    }).then(selfEnd).then(selfPlay).then(selfDestroy)
   }
 
   return (
@@ -208,8 +258,16 @@ const Demo9_6 = () => {
         </div>
         <div className={'one-line'}>
           <Button type="button" onClick={()=>startRecordV2()}>开始录音V2</Button>
+          <Button type="button" onClick={()=>endRecord()}>停止录音V2</Button>
           <Button type="button" onClick={()=>playRecordV2()}>播放录音V2</Button>
           <Button type="button" onClick={()=>destroyRecordV2()}>销毁实例V2</Button>
+        </div>
+        <div className={'one-line'}>
+          {
+            isStop?
+            <Button type={'primary'} onClick={()=>combineStart()}>开始录音</Button>:
+            <Button type={'primary'} onClick={()=>combineStop(recorder)}>停止录音</Button>
+          }
         </div>
         <div>
           <Link
