@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PageConstant from "./PageConstant";
-import { Demo9_1, Demo9_2, Demo9_2_index, Demo9_3, Demo9_4, Demo9_5, Demo9_6 } from './PageIndex'
+import {
+  Demo9_1, Demo9_2, Demo9_2_index, Demo9_3, Demo9_4, Demo9_5, Demo9_6,
+  Demo9_7
+} from './PageIndex'
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 import styled from "styled-components";
 import { Tabs } from 'antd'
@@ -62,6 +65,7 @@ const ReactPage9 = () =>{
                 <Demo9_4 />
                 <Demo9_5 />
                 <Demo9_6 />
+                <Demo9_7 />
               </div>
             )
           },
