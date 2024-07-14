@@ -6,9 +6,9 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 
 const Demo2_0 = () => {
   const [ stateVal, setStateVal ] = useState(0)
-  console.log('stateVal', stateVal)
+  // console.log('stateVal', stateVal)
   const refVal = useRef(0)
-  console.log('refVal', refVal.current)
+  // console.log('refVal', refVal.current)
 
   const stateChange = isPlus => {
     let newState = stateVal
