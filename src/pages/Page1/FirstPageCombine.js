@@ -6,7 +6,7 @@ import { Tabs } from 'antd'
 import {
   Example, Example2, Example3, Example4, Example5, Example6,
   Example7, Example8, Demo1_9, Demo1_9_2, Demo1_9_3,
-  Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0,
+  Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1,
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
@@ -78,6 +78,7 @@ const FirstPageCombine = () => {
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
                 <Demo2_0 />
+                <Demo2_1 />
               </div>
             )
           }

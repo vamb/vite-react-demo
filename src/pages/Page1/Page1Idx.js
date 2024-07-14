@@ -14,6 +14,7 @@ import Demo1_9_5 from './Demo1_9_5/App'
 import Demo1_9_6 from './Demo1_9_6/App'
 import Demo1_9_7 from './Demo1_9_7/App'
 import Demo2_0 from "@/pages/Page1/component/Demo2_X/Demo2_0";
+import Demo2_1 from "@/pages/Page1/component/Demo2_X/Demo2_1";
 
 export {
   Demo2_0,
@@ -32,4 +33,5 @@ export {
   Demo1_9_5,
   Demo1_9_6,
   Demo1_9_7,
+  Demo2_1,
 }
