@@ -1,5 +1,7 @@
 const AudioConstant = {}
 
+AudioConstant.UPDATE_DATA = 'update_data'
+
 AudioConstant.sampleRateOptions =[
   { text: '8000', value: 8000 },
   { text: '16000', value: 16000 },
