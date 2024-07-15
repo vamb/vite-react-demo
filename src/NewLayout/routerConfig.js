@@ -37,7 +37,7 @@ const routerConfig = [
     component: "@/pages/Layout/BasicLayout",
     children: [
       {
-        title: 'Hooks Related',
+        title: 'Hooks',
         path: '/main/firstPage',
         element: MainPage1,
         component: "@/pages/Page1"

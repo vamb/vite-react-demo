@@ -31,7 +31,7 @@ const routerConfig = [
     path: '/main',
     children: [
       {
-        title: '1 - Hooks Related',
+        title: 'Hooks',
         path: '/main/firstPage',
         element: <MainPage1 />
       },
