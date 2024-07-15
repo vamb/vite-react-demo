@@ -11,7 +11,7 @@ import {
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
-  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB2.key)
+  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB3.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -59,9 +59,9 @@ const FirstPageCombine = () => {
             key: Page1Constant.TABS_MAP.TAB3.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Example7 />
                 <Example5 />
                 <Example6 />
+                <Example7 />
               </div>
             )
           },
@@ -149,6 +149,13 @@ const Wrapper = styled('div')`
   .info-icon {
     cursor: pointer;
     font-size: 1.5rem;
+  }
+  .child-holder {
+    border: 1px dashed #232323;
+    display: flex;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
   }
 `
 
