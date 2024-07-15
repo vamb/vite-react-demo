@@ -34,7 +34,7 @@ const Demo2_0 = () => {
   }
 
   return (
-    <UnitContent title={'Demo2_0 useRef 变量'}>
+    <UnitContent title={'Demo2_0'} label={'useRef 变量'} disBtn={true}>
       <Wrapper>
         <div className={'one-line'}>
           <div className={'val-label'}>{`stateVal: ${stateVal}`}</div>

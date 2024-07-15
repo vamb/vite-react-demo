@@ -28,7 +28,11 @@ const Demo1_9 = () => {
   }
 
   return (
-    <UnitContent title={'Demo1_9 useMemo 目标方法只用来判断当前数字是否为质数'}>
+    <UnitContent
+      title={'Demo1_9'}
+      label={'useMemo 目标方法只用来判断当前数字是否为质数'}
+      disBtn={true}
+    >
       <Wrapper>
         <Form.Item label={'Your number'}>
           <InputNumber

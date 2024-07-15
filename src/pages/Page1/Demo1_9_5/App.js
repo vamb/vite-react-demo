@@ -27,7 +27,7 @@ function App() {
   },[boxWidth])
 
   return (
-    <UnitContent title={'Page1_9_5 name的改变会导致box组件的输入引用改变，导致memo内的box再次刷新'}>
+    <UnitContent title={'Page1_9_5'} label={'name的改变会导致box组件的输入引用改变，导致memo内的box再次刷新'} disBtn={true}>
       <Wrapper>
         <div>
           <Boxes boxes={boxes} />

@@ -15,7 +15,7 @@ function App() {
   const backgroundColor = getBackgroundColorFromTime(time);
 
   return (
-    <UnitContent title={'Demo1_9_4 将目标组件用memo包起来, 这样就不会被需要不停刷新的组件影响'}>
+    <UnitContent title={'Demo1_9_4'} label={'将目标组件用memo包起来, 这样就不会被需要不停刷新的组件影响'} disBtn={true}>
       <div style={{ backgroundColor }}>
         <Clock time={time} />
         <PurePrimeCalculator />

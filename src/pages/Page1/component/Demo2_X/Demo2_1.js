@@ -25,7 +25,7 @@ const Demo2_1 = () => {
   }
 
   return (
-    <UnitContent title={'Demo2_1 useRef 绑定 Dom'}>
+    <UnitContent title={'Demo2_1'} label={'useRef 绑定 Dom'} disBtn={true}>
       <Wrapper>
         <div className={'one-line'}>
           <Input ref={domRef} style={{width: `${stateWidth}px`}} allowClear={true} />

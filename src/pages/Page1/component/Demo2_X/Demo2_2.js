@@ -7,7 +7,11 @@ import Demo2_2_2 from "./Demo2_2/Demo2_2_2";
 const Demo2_2 = () => {
 
   return (
-    <UnitContent title={'Demo2_2 使用 forwardRef useImperativeHandle 配合 useRef 实现穿透父子组件或者内容或者操控方法'}>
+    <UnitContent
+      title={'Demo2_2'}
+      label={'使用 forwardRef useImperativeHandle 配合 useRef 实现穿透父子组件或者内容或者操控方法'}
+      disBtn={true}
+    >
       <Wrapper>
         <Demo2_2_1 />
         <Demo2_2_2 />

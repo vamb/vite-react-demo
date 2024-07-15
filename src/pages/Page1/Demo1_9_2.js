@@ -49,7 +49,7 @@ const Demo1_9_2 = () => {
   const time = useTime();
 
   return (
-    <UnitContent title={'Demo1_9_2 useMemo '}>
+    <UnitContent title={'Demo1_9_2'} label={'useMemo'} disBtn={true}>
       <Wrapper>
         <Form.Item label={'当前时间'}>
           {time? moment(time).format('YYYY MM DD HH:mm:ss'): null}

@@ -26,7 +26,7 @@ function App() {
 
 
   return (
-    <UnitContent title={'Demo1_9_6 userCallback'}>
+    <UnitContent title={'Demo1_9_6'} label={'userCallback'} disBtn={true}>
       <Wrapper>
         <Form.Item label={'Count'}>{count}</Form.Item>
         <div className={'ctl-area'}>

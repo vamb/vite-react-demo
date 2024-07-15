@@ -59,7 +59,11 @@ const Demo1_9_3 = () => {
   const time = useTime();
 
   return (
-    <UnitContent title={'Demo1_9_3 用useMemo将数组的组装方发包起来，只要数据数据不变，这个方法返回的数据就不会变'}>
+    <UnitContent
+      title={'Demo1_9_3'}
+      label={'用useMemo将数组的组装方发包起来，只要数据数据不变，这个方法返回的数据就不会变'}
+      disBtn={true}
+    >
       <Wrapper>
         <Form.Item label={'当前时间'}>
           {time? moment(time).format('YYYY MM DD HH:mm:ss'): null}

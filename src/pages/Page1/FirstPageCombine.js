@@ -10,7 +10,7 @@ import {
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
-  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB1.key)
+  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB3.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
