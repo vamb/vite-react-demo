@@ -49,8 +49,8 @@ const FirstPageCombine = () => {
             key: Page1Constant.TABS_MAP.TAB2.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Example4 />
                 <Demo4_2 />
+                <Example4 />
               </div>
             )
           },
@@ -145,6 +145,10 @@ const Wrapper = styled('div')`
     width: 30%;
     height: 100%;
     align-self: stretch;
+  }
+  .info-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
   }
 `
 

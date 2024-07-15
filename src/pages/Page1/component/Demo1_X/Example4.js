@@ -33,7 +33,7 @@ export default function Example4(){
   },[count])
 
   return(
-    <UnitContent title={'Example4'} label={'简单 useEffect'} disBtn={true}>
+    <UnitContent title={'Example4'} label={'简单 useEffect'}>
       <div className={'flex-col'}>
         <div className={'one-line'}>
           <div className={'label-area'}>You Clicked {count} times</div>

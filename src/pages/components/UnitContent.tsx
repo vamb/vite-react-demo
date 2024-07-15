@@ -20,11 +20,9 @@ const UnitContent = (props: ContentProps) =>{
     disBtn? setHideContent(disBtn): null
   },[disBtn])
 
-
   return (
     <Wrapper>
       { !hideContent && props.children }
-
       {
         (idx || unitTitle || title) && !label &&
         // @ts-ignore

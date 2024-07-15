@@ -31,10 +31,6 @@ const Wrapper = styled('div')`
     align-items: center;
     gap: 0.5rem;
   }
-  .info-icon {
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
 `
 
 export default Demo2_2

@@ -69,10 +69,6 @@ const Wrapper = styled('div')`
   .val-label {
     width: 200px;
   }
-  .info-icon {
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
 `
 
 export default Demo2_0
