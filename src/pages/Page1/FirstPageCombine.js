@@ -10,7 +10,7 @@ import {
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
-  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB5.key)
+  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB1.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -101,7 +101,24 @@ const FirstPageCombine = () => {
 }
 
 const Wrapper = styled('div')`
-
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .label-area {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .one-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+  }
 `
 
 export default FirstPageCombine
