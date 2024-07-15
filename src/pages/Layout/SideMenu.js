@@ -25,9 +25,9 @@ const SideMenu = props => {
             return (
               <div key={`main-child-menu-${idx}`} className={checkActive(activeKey, item?.path)}>
                 <Link
-                  to={item?.path} title={item?.title}
+                  to={item?.path} title={`${idx + 1} - ${item?.title}`}
                   onClick={()=>setActiveKey(item?.path)}
-                >{item?.title}</Link>
+                >{`${idx + 1} - ${item?.title}`}</Link>
                 <div className={'bottom-mark'} />
               </div>
             )

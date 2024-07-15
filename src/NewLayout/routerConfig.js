@@ -37,85 +37,85 @@ const routerConfig = [
     component: "@/pages/Layout/BasicLayout",
     children: [
       {
-        title: '1 - Hooks Related',
+        title: 'Hooks Related',
         path: '/main/firstPage',
         element: MainPage1,
         component: "@/pages/Page1"
       },
       {
-        title: '2 - Page',
+        title: 'Page',
         path: '/main/secondPage',
         element: MainPage2,
         component: "@/pages/Page2",
       },
       {
-        title: '3 - LifeCycle',
+        title: 'LifeCycle',
         path: '/main/thirdPage',
         element: MainPage3,
         component: "@/pages/Page3/ThirdPageCombine",
       },
       {
-        title: '4 - Page',
+        title: 'Page',
         path: '/main/forthPage',
         element: MainPage4,
         component: "@/pages/page4/FourthPageCombine",
       },
       {
-        title: '5 - Canvas',
+        title: 'Canvas',
         path: '/main/fifThPage',
         element: MainPage5,
         component: "@/pages/page5",
       },
       {
-        title: '6 - XHR & Fetch',
+        title: 'XHR & Fetch',
         path: '/main/sixthPage',
         element: MainPage6,
         component: "@/pages/page6",
       },
       {
-        title: '7 - Web3.0',
+        title: 'Web3.0',
         path: '/main/seventhPage',
         element: MainPage7,
         component: "@/pages/Page7",
       },
       {
-        title: '8 - CSS',
+        title: 'CSS',
         path: '/main/eighthPage',
         element: MainPage8,
         component: "@/pages/Page8"
       },
       {
-        title: '9 - Page',
+        title: 'Page',
         path: '/main/ninthPage',
         element: MainPage9,
         component: "@/pages/Page9",
       },
       {
-        title: '10 - threeJs',
+        title: 'threeJs',
         path: '/main/tenthPage',
         element: MainPage10,
         component: "@/pages/Page10"
       },
       {
-        title: '11 - JS练习',
+        title: 'JS练习',
         path: '/main/eleventhPage',
         element: MainPage11,
         component: "@/pages/Page11"
       },
       {
-        title: '12 - 爪哇',
+        title: '爪哇',
         path: '/main/twelvePage',
         element: MainPage12,
         component: "@/pages/Page12"
       },
       {
-        title: '14 - 状态托管',
+        title: '状态托管',
         path: '/main/fourteenPage',
         element: MainPage14,
         component: "@/pages/Page14"
       },
       {
-        title: '15 - 蝴蝶图标',
+        title: '蝴蝶图标',
         path: '/main/butterflyDag',
         element: MainPage15,
         component: "@/pages/Page15"
