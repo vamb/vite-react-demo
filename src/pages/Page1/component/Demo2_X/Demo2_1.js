@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import styled from "styled-components";
 import UnitContent from "@/pages/components/UnitContent";
-import { Input, Button, Tooltip } from "antd";
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { Input, Button } from "antd";
+import CommTips from "@/pages/Page1/component/CommTips";
 
 const Demo2_1 = () => {
   const domRef = useRef(null)
@@ -25,7 +25,7 @@ const Demo2_1 = () => {
   }
 
   return (
-    <UnitContent title={'Demo2_1'} label={'useRef 绑定 Dom'} disBtn={true}>
+    <UnitContent title={'Demo2_1'} label={'useRef 绑定 Dom'}>
       <Wrapper>
         <div className={'one-line'}>
           <Input ref={domRef} style={{width: `${stateWidth}px`}} allowClear={true} />
@@ -35,9 +35,7 @@ const Demo2_1 = () => {
         <div className={'one-line'}>
           <Button type={'primary'} onClick={()=>changeWidth(false)}>-</Button>
           <Button type={'primary'} onClick={()=>changeWidth(true)}>+</Button>
-          <Tooltip placement="right" title={'useRef 可以通过 ref 绑定要虚拟 dom 上，从而获取 dom相关的信息'}>
-            <InfoCircleOutlined className={'info-icon'} />
-          </Tooltip>
+          <CommTips title={'useRef 可以通过 ref 绑定要虚拟 dom 上，从而获取 dom相关的信息'} />
         </div>
       </Wrapper>
     </UnitContent>

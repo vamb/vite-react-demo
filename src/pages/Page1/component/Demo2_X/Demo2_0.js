@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import UnitContent from "@/pages/components/UnitContent";
-import { Button, Tooltip } from "antd";
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { Button } from "antd";
+import CommTips from "@/pages/Page1/component/CommTips";
 
 const Demo2_0 = () => {
   const [ stateVal, setStateVal ] = useState(0)
@@ -34,7 +34,7 @@ const Demo2_0 = () => {
   }
 
   return (
-    <UnitContent title={'Demo2_0'} label={'useRef 变量'} disBtn={true}>
+    <UnitContent title={'Demo2_0'} label={'useRef 变量'}>
       <Wrapper>
         <div className={'one-line'}>
           <div className={'val-label'}>{`stateVal: ${stateVal}`}</div>
@@ -48,9 +48,7 @@ const Demo2_0 = () => {
         </div>
         <div className={'one-line'}>
           <Button type={'primary'} onClick={consoleAll}>console all</Button>
-          <Tooltip placement="right" title={'useState修改值会重新渲染页面，useRef修改值不会重新渲染'}>
-            <InfoCircleOutlined className={'info-icon'} />
-          </Tooltip>
+          <CommTips title={'useState修改值会重新渲染页面，useRef修改值不会重新渲染'} />
         </div>
       </Wrapper>
     </UnitContent>

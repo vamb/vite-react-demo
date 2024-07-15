@@ -4,13 +4,14 @@ import Page1Constant from "./Page1Constant";
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 import { Tabs } from 'antd'
 import {
-  Example1And2Comb, Example5And6Comb,
+  Example, Example2, Example4, Demo4_2,
+  Example5, Example6, Example7,
   Demo1_9, Demo1_9_2, Demo1_9_3,
   Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
-  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB3.key)
+  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB2.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -38,14 +39,35 @@ const FirstPageCombine = () => {
             key: Page1Constant.TABS_MAP.TAB1.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Example1And2Comb />
-                <Example5And6Comb />
+                <Example />
+                <Example2 />
               </div>
             )
           },
           {
             label: Page1Constant.TABS_MAP.TAB2.label,
             key: Page1Constant.TABS_MAP.TAB2.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Example4 />
+                <Demo4_2 />
+              </div>
+            )
+          },
+          {
+            label: Page1Constant.TABS_MAP.TAB3.label,
+            key: Page1Constant.TABS_MAP.TAB3.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Example7 />
+                <Example5 />
+                <Example6 />
+              </div>
+            )
+          },
+          {
+            label: Page1Constant.TABS_MAP.TAB4.label,
+            key: Page1Constant.TABS_MAP.TAB4.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
                 <Demo1_9 />
@@ -57,37 +79,38 @@ const FirstPageCombine = () => {
             )
           },
           {
-            label: Page1Constant.TABS_MAP.TAB3.label,
-            key: Page1Constant.TABS_MAP.TAB3.key,
-            children: (
-              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Demo1_9_6 />
-                <Demo1_9_7 />
-              </div>
-            )
-          },
-          {
-            label: Page1Constant.TABS_MAP.TAB4.label,
-            key: Page1Constant.TABS_MAP.TAB4.key,
-            children: (
-              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Demo2_0 />
-                <Demo2_1 />
-                <Demo2_2 />
-              </div>
-            )
-          },
-          {
             label: Page1Constant.TABS_MAP.TAB5.label,
             key: Page1Constant.TABS_MAP.TAB5.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo1_9_6 />
+                <Demo1_9_7 />
                 <Demo2_0 />
                 <Demo2_1 />
                 <Demo2_2 />
               </div>
             )
-          }
+          },
+          {
+            label: Page1Constant.TABS_MAP.TAB6.label,
+            key: Page1Constant.TABS_MAP.TAB6.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+                <Demo2_0 />
+                <Demo2_1 />
+                <Demo2_2 />
+              </div>
+            )
+          },
+          {
+            label: Page1Constant.TABS_MAP.TAB7.label,
+            key: Page1Constant.TABS_MAP.TAB7.key,
+            children: (
+              <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
+
+              </div>
+            )
+          },
         ]}
       />
     </Wrapper>

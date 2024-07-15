@@ -7,7 +7,7 @@ function Example() {
   const [ count, setCount ] = useState(0);
 
   return(
-    <UnitContent title={'Example'} label={'最简单的 useState'} disBtn={true}>
+    <UnitContent title={'Example'} label={'最简单的 useState'} >
       <Wrapper>
         <div className={'one-line'}>
           <div className={'label-area'}>{count}</div>

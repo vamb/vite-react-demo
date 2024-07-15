@@ -1,10 +1,11 @@
-import React, { useRef, useImperativeHandle, forwardRef } from "react";
+import React, { useRef, useImperativeHandle, forwardRef, useState } from "react";
 import styled from "styled-components";
-import { Button, Tooltip } from "antd";
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { Button } from "antd";
+import CommTips from "@/pages/Page1/component/CommTips";
 
 const Demo2_2_2 = () => {
   const childRef = useRef(null)
+  const [ childDom, setChildDom ] = useState(null)
 
   const Demo2_2_child = forwardRef((props, childRef) => {
     const insideRef = useRef(null)
@@ -29,6 +30,7 @@ const Demo2_2_2 = () => {
   const consoleChild = () => {
     console.log('consoleChild', childRef.current)
     const { fun1, fun2 } = childRef.current
+    setChildDom(fun2())
     console.log('fun1', fun1())
     console.log('fun2', fun2())
   }
@@ -38,9 +40,8 @@ const Demo2_2_2 = () => {
       <Demo2_2_child ref={childRef} />
       <div className={'one-line'}>
         <Button type={'primary'} onClick={consoleChild}>child dom ref</Button>
-        <div>{`child width: ${childRef.current?.fun2()?.clientWidth}px, height: ${childRef.current?.fun2()?.clientHeight}px`}</div>
-        <Tooltip
-          placement="right"
+        <div>{`child width: ${childDom?.clientWidth || 0}px, height: ${childDom?.clientHeight || 0}px`}</div>
+        <CommTips
           title={
             <div>
               <div>使用 forwardRef 包住子组件</div>
@@ -48,9 +49,7 @@ const Demo2_2_2 = () => {
               <div>从而使得子组件有选择性的暴露出可控的数据或者方法</div>
             </div>
           }
-        >
-          <InfoCircleOutlined className={'info-icon'} />
-        </Tooltip>
+        />
       </div>
     </Wrapper>
   )

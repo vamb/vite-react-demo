@@ -1,5 +1,10 @@
-import Example1And2Comb from "@/pages/Page1/component/Demo1_X/Example1And2Comb";
-import Example5And6Comb from "@/pages/Page1/component/Demo1_X/Example5And6Comb";
+import Example from "@/pages/Page1/component/Demo1_X/Example";
+import Example2 from "@/pages/Page1/component/Demo1_X/Example2";
+import Example4 from "@/pages/Page1/component/Demo1_X/Example4";
+import Demo4_2 from "@/pages/Page1/component/Demo1_X/Demo4_2";
+import Example5 from "@/pages/Page1/component/Demo1_X/Example5";
+import Example6 from "@/pages/Page1/component/Demo1_X/Example6";
+import Example7 from "@/pages/Page1/component/Demo1_X/Example7/Example7";
 import Demo1_9 from "./Demo1_9";
 import Demo1_9_2 from "./Demo1_9_2";
 import Demo1_9_3 from "./Demo1_9_3";
@@ -12,7 +17,8 @@ import Demo2_1 from "@/pages/Page1/component/Demo2_X/Demo2_1";
 import Demo2_2 from "@/pages/Page1/component/Demo2_X/Demo2_2";
 
 export {
-  Example1And2Comb, Example5And6Comb,
+  Example, Example2, Example4, Demo4_2,
+  Example5, Example6, Example7,
   Demo1_9, Demo1_9_2, Demo1_9_3,
   Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2
 }
