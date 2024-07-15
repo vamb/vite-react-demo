@@ -56,6 +56,7 @@ const UnitContent = (props: ContentProps) =>{
 
 const Wrapper = styled('div')`
   padding: 20px;
+  padding-top: 30px;
   border: 1px dashed #ddd;
   margin: 20px 0;
   position: relative;
