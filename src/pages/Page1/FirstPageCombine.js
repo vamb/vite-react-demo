@@ -4,8 +4,8 @@ import Page1Constant from "./Page1Constant";
 import { findPageContentHeight, DEFAULT_TAB_HEIGHT } from '@/utils/utils'
 import { Tabs } from 'antd'
 import {
-  Example, Example2, Example3, Example4, Example5, Example6,
-  Example7, Example8, Demo1_9, Demo1_9_2, Demo1_9_3,
+  Example1And2Comb, Example5And6Comb,
+  Demo1_9, Demo1_9_2, Demo1_9_3,
   Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2
 } from "./Page1Idx"
 
@@ -38,14 +38,8 @@ const FirstPageCombine = () => {
             key: Page1Constant.TABS_MAP.TAB1.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-                <Example />
-                <Example2 />
-                <Example3 />
-                <Example4 />
-                <Example5 />
-                <Example6 />
-                <Example7 />
-                <Example8 />
+                <Example1And2Comb />
+                <Example5And6Comb />
               </div>
             )
           },
@@ -118,6 +112,16 @@ const Wrapper = styled('div')`
     justify-content: start;
     align-items: center;
     gap: 0.5rem;
+  }
+  .w-half {
+    width: 50%;
+    height: 100%;
+    align-self: stretch;
+  }
+  .w-three {
+    width: 30%;
+    height: 100%;
+    align-self: stretch;
   }
 `
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UnitContent from "../components/UnitContent";
+import UnitContent from "../../../components/UnitContent";
 import { Button } from "antd"
 import styled from "styled-components";
 
@@ -7,7 +7,7 @@ function Example() {
   const [ count, setCount ] = useState(0);
 
   return(
-    <UnitContent title={'Example 最简单的 useState'}>
+    <UnitContent title={'Example'} label={'最简单的 useState'} disBtn={true}>
       <Wrapper>
         <div className={'one-line'}>
           <div className={'label-area'}>{count}</div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import UnitContent from "../components/UnitContent";
+import UnitContent from "../../../components/UnitContent";
 import { Input, Button } from "antd";
 
 export default function Example2(){
@@ -8,7 +8,7 @@ export default function Example2(){
   const [ gender, setGender ] = useState(0)
 
   return(
-    <UnitContent title={'Example2 最简单的 useState'}>
+    <UnitContent title={'Example2'} label={'最简单的 useState'} disBtn={true}>
       <div className={'flex-col'}>
         <div className={'one-line'}>
           <div className={'label-area'}>Age: {age}</div>

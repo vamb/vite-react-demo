@@ -5,7 +5,10 @@ function ShowArea(){
     const { color } = useContext(ColorContext)
     console.log('ShowArea color', color)
     return (
-        <div style={{color: color}}><h2>字体颜色 {color}</h2></div>
+        <div className={'one-line'}>
+            <h2>字体颜色</h2>
+            <h2 style={{color: color}}>{`${color}`}</h2>
+        </div>
     )
 }
 

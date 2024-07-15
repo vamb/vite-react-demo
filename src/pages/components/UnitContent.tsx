@@ -1,29 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from "styled-components";
-import { Button } from 'antd'
+// @ts-ignore
+import { Button } from "antd";
 
 interface ContentProps {
   idx?: any,
   unitTitle?: any,
   title?: any,
   children: any,
-  disBtn?: boolean
+  disBtn?: boolean,
+  label?: any
 }
 
 const UnitContent = (props: ContentProps) =>{
-  const { idx, unitTitle, title, disBtn } = props
+  const { idx, unitTitle, title, disBtn, label } = props
   const [ hideContent, setHideContent ] = useState(false)
 
   useEffect(()=>{
     disBtn? setHideContent(disBtn): null
   },[disBtn])
 
+
   return (
     <Wrapper>
       { !hideContent && props.children }
+
       {
-        (idx || unitTitle || title) &&
+        (idx || unitTitle || title) && !label &&
+        // @ts-ignore
         <div className={'common-unit-content-idx-display'}>{`${idx? idx: ''} ${unitTitle || title}`}</div>
+      }
+      {
+        (idx || unitTitle || title) && label &&
+        <>
+          {/* @ts-ignore */}
+          <div className={'common-unit-content-idx-display'}>
+            {/* @ts-ignore */}
+            <div className={'strong'}>{`${idx? idx: ''} ${unitTitle || title}`}</div>
+            {/* @ts-ignore */}
+            <div>{label || ''}</div>
+            {/* @ts-ignore */}
+          </div>
+        </>
       }
       {
         disBtn &&
@@ -48,11 +66,19 @@ const Wrapper = styled('div')`
     font-size: 12px;
     font-weight: 500;
     opacity: 0.6;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
   }
   .common-unit-content-btn-display {
     position: absolute;
     top: 1px;
     right: 10px;
+  }
+  .strong {
+    font-weight: bold;
   }
 `
 
