@@ -7,11 +7,12 @@ import {
   Example, Example2, Example4, Demo4_2,
   Example5, Example6, Example7,
   Demo1_9, Demo1_9_2, Demo1_9_3,
-  Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2
+  Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2,
+  Demo7_0
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
-  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB3.key)
+  const [ activeKey, setActiveKey ] = useState(Page1Constant.TABS_MAP.TAB7.key)
   const [ tabChildHeight, setTabChildHeight ] = useState(0)
 
   const updateActiveKey = key => {
@@ -85,9 +86,6 @@ const FirstPageCombine = () => {
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
                 <Demo1_9_6 />
                 <Demo1_9_7 />
-                <Demo2_0 />
-                <Demo2_1 />
-                <Demo2_2 />
               </div>
             )
           },
@@ -107,7 +105,7 @@ const FirstPageCombine = () => {
             key: Page1Constant.TABS_MAP.TAB7.key,
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
-
+                <Demo7_0 />
               </div>
             )
           },

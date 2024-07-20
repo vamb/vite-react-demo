@@ -15,10 +15,13 @@ import Demo1_9_7 from './Demo1_9_7/App'
 import Demo2_0 from "@/pages/Page1/component/Demo2_X/Demo2_0";
 import Demo2_1 from "@/pages/Page1/component/Demo2_X/Demo2_1";
 import Demo2_2 from "@/pages/Page1/component/Demo2_X/Demo2_2";
+import Demo7_0 from "@/pages/Page1/component/Demo7_X/Demo7_0/Demo7_0";
 
 export {
   Example, Example2, Example4, Demo4_2,
   Example5, Example6, Example7,
   Demo1_9, Demo1_9_2, Demo1_9_3,
-  Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2
+  Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2,
+
+  Demo7_0
 }
