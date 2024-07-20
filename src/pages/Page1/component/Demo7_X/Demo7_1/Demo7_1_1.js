@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import styled from "styled-components";
 import { Button } from "antd"
-import { countChange } from "./Demo7_0Util"
+import { countChange } from "../Demo7_0/Demo7_0Util"
 
-const ChildComp7_0_1 = () => {
-  console.log('7_0_1 childComp console')
-  return <div>7_0_2 childComp, 不用 memo</div>
-}
+const ChildComp7_1_1 = memo(() => {
+  console.log('7_1_1 childComp console')
+  return <div>7_1_1 childComp, 因为传了方法进来，所以用 memo 包装也会刷新</div>
+})
 
-const Demo7_0_1 = () => {
+const Demo7_1_1 = () => {
   const [ count, setCount ] = useState(0)
-  console.log('7_0_1 parent console')
+  console.log('7_1_1 parent console')
+
+  const fct = () => {}
 
   return (
     <Wrapper>
@@ -20,7 +22,7 @@ const Demo7_0_1 = () => {
           <Button type={'primary'} onClick={()=>countChange(false, count, setCount)}>-</Button>
           <Button type={'primary'} onClick={()=>countChange(true, count, setCount)}>+</Button>
         </div>
-        <ChildComp7_0_1 />
+        <ChildComp7_1_1 fct={fct} />
       </div>
     </Wrapper>
   )
@@ -31,4 +33,4 @@ const Wrapper = styled('div')`
   user-select: none;
 `
 
-export default Demo7_0_1
+export default Demo7_1_1

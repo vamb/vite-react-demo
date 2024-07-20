@@ -45,7 +45,7 @@ export default function App() {
   },[])
 
   return (
-    <UnitContent title={'Demo1_9_7'} label={'useCallback sample2'} disBtn={true}>
+    <UnitContent title={'Demo1_9_7'} label={'useCallback sample2'}>
       <Wrapper>
         <AppBtn onClickButton={handleClickButton1}>Button1</AppBtn>
         <AppBtn onClickButton={handleClickButton2}>Button2</AppBtn>

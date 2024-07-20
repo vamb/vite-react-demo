@@ -11,7 +11,7 @@ Page1Constant.TABS = [
   { key: 'P1_TBA_4', label: 'useMemo' },
   { key: 'P1_TBA_5', label: 'useCallback' },
   { key: 'P1_TBA_6', label: 'useRef' },
-  { key: 'P1_TBA_7', label: 'memo' },
+  { key: 'P1_TBA_7', label: 'memo+useCallback' },
 ]
 
 Page1Constant.TABS_MAP = {
@@ -21,7 +21,7 @@ Page1Constant.TABS_MAP = {
   TAB4: { key: 'P1_TBA_4', label: 'useMemo' },
   TAB5: { key: 'P1_TBA_5', label: 'useCallback' },
   TAB6: { key: 'P1_TBA_6', label: 'useRef' },
-  TAB7: { key: 'P1_TBA_7', label: 'memo' },
+  TAB7: { key: 'P1_TBA_7', label: 'memo+useCallback' },
 }
 
 export default Page1Constant

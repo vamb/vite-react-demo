@@ -8,7 +8,7 @@ import {
   Example5, Example6, Example7,
   Demo1_9, Demo1_9_2, Demo1_9_3,
   Demo1_9_4, Demo1_9_5, Demo1_9_6, Demo1_9_7, Demo2_0, Demo2_1, Demo2_2,
-  Demo7_0
+  Demo7_0, Demo7_1
 } from "./Page1Idx"
 
 const FirstPageCombine = () => {
@@ -106,6 +106,7 @@ const FirstPageCombine = () => {
             children: (
               <div className={'tab-child-content'} style={{height: `${tabChildHeight}px`, overflowY: 'scroll'}}>
                 <Demo7_0 />
+                <Demo7_1 />
               </div>
             )
           },

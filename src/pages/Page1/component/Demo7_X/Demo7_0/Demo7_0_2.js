@@ -14,12 +14,14 @@ const Demo7_0_2 = () => {
 
   return (
     <Wrapper>
-      <div className={'one-line'}>
-        <div className={'label-area'}>{`count: ${count}`}</div>
-        <Button type={'primary'} onClick={()=>countChange(false, count, setCount)}>-</Button>
-        <Button type={'primary'} onClick={()=>countChange(true, count, setCount)}>+</Button>
+      <div className={'flex-col'}>
+        <div className={'one-line'}>
+          <div className={'label-area'}>{`count: ${count}`}</div>
+          <Button type={'primary'} onClick={()=>countChange(false, count, setCount)}>-</Button>
+          <Button type={'primary'} onClick={()=>countChange(true, count, setCount)}>+</Button>
+        </div>
+        <ChildComp7_0_2 />
       </div>
-      <ChildComp7_0_2 />
     </Wrapper>
   )
 }
